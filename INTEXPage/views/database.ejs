@@ -44,7 +44,6 @@
                 border-radius: 8px;
                 box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
                 width: 400px;
-                text-align: center;
             }
 
             .static-numbers {
@@ -90,9 +89,9 @@
                 <div class="collapse navbar-collapse" id="navbarResponsive">
                     <ul class="navbar-nav text-uppercase ms-auto py-4 py-lg-0">
                         <!--change  these might need to be ejs now and update the file path-->
-                        <li class="nav-item"><a class="nav-link" href="../views/index">Home</a></li>
-                        <li class="nav-item"><a class="nav-link" href="../views/login">Login</a></li>
-                        <li class="nav-item"><a class="nav-link" href="../views/database">Database</a></li>
+                        <li class="nav-item"><a class="nav-link" href="/">Home</a></li>
+                        <li class="nav-item"><a class="nav-link" href="login">Login</a></li>
+                        <li class="nav-item"><a class="nav-link" href="database">Database</a></li>
                     </ul>
                 </div>
             </div>
@@ -106,16 +105,38 @@
                 <h2 class="formtext">Submit Information</h2>
                 <br>
                 <form>
-                    <label class="formtext" for="Restaurant">Restaurant Name:</label>
-                    <input type="text" id="name" name="name" maxlength="30" required>
+                    <label class="formtext" for="Age">Age:</label>
+                    <input type="number" step="1" id="Age" name="Age" required>
                     <br>
                     <br>
-                    <label class="formtext" for="Dessert">Dessert Name:</label>
-                    <input type="text" id="Dessert" name="Dessert" maxlength="30" required>
+                    <label class="formtext" for="Gender">Gender:</label>
+                    <select id="Gender" name="Gender">
+                        <option value="Male">Male</option>
+                        <option value="Female">Female</option>
+                        <option value="Non-binary">Non-binary</option>
+                        <option value="Other">Other</option>
+                    </select>
                     <br>
                     <br>
-                    <label class="formtext" for="Price">Price:</label>
-                    <input type="number" step="0.01" id="Price" name="Price" required>
+                    <label class="formtext" for="RelationStatus">Relationship Status:</label>
+                    <select id="RelationStatus" name="RelationStatus">
+                        <option value="Single">Single</option>
+                        <option value="Relationship">In a relationship</option>
+                        <option value="Married">Married</option>
+                        <option value="Divorced">Divorced</option>
+                    </select>
+                    <br>
+                    <br>
+                    <label class="formtext" for="OccupationStatus">Occupation Status:</label>
+                    <select id="OccupationStatus" name="OccupationStatus">
+                        <option value="Single">University Student</option>
+                        <option value="Relationship">School Student</option>
+                        <option value="Married">Salaried Worker</option>
+                        <option value="Divorced">Retired</option>
+                    </select>
+                    <br>
+                    <br>
+                    <label class="formtext" for="Affiliates">What type of organizations are you affiliated with? (check all that apply)</label>
                     <br>
                     <br>
                     <label class="formtext" for="Stars">Stars: <span id="starsValue">3</span></label>
