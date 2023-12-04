@@ -77,14 +77,17 @@
                 color: #b8930f;
                 display: flex;
                 justify-content: space-between;
-                margin-top: 5px;
+                align-items: flex-end; /* Align the numbers at the bottom */
+                margin-top: 10px;
+                position: relative;
             }
 
             .static-numbers span {
                 flex: 1;
                 text-align: center;
+                position: relative;
+                top: 10px; /* Adjust the vertical position */
             }
-
     
             .submission-form input,
             .submission-form textarea {
@@ -169,6 +172,7 @@
                     <br>
                     <br>
                     <br>
+                    <!--CHANGE - get label and checkboxes on same line-->
                     <form>
                         <label class="formtext" for="Affiliates">What type of organizations are you affiliated with? (check all that apply)</label>
                         <br>
