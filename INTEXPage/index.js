@@ -17,10 +17,20 @@ app.use(express.static(path.join(__dirname,'./static')));
 app.get('/', (request, response)=> {
     //with ejs
     response.render('index');
-    //this is without EJS
-    // response.sendFile(path.join(__dirname, '../HW7/startbootstrap-full-width-pics-gh-pages/Homework7.html'));
+
 });
 
+
+//possibly get rid of these? 
+app.get('/database', (request, response)=> {
+    //with ejs
+    response.render('database');
+
+});
+app.get('/login', (request, response)=> {
+    //with ejs
+    response.render('login');
+});
 
 
 
