@@ -22,13 +22,40 @@
         <link href="css/styles.css" rel="stylesheet" />
         <style>
             .checkbox-container {
-                display: inline;
+                display: inline-block;
                 margin-bottom: 10px;
             }
 
-            .formtext {
-                color: #b8930f;
+            .checkbox-container label {
+                display: inline-block;
+                vertical-align: left;
+                margin-right: 5px;
             }
+
+            .checkbox-container input {
+                display: inline-block;
+                vertical-align: right;
+            }
+
+            /* Add the following style to clear the float used in label.formtext */
+            .clear-float {
+                clear: both;
+            }
+
+            label.formtext {
+            float: left;
+            width: 200px;
+            clear: left;
+            margin-right: 20px; /* Optional margin between label and input */
+            }
+
+            input,
+            select,
+            textarea {
+                float: right;
+                width: 175px; /* Adjust the width as needed */
+            }
+
 
             .submission-form label {
                 display: block;
@@ -43,21 +70,24 @@
                 padding: 20px;
                 border-radius: 8px;
                 box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
-                width: 400px;
+                width: 450px;
             }
 
             .static-numbers {
                 color: #b8930f;
                 display: flex;
                 justify-content: space-between;
-                margin-top: 5px;
+                align-items: flex-end; /* Align the numbers at the bottom */
+                margin-top: 10px;
+                position: relative;
             }
 
             .static-numbers span {
                 flex: 1;
                 text-align: center;
+                position: relative;
+                top: 10px; /* Adjust the vertical position */
             }
-
     
             .submission-form input,
             .submission-form textarea {
@@ -91,7 +121,7 @@
                         <!--change  these might need to be ejs now and update the file path-->
                         <li class="nav-item"><a class="nav-link" href="/">Home</a></li>
                         <li class="nav-item"><a class="nav-link" href="login">Login</a></li>
-                        <li class="nav-item"><a class="nav-link" href="database">Database</a></li>
+                        <li class="nav-item"><a class="nav-link" href="database">Survey</a></li>
                     </ul>
                 </div>
             </div>
@@ -105,8 +135,11 @@
                 <h2 class="formtext">Submit Information</h2>
                 <br>
                 <form>
-                    <label class="formtext" for="Age">Age:</label>
-                    <input type="number" step="1" id="Age" name="Age" required>
+                    <br>
+                    <label class="formtext clear-float"  for="Age">Age:</label>
+                    <input style="width: 175px;" type="number" pattern="\d+" step="1" id="Age" name="Age" required min="0" value="0">
+                    <br>
+                    <br>
                     <br>
                     <br>
                     <label class="formtext" for="Gender">Gender:</label>
@@ -118,6 +151,7 @@
                     </select>
                     <br>
                     <br>
+                    <br>
                     <label class="formtext" for="RelationStatus">Relationship Status:</label>
                     <select id="RelationStatus" name="RelationStatus">
                         <option value="Single">Single</option>
@@ -125,6 +159,7 @@
                         <option value="Married">Married</option>
                         <option value="Divorced">Divorced</option>
                     </select>
+                    <br>
                     <br>
                     <br>
                     <label class="formtext" for="OccupationStatus">Occupation Status:</label>
@@ -136,10 +171,32 @@
                     </select>
                     <br>
                     <br>
-                    <label class="formtext" for="Affiliates">What type of organizations are you affiliated with? (check all that apply)</label>
+                    <br>
+                    <!--CHANGE - get label and checkboxes on same line-->
+                    <form>
+                        <label class="formtext" for="Affiliates">What type of organizations are you affiliated with? (check all that apply)</label>
+                        <br>
+                        <br>
+                        <br>
+                        <br>
+                        <br>
+                        <label for="cbUniversity">University</label>
+                        <input type="checkbox" id="cbUniversity" name="Affiliates" value="University">               
+                        <label for="cbCompany">Company</label>
+                        <input type="checkbox" id="cbCompany" name="Affiliates" value="Company">
+                        <label for="cbGovernment">Government</label>
+                        <input type="checkbox" id="cbGovernment" name="Affiliates" value="Government">
+                        <label for="cbPrivate">Private</label>
+                        <input type="checkbox" id="cbPrivate" name="Affiliates" value="Private">
+                        <label for="cbSchool">School</label>
+                        <input type="checkbox" id="cbSchool" name="Affiliates" value="School">
+                        <br>
+                        <br>
+                    </form>
                     <br>
                     <br>
                     <label class="formtext" for="Stars">Stars: <span id="starsValue">3</span></label>
+                    <br>
                     <input type="range" id="Stars" name="Stars" min="1" max="5" value="3" oninput="updateStarsValue(this.value)" required>
                     <br>
                     <div class="static-numbers">
