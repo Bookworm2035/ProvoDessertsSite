@@ -20,6 +20,14 @@ app.get('/', (request, response)=> {
 
 });
 
+app.get("/login", (req, res) => {
+    res.render("login");
+  });
+
+app.get("/database", (req, res) => {
+res.render("database");
+});
+
 
 //possibly get rid of these? 
 app.get('/database', (request, response)=> {
