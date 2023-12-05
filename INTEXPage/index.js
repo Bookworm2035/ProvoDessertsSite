@@ -1,55 +1,47 @@
-//Natali is the author and co founder 
+//This is our Node Index
+//Authors Natali, Nya, Hayden, Tyler Section 04
+
 const express = require("express");
 
 let app = express();
 
 let path = require('path');
 
+//dynamic port
 const port = process.env.PORT || 3000;
 
+//no more html 
 app.set("view engine", "ejs");
 
+//get views
 app.set('views', path.join(__dirname,'./views'));
 
 app.use(express.static(path.join(__dirname,'./static')));
-//this pulls in the website page
+//this pulls in the website page static content
 
+//index page
 app.get('/', (request, response)=> {
     //with ejs
     response.render('index');
 
 });
-
+//login page
 app.get("/login", (req, res) => {
     res.render("login");
   });
-
+// Survey/Database
 app.get("/database", (req, res) => {
 res.render("database");
 });
-
-
-//possibly get rid of these? 
-app.get('/database', (request, response)=> {
-    //with ejs
-    response.render('database');
-
-});
-app.get('/login', (request, response)=> {
-    //with ejs
-    response.render('login');
-});
-
-
-
-
-
-
-//DO this when you have a database :) 
+//Dashboard/Tableau
+app.get("/dashboard", (req, res) => {
+    res.render("dashboard");
+    });
 
 // this lets you pharse stuff from stuff??? the freak 
-// app.use(express.urlencoded({extended:true}));
+app.use(express.urlencoded({extended:true}));
 
+//DO this when you have a database :) 
 // const knex = require("knex")({
 //     client: "pg",
 //     connection: {
@@ -62,65 +54,55 @@ app.get('/login', (request, response)=> {
 //     }
 // })
 
-// //FROM NOTES
-// app.get("/", (req, res)=> {
-//     knex.select().from("country").then(country => {
-//       res.render("displayCountry", {mycountry: country});
-//    })
-//  })
+//This is for the admin who can see all the users and edit them
+//Need this for each table in the database later
+// UserInfo THIS WILL ONLY SHOW UP DYNAMICALLY AFTER THEY ARE AUTHENTICATED AND SIGNED IN:)
+app.get("/User", (req, res)=> {
+    knex.select().from("User").then(User => {
+      res.render("displayUser", {myUser: User});
+   })
+ })
 
-//  app.get("/addCountry", (req, res) => {
-//     res.render("addCountry");
-//  })
-//  app.post("/addCountry", (req, res)=> {
-//     knex("country").insert({
-//       country_name: req.body.country_name.toUpperCase(),
-//       popular_site: req.body.popular_site.toUpperCase(),
-//       capital: req.body.capital.toUpperCase(),
-//       population: req.body.population,
-//       visited: req.body.visited ? "Y" : "N",
-//       covid_level: req.body.covid_level.toUpperCase()
-//    }).then(mycountry => {
-//       res.redirect("/");
-//    })
-//  });
+ app.get("/addUser", (req, res) => {
+    res.render("addUser");
+ })
+ app.post("/addUser", (req, res)=> {
+    knex("User").insert({
+      username: req.body.username,
+      popular_site: req.body.password
+   }).then(myUser => {
+      res.redirect("/");
+   })
+ });
 
-// app.get("/editCountry/:id", (req, res)=> {
-//     knex.select("country_id",
-//           "country_name",
-//           "popular_site",
-//           "capital",
-//           "population",
-//           "visited",
-//           "covid_level").from("country").where("country_id", req.params.id).then(country => {
-//     res.render("editCountry", {mycountry: country});
-//    }).catch( err => {
-//       console.log(err);
-//       res.status(500).json({err});
-//    });
-//  });
-//  app.post("/editCountry", (req, res)=> {
-//     knex("country").where("country_id", parseInt(req.body.country_id)).update({
-//       country_name: req.body.country_name.toUpperCase(),
-//       popular_site: req.body.popular_site.toUpperCase(),
-//       capital: req.body.capital.toUpperCase(),
-//       population: req.body.population,
-//       visited: req.body.visited ? "Y" : "N",
-//       covid_level: req.body.covid_level.toUpperCase()
-//    }).then(mycountry => {
-//       res.redirect("/");
-//    })
-//  });
+app.get("/editUser/:id", (req, res)=> {
+    knex.select("user_id",
+          "username",
+          "password").from("User").where("user_id", req.params.id).then(User => {
+    res.render("editUser", {myUser: User});
+   }).catch( err => {
+      console.log(err);
+      res.status(500).json({err});
+   });
+ });
 
-//  app.post("/deleteCountry/:id", (req, res) => {
-//     knex("country").where("country_id",req.params.id).del().then( mycountry => {
-//       res.redirect("/");
-//    }).catch( err => {
-//       console.log(err);
-//       res.status(500).json({err});
-//    });
-//  });
+ app.post("/editUser", (req, res)=> {
+    knex("User").where("user_id", parseInt(req.body.user_id)).update({
+      username: req.body.username,
+      password: req.body.password
+   }).then(myUser => {
+      res.redirect("/");
+   })
+ });
 
+ app.post("/deleteUser/:id", (req, res) => {
+    knex("User").where("user_id",req.params.id).del().then( myUser => {
+      res.redirect("/");
+   }).catch( err => {
+      console.log(err);
+      res.status(500).json({err});
+   });
+ });
 
  //listen at the end
  app.listen(port,() => console.log("I am listening"));

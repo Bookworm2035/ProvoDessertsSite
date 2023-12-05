@@ -1,0 +1,23 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+   <meta charset="UTF-8">
+   <meta name="viewport" content="width=device-width, initial-scale=1.0">
+   <title>Edit User</title>
+</head>
+<body>
+   <form action="/editUser" method="POST">
+     <fieldset style="width: 0px;">
+       <legend>Edit a User:</legend>
+       <input type="hidden" id="user_id" name="user_id" value="<%=myUser[0].user_id %>">
+       <label for="username">Username:</label>
+       <input type="text" id="username" name="username" value="<%=myUser[0].username %>">
+       <br><br>
+       <label for="password">Password:</label>
+       <input type="text" id="password" name="password" value="<%=myUser[0].password %>">
+       <br><br>
+     </fieldset>
+     <button type="submit">Save</button>
+   </form>
+</body>
+</html>
