@@ -43,7 +43,7 @@ app.get('/', (req, res) => {
 
 //login page
 app.get("/login", (req, res) => {
-    res.render("login");
+   res.render("login");
 });
 
 // Survey
@@ -68,14 +68,23 @@ app.get("/logout", (req, res) => {
    res.render("logout");
 })
 
+app.get("/database", (req, res) => {
+   res.render("database");
+})
+
 //This is for the admin who can see all the users and edit them
 //Need this for each table in the database later
 // UserInfo THIS WILL ONLY SHOW UP DYNAMICALLY AFTER THEY ARE AUTHENTICATED AND SIGNED IN:)
 
 
 app.post("/login", (req, res) => {
-   let username = req.body.username;
-   let password = req.body.password;
+   //username = document.getElementById("username").value;
+   //localStorage.setItem('username', username);
+   //password = document.getElementById('password').value;
+   //localStorage.setItem('password', password);
+   const { username, password } = req.body;
+   //let username = req.body.username;
+   //let password = req.body.password;
    knex("users")
       .where({ username, password })
       .first()
