@@ -91,6 +91,14 @@
   }
 }
 
+/* here is the tableau css stuff*/
+.tableauPlaceholder {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  height: 100vh; /* Adjust the height as needed */
+}
+
 body {
   margin: 0;
   font-family: var(--bs-body-font-family);

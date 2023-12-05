@@ -33,6 +33,10 @@ app.get("/login", (req, res) => {
 app.get("/database", (req, res) => {
 res.render("database");
 });
+//Dashboard/Tableau
+app.get("/dashboard", (req, res) => {
+    res.render("dashboard");
+    });
 
 // this lets you pharse stuff from stuff??? the freak 
 app.use(express.urlencoded({extended:true}));
@@ -50,10 +54,10 @@ app.use(express.urlencoded({extended:true}));
 //     }
 // })
 
-
 //This is for the admin who can see all the users and edit them
-//Need this for each table in the database
-app.get("/", (req, res)=> {
+//Need this for each table in the database later
+// UserInfo THIS WILL ONLY SHOW UP DYNAMICALLY AFTER THEY ARE AUTHENTICATED AND SIGNED IN:)
+app.get("/User", (req, res)=> {
     knex.select().from("User").then(User => {
       res.render("displayUser", {myUser: User});
    })
