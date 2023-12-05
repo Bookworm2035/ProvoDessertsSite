@@ -46,17 +46,17 @@ app.get("/error", (req, res) => {
 app.use(express.urlencoded({extended:true}));
 
 //DO this when you have a database :) 
-// const knex = require("knex")({
-//     client: "pg",
-//     connection: {
-//         host: process.env.RDS_HOSTNAME || "localhost", 
-//         user: process.env.RDS_USERNAME || "postgres",
-//         password: process.env.RDS_PASSWORD || "Comolibros44ever",
-//         database: process.env.RDS_DB_NAME || "bucket_list",
-//         port: process.env.RDS_PORT || 5432,
-//         ssl: process.env.DB_SSL ? {rejectUnauthorized: false}: false 
-//     }
-// })
+const knex = require("knex")({
+    client: "pg",
+    connection: {
+        host: process.env.RDS_HOSTNAME || "localhost", 
+        user: process.env.RDS_USERNAME || "postgres",
+        password: process.env.RDS_PASSWORD || "Comolibros44ever",
+        database: process.env.RDS_DB_NAME || "health_data",
+        port: process.env.RDS_PORT || 5432,
+        ssl: process.env.DB_SSL ? {rejectUnauthorized: false}: false 
+    }
+})
 
 //This is for the admin who can see all the users and edit them
 //Need this for each table in the database later
