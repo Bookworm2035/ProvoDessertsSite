@@ -51,11 +51,6 @@ app.get("/survey", (req, res) => {
    res.render("survey")
 });
 
-// Database
-app.get("/database", (req, res) => {
-   res.render("database");
-});
-
 //Dashboard/Tableau
 app.get("/dashboard", (req, res) => {
    res.render("dashboard");
