@@ -10,7 +10,7 @@
         <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no" />
         <meta name="description" content="" />
         <meta name="author" content="" />
-        <title>Y Desserts!</title>
+        <title>ProvoPulse</title>
         <!-- Favicon-->
         <link rel="icon" type="image/x-icon" href="assets/favicon.ico" />
         <!-- Font Awesome icons (free version)-->
@@ -45,14 +45,12 @@
             label.formtext {
             float: left;
             width: 200px;
-            clear: left;
             margin-right: 20px; /* Optional margin between label and input */
             }
 
             input,
             select,
             textarea {
-                float: right;
                 width: 175px; /* Adjust the width as needed */
             }
 
@@ -74,19 +72,25 @@
             }
 
             .static-numbers {
-                color: #b8930f;
+                color: black;
                 display: flex;
                 justify-content: space-between;
-                align-items: flex-end; /* Align the numbers at the bottom */
+                align-items: flex-end;
                 margin-top: 10px;
                 position: relative;
+                /*THIS WIDTH LINE IS WHAT SPACES IT OUT*/
+                width: 100%;
             }
 
             .static-numbers span {
-                flex: 1;
                 text-align: center;
-                position: relative;
-                top: 10px; /* Adjust the vertical position */
+                width: calc(20% - 10px);
+            }
+
+            #slider-container {
+                display: flex;
+                flex-direction: column;
+                align-items: center;
             }
     
             .submission-form input,
@@ -181,7 +185,7 @@
                         <br>
                         <br>
                         <label for="cbUniversity">University</label>
-                        <input type="checkbox" id="cbUniversity" name="Affiliates" value="University">               
+                        <input type="checkbox" id="cbUniversity" name="Affiliates" value="University">             
                         <label for="cbCompany">Company</label>
                         <input type="checkbox" id="cbCompany" name="Affiliates" value="Company">
                         <label for="cbGovernment">Government</label>
@@ -195,17 +199,20 @@
                     </form>
                     <br>
                     <br>
-                    <label class="formtext" for="Stars">Stars: <span id="starsValue">3</span></label>
-                    <br>
-                    <input type="range" id="Stars" name="Stars" min="1" max="5" value="3" oninput="updateStarsValue(this.value)" required>
-                    <br>
-                    <div class="static-numbers">
-                        <span>1</span>
-                        <span>2</span>
-                        <span>3</span>
-                        <span>4</span>
-                        <span>5</span>
-                    </div>
+                    <div id="slider-container">
+                        <!--CHANGE - get the label to be on the left, not over the 2-->
+                        <label class="formtext" for="Stars">Stars: <span id="starsValue">3</span></label>
+                        <br>
+                        <input style="width: 90%;" type="range" id="Stars" name="Stars" min="1" max="5" value="3" oninput="updateStarsValue(this.value)" required>
+                        <div class="static-numbers">
+                            <span>1</span>
+                            <span>2</span>
+                            <span>3</span>
+                            <span>4</span>
+                            <span>5</span>
+                        </div>
+                        <br>
+                    </div>                    
                     <br>
                     <br>
                     <div class="checkbox-container">
