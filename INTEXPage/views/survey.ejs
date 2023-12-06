@@ -153,7 +153,7 @@
                 <div class="submission-form">
                     <h2 class="formtext">Submit Information</h2>
                     <br>
-                    <form action="/survey" method="POST">
+                <form action="/survey" method="POST"> 
                         <br>
                         <label class="formtext clear-float"  for="Age">Age:</label>
                         <input style="width: 175px;" type="number" pattern="\d+" step="1" id="Age" name="Age" required min="0" value="0">
@@ -250,523 +250,260 @@
                         <br>
                         <br>
                         <br>
-                        <form>
-                            <label class="formtext" for="Platforms">What social media platforms do you commonly use? (check all that apply)</label>
-                            <br>
-                            <br>
-                            <br>
-                            <br>        
-                            <br>
-                                <div class="checkbox-container">
-                                    <label for="cbFacebook">Facebook</label>
-                                    <input type="checkbox" id="cbFacebook" name="Platforms" value="1">             
-                                    <label for="cbTwitter">Twitter</label>
-                                    <input type="checkbox" id="cbTwitter" name="Platforms" value="2">
-                                    <label for="cbInstagram">Instagram</label>
-                                    <input type="checkbox" id="cbInstagram" name="Platforms" value="3">
-                                    <label for="cbYouTube">YouTube</label>
-                                    <input type="checkbox" id="cbYouTube" name="Platforms" value="4">
-                                    <label for="cbDiscord">Discord</label>
-                                    <input type="checkbox" id="cbDiscord" name="Platforms" value="5">
-                                    <label for="cbReddit">Reddit</label>
-                                    <input type="checkbox" id="cbReddit" name="Platforms" value="6">
-                                    <label for="cbPinterest">Pinterest</label>
-                                    <input type="checkbox" id="cbPinterest" name="Platforms" value="7">
-                                    <label for="cbTikTok">TikTok</label>
-                                    <input type="checkbox" id="cbTikTok" name="Platforms" value="8">
-                                    <label for="cbSnapchat">Snapchat</label>
-                                    <input type="checkbox" id="cbSnapchat" name="Platforms" value="9">
-                                </div>
-                            <br>
-                            <br>
-                            <br>
-                            <br>
-                            <label class="formtext" for="AvgTime">What is the average time you spend on social media every day?</label>
-                            <select id="AvgTime" name="AvgTime">
-                                <option value="1">Less than 1 hour</option>
-                                <option value="2">Between 1 and 2 hours</option>
-                                <option value="3">Between 2 and 3 hours</option>
-                                <option value="4">Between 3 and 4 hours</option>
-                                <option value="5">Between 4 and 5 hours</option>
-                                <option value="6">More than 5 hours</option>
-                            </select>
-                            <br>
-                            <br>
-                            <br>
-                            <br>
-                            <br>
-                            <br><!---->
-                        </form>
-                        <div class="slider-container">
-                            <!--CHANGE - get the label to be on the left, not over the 2-->
-                            <label class="formtext" for="specificPurpose">How often do you find yourself using social media without a specific purpose? </label>
-                            <br>
-                            <input style="width: 90%; display: block; margin: 0 auto;" type="range" id="specificPurpose" name="specificPurpose" min="1" max="5" value="3"  required>
-                            <div class="static-numbers">
-                                <span>Never</span>
-                                <span>Rarely</span>
-                                <span>Sometimes</span>
-                                <span>Frequently</span>
-                                <span>Always</span>
+                        
+                        <label class="formtext" for="Platforms">What social media platforms do you commonly use? (check all that apply)</label>
+                        <br>
+                        <br>
+                        <br>
+                        <br>        
+                        <br>
+                            <div class="checkbox-container">
+                                <label for="cbFacebook">Facebook</label>
+                                <input type="checkbox" id="cbFacebook" name="Platforms" value="1">             
+                                <label for="cbTwitter">Twitter</label>
+                                <input type="checkbox" id="cbTwitter" name="Platforms" value="2">
+                                <label for="cbInstagram">Instagram</label>
+                                <input type="checkbox" id="cbInstagram" name="Platforms" value="3">
+                                <label for="cbYouTube">YouTube</label>
+                                <input type="checkbox" id="cbYouTube" name="Platforms" value="4">
+                                <label for="cbDiscord">Discord</label>
+                                <input type="checkbox" id="cbDiscord" name="Platforms" value="5">
+                                <label for="cbReddit">Reddit</label>
+                                <input type="checkbox" id="cbReddit" name="Platforms" value="6">
+                                <label for="cbPinterest">Pinterest</label>
+                                <input type="checkbox" id="cbPinterest" name="Platforms" value="7">
+                                <label for="cbTikTok">TikTok</label>
+                                <input type="checkbox" id="cbTikTok" name="Platforms" value="8">
+                                <label for="cbSnapchat">Snapchat</label>
+                                <input type="checkbox" id="cbSnapchat" name="Platforms" value="9">
                             </div>
-                            <br>
-                        </div>                    
                         <br>
                         <br>
                         <br>
-                        <div class="slider-container">
-                            <!--CHANGE - get the label to be on the left, not over the 2-->
-                            <label class="formtext" for="DistractedBusy">How often do you get distracted by social media when you are busy doing something? </label>
-                            <br>
-                            <input style="width: 90%; display: block; margin: 0 auto;" type="range" id="DistractedBusy" name="DistractedBusy" min="1" max="5" value="3"  required>
-                            <div class="static-numbers">
-                                <span>Never</span>
-                                <span>Rarely</span>
-                                <span>Sometimes</span>
-                                <span>Frequently</span>
-                                <span>Always</span>
-                            </div>
-                            <br>
+                        <br>
+                        <label class="formtext" for="AvgTime">What is the average time you spend on social media every day?</label>
+                        <select id="AvgTime" name="AvgTime">
+                            <option value="1">Less than 1 hour</option>
+                            <option value="2">Between 1 and 2 hours</option>
+                            <option value="3">Between 2 and 3 hours</option>
+                            <option value="4">Between 3 and 4 hours</option>
+                            <option value="5">Between 4 and 5 hours</option>
+                            <option value="6">More than 5 hours</option>
+                        </select>
+                        <br>
+                        <br>
+                        <br>
+                        <br>
+                        <br>
+                        <br><!---->
+                    
+                    <div class="slider-container">
+                        <!--CHANGE - get the label to be on the left, not over the 2-->
+                        <label class="formtext" for="specificPurpose">How often do you find yourself using social media without a specific purpose? </label>
+                        <br>
+                        <input style="width: 90%; display: block; margin: 0 auto;" type="range" id="specificPurpose" name="specificPurpose" min="1" max="5" value="3"  required>
+                        <div class="static-numbers">
+                            <span>Never</span>
+                            <span>Rarely</span>
+                            <span>Sometimes</span>
+                            <span>Frequently</span>
+                            <span>Always</span>
                         </div>
                         <br>
+                    </div>                    
+                    <br>
+                    <br>
+                    <br>
+                    <div class="slider-container">
+                        <!--CHANGE - get the label to be on the left, not over the 2-->
+                        <label class="formtext" for="DistractedBusy">How often do you get distracted by social media when you are busy doing something? </label>
                         <br>
-                        <br>
-                        <div class="slider-container">
-                            <!--CHANGE - get the label to be on the left, not over the 2-->
-                            <label class="formtext" for="RestlessWithout">How often do you feel restless if you haven’t used social media in a while?</label>
-                            <br>
-                            <input style="width: 90%; display: block; margin: 0 auto;" type="range" id="RestlessWithout" name="RestlessWithout" min="1" max="5" value="3"  required>
-                            <div class="static-numbers">
-                                <span>Never</span>
-                                <span>Rarely</span>
-                                <span>Sometimes</span>
-                                <span>Frequently</span>
-                                <span>Always</span>
-                            </div>
-                            <br>
+                        <input style="width: 90%; display: block; margin: 0 auto;" type="range" id="DistractedBusy" name="DistractedBusy" min="1" max="5" value="3"  required>
+                        <div class="static-numbers">
+                            <span>Never</span>
+                            <span>Rarely</span>
+                            <span>Sometimes</span>
+                            <span>Frequently</span>
+                            <span>Always</span>
                         </div>
                         <br>
+                    </div>
+                    <br>
+                    <br>
+                    <br>
+                    <div class="slider-container">
+                        <!--CHANGE - get the label to be on the left, not over the 2-->
+                        <label class="formtext" for="RestlessWithout">How often do you feel restless if you haven’t used social media in a while?</label>
                         <br>
-                        <br>
-                        <div class="slider-container">
-                            <!--CHANGE - get the label to be on the left, not over the 2-->
-                            <label class="formtext" for="EasilyDistracted">How easily distracted are you?</label>
-                            <br>
-                            <input style="width: 90%; display: block; margin: 0 auto;" type="range" id="EasilyDistracted" name="EasilyDistracted" min="1" max="5" value="3"  required>
-                            <div class="static-numbers">
-                                <span>1</span>
-                                <span>2</span>
-                                <span>3</span>
-                                <span>4</span>
-                                <span>5</span>
-                            </div>
-                            <br>
+                        <input style="width: 90%; display: block; margin: 0 auto;" type="range" id="RestlessWithout" name="RestlessWithout" min="1" max="5" value="3"  required>
+                        <div class="static-numbers">
+                            <span>Never</span>
+                            <span>Rarely</span>
+                            <span>Sometimes</span>
+                            <span>Frequently</span>
+                            <span>Always</span>
                         </div>
                         <br>
+                    </div>
+                    <br>
+                    <br>
+                    <br>
+                    <div class="slider-container">
+                        <!--CHANGE - get the label to be on the left, not over the 2-->
+                        <label class="formtext" for="EasilyDistracted">How easily distracted are you?</label>
                         <br>
-                        <br>
-                        <div class="slider-container">
-                            <!--CHANGE - get the label to be on the left, not over the 2-->
-                            <label class="formtext" for="BotheredByWorries">How much are you bothered by worries?</label>
-                            <br>
-                            <input style="width: 90%; display: block; margin: 0 auto;" type="range" id="BotheredByWorries" name="BotheredByWorries" min="1" max="5" value="3"  required>
-                            <div class="static-numbers">
-                                <span>1</span>
-                                <span>2</span>
-                                <span>3</span>
-                                <span>4</span>
-                                <span>5</span>
-                            </div>
-                            <br>
+                        <input style="width: 90%; display: block; margin: 0 auto;" type="range" id="EasilyDistracted" name="EasilyDistracted" min="1" max="5" value="3"  required>
+                        <div class="static-numbers">
+                            <span>1</span>
+                            <span>2</span>
+                            <span>3</span>
+                            <span>4</span>
+                            <span>5</span>
                         </div>
                         <br>
+                    </div>
+                    <br>
+                    <br>
+                    <br>
+                    <div class="slider-container">
+                        <!--CHANGE - get the label to be on the left, not over the 2-->
+                        <label class="formtext" for="BotheredByWorries">How much are you bothered by worries?</label>
                         <br>
-                        <br>
-                        <div class="slider-container">
-                            <!--CHANGE - get the label to be on the left, not over the 2-->
-                            <label class="formtext" for="DifficultToConcentrate">How often do you find it difficult to concentrate on things?</label>
-                            <br>
-                            <input style="width: 90%; display: block; margin: 0 auto;" type="range" id="DifficultToConcentrate" name="DifficultToConcentrate" min="1" max="5" value="3"  required>
-                            <div class="static-numbers">
-                                <span>Never</span>
-                                <span>Rarely</span>
-                                <span>Sometimes</span>
-                                <span>Frequently</span>
-                                <span>Always</span>
-                            </div>
-                            <br>
+                        <input style="width: 90%; display: block; margin: 0 auto;" type="range" id="BotheredByWorries" name="BotheredByWorries" min="1" max="5" value="3"  required>
+                        <div class="static-numbers">
+                            <span>1</span>
+                            <span>2</span>
+                            <span>3</span>
+                            <span>4</span>
+                            <span>5</span>
                         </div>
                         <br>
+                    </div>
+                    <br>
+                    <br>
+                    <br>
+                    <div class="slider-container">
+                        <!--CHANGE - get the label to be on the left, not over the 2-->
+                        <label class="formtext" for="DifficultToConcentrate">How often do you find it difficult to concentrate on things?</label>
                         <br>
-                        <br>
-                        <div class="slider-container">
-                            <!--CHANGE - get the label to be on the left, not over the 2-->
-                            <label class="formtext" for="CompareYourself">How often do you compare yourself to other successful people through the use of social media?</label>
-                            <br>
-                            <input style="width: 90%; display: block; margin: 0 auto;" type="range" id="CompareYourself" name="CompareYourself" min="1" max="5" value="3"  required>
-                            <div class="static-numbers">
-                                <span>Never</span>
-                                <span>Rarely</span>
-                                <span>Sometimes</span>
-                                <span>Frequently</span>
-                                <span>Always</span>
-                            </div>
-                            <br>
+                        <input style="width: 90%; display: block; margin: 0 auto;" type="range" id="DifficultToConcentrate" name="DifficultToConcentrate" min="1" max="5" value="3"  required>
+                        <div class="static-numbers">
+                            <span>Never</span>
+                            <span>Rarely</span>
+                            <span>Sometimes</span>
+                            <span>Frequently</span>
+                            <span>Always</span>
                         </div>
                         <br>
+                    </div>
+                    <br>
+                    <br>
+                    <br>
+                    <div class="slider-container">
+                        <!--CHANGE - get the label to be on the left, not over the 2-->
+                        <label class="formtext" for="CompareYourself">How often do you compare yourself to other successful people through the use of social media?</label>
                         <br>
-                        <br>
-                        <div class="slider-container">
-                            <!--CHANGE - get the label to be on the left, not over the 2-->
-                            <label class="formtext" for="FeelAboutComparisons">Following the previous question, how do you feel about these comparisons, generally speaking?</label>
-                            <br>
-                            <input style="width: 90%; display: block; margin: 0 auto;" type="range" id="FeelAboutComparisons" name="FeelAboutComparisons" min="1" max="5" value="3"  required>
-                            <div class="static-numbers">
-                                <span>1</span>
-                                <span>2</span>
-                                <span>3</span>
-                                <span>4</span>
-                                <span>5</span>
-                            </div>
-                            <br>
+                        <input style="width: 90%; display: block; margin: 0 auto;" type="range" id="CompareYourself" name="CompareYourself" min="1" max="5" value="3"  required>
+                        <div class="static-numbers">
+                            <span>Never</span>
+                            <span>Rarely</span>
+                            <span>Sometimes</span>
+                            <span>Frequently</span>
+                            <span>Always</span>
                         </div>
                         <br>
+                    </div>
+                    <br>
+                    <br>
+                    <br>
+                    <div class="slider-container">
+                        <!--CHANGE - get the label to be on the left, not over the 2-->
+                        <label class="formtext" for="FeelAboutComparisons">Following the previous question, how do you feel about these comparisons, generally speaking?</label>
                         <br>
-                        <br>
-                        <div class="slider-container">
-                            <!--CHANGE - get the label to be on the left, not over the 2-->
-                            <label class="formtext" for="SeekValidation">How often do you look to seek validation from features of social media?</label>
-                            <br>
-                            <input style="width: 90%; display: block; margin: 0 auto;" type="range" id="SeekValidation" name="SeekValidation" min="1" max="5" value="3"  required>
-                            <div class="static-numbers">
-                                <span>Never</span>
-                                <span>Rarely</span>
-                                <span>Sometimes</span>
-                                <span>Frequently</span>
-                                <span>Always</span>
-                            </div>
-                            <br>
+                        <input style="width: 90%; display: block; margin: 0 auto;" type="range" id="FeelAboutComparisons" name="FeelAboutComparisons" min="1" max="5" value="3"  required>
+                        <div class="static-numbers">
+                            <span>1</span>
+                            <span>2</span>
+                            <span>3</span>
+                            <span>4</span>
+                            <span>5</span>
                         </div>
                         <br>
+                    </div>
+                    <br>
+                    <br>
+                    <br>
+                    <div class="slider-container">
+                        <!--CHANGE - get the label to be on the left, not over the 2-->
+                        <label class="formtext" for="SeekValidation">How often do you look to seek validation from features of social media?</label>
                         <br>
-                        <br>
-                        <div class="slider-container">
-                            <!--CHANGE - get the label to be on the left, not over the 2-->
-                            <label class="formtext" for="OftenDepressed">How often do you feel depressed or down?</label>
-                            <br>
-                            <input style="width: 90%; display: block; margin: 0 auto;" type="range" id="OftenDepressed" name="OftenDepressed" min="1" max="5" value="3"  required>
-                            <div class="static-numbers">
-                                <span>Never</span>
-                                <span>Rarely</span>
-                                <span>Sometimes</span>
-                                <span>Frequently</span>
-                                <span>Always</span>
-                            </div>
-                            <br>
+                        <input style="width: 90%; display: block; margin: 0 auto;" type="range" id="SeekValidation" name="SeekValidation" min="1" max="5" value="3"  required>
+                        <div class="static-numbers">
+                            <span>Never</span>
+                            <span>Rarely</span>
+                            <span>Sometimes</span>
+                            <span>Frequently</span>
+                            <span>Always</span>
                         </div>
                         <br>
+                    </div>
+                    <br>
+                    <br>
+                    <br>
+                    <div class="slider-container">
+                        <!--CHANGE - get the label to be on the left, not over the 2-->
+                        <label class="formtext" for="OftenDepressed">How often do you feel depressed or down?</label>
                         <br>
-                        <br>
-                        <div class="slider-container">
-                            <!--CHANGE - get the label to be on the left, not over the 2-->
-                            <label class="formtext" for="InterestFluctuate">How frequently does your interested in daily activities fluctuate?</label>
-                            <br>
-                            <input style="width: 90%; display: block; margin: 0 auto;" type="range" id="InterestFluctuate" name="InterestFluctuate" min="1" max="5" value="3"  required>
-                            <div class="static-numbers">
-                                <span>Never</span>
-                                <span>Rarely</span>
-                                <span>Sometimes</span>
-                                <span>Frequently</span>
-                                <span>Always</span>
-                            </div>
-                            <br>
+                        <input style="width: 90%; display: block; margin: 0 auto;" type="range" id="OftenDepressed" name="OftenDepressed" min="1" max="5" value="3"  required>
+                        <div class="static-numbers">
+                            <span>Never</span>
+                            <span>Rarely</span>
+                            <span>Sometimes</span>
+                            <span>Frequently</span>
+                            <span>Always</span>
                         </div>
                         <br>
+                    </div>
+                    <br>
+                    <br>
+                    <br>
+                    <div class="slider-container">
+                        <!--CHANGE - get the label to be on the left, not over the 2-->
+                        <label class="formtext" for="InterestFluctuate">How frequently does your interested in daily activities fluctuate?</label>
                         <br>
-                        <br>
-                        <div class="slider-container">
-                            <!--CHANGE - get the label to be on the left, not over the 2-->
-                            <label class="formtext" for="SleepIssues">How often do you face issues regarding sleep?</label>
-                            <br>
-                            <input style="width: 90%; display: block; margin: 0 auto;" type="range" id="SleepIssues" name="SleepIssues" min="1" max="5" value="3"  required>
-                            <div class="static-numbers">
-                                <span>Never</span>
-                                <span>Rarely</span>
-                                <span>Sometimes</span>
-                                <span>Frequently</span>
-                                <span>Always</span>
-                            </div>
-                            <br>
+                        <input style="width: 90%; display: block; margin: 0 auto;" type="range" id="InterestFluctuate" name="InterestFluctuate" min="1" max="5" value="3"  required>
+                        <div class="static-numbers">
+                            <span>Never</span>
+                            <span>Rarely</span>
+                            <span>Sometimes</span>
+                            <span>Frequently</span>
+                            <span>Always</span>
                         </div>
                         <br>
+                    </div>
+                    <br>
+                    <br>
+                    <br>
+                    <div class="slider-container">
+                        <!--CHANGE - get the label to be on the left, not over the 2-->
+                        <label class="formtext" for="SleepIssues">How often do you face issues regarding sleep?</label>
                         <br>
+                        <input style="width: 90%; display: block; margin: 0 auto;" type="range" id="SleepIssues" name="SleepIssues" min="1" max="5" value="3"  required>
+                        <div class="static-numbers">
+                            <span>Never</span>
+                            <span>Rarely</span>
+                            <span>Sometimes</span>
+                            <span>Frequently</span>
+                            <span>Always</span>
+                        </div>
                         <br>
-                        <button type="submit">Submit</button>
-                    </form>
+                    </div>
+                    <br>
+                    <br>
+                    <br>
+                    <button type="submit">Submit</button>
+                </form>
                 </div>
-                <br>
-                <br>
-                <br>s
-                <div class="text-center">
-                    <h2 class="section-heading text-uppercase">Services</h2>
-                    <h3 class="section-subheading text-muted">Lorem ipsum dolor sit amet consectetur.</h3>
-                </div>
-                <div class="row text-center">
-                    <div class="col-md-4">
-                        <span class="fa-stack fa-4x">
-                            <i class="fas fa-circle fa-stack-2x text-primary"></i>
-                            <i class="fas fa-shopping-cart fa-stack-1x fa-inverse"></i>
-                        </span>
-                        <h4 class="my-3">E-Commerce</h4>
-                        <p class="text-muted">Lorem ipsum dolor sit amet, consectetur adipisicing elit. Minima maxime quam architecto quo inventore harum ex magni, dicta impedit.</p>
-                    </div>
-                    <div class="col-md-4">
-                        <span class="fa-stack fa-4x">
-                            <i class="fas fa-circle fa-stack-2x text-primary"></i>
-                            <i class="fas fa-laptop fa-stack-1x fa-inverse"></i>
-                        </span>
-                        <h4 class="my-3">Responsive Design</h4>
-                        <p class="text-muted">Lorem ipsum dolor sit amet, consectetur adipisicing elit. Minima maxime quam architecto quo inventore harum ex magni, dicta impedit.</p>
-                    </div>
-                    <div class="col-md-4">
-                        <span class="fa-stack fa-4x">
-                            <i class="fas fa-circle fa-stack-2x text-primary"></i>
-                            <i class="fas fa-lock fa-stack-1x fa-inverse"></i>
-                        </span>
-                        <h4 class="my-3">Web Security</h4>
-                        <p class="text-muted">Lorem ipsum dolor sit amet, consectetur adipisicing elit. Minima maxime quam architecto quo inventore harum ex magni, dicta impedit.</p>
-                    </div>
-                </div>
-            </div>
-        </section>
-        <!-- Footer-->
-        <footer class="footer py-4">
-            <div class="container">
-                <div class="row align-items-center">
-                    <div class="col-lg-4 text-lg-start">Copyright &copy; Dream Team 2023</div>
-                    <div class="col-lg-4 my-3 my-lg-0">
-                        <a class="btn btn-dark btn-social mx-2" href="#!" aria-label="Twitter"><i class="fab fa-twitter"></i></a>
-                        <a class="btn btn-dark btn-social mx-2" href="#!" aria-label="Facebook"><i class="fab fa-facebook-f"></i></a>
-                        <a class="btn btn-dark btn-social mx-2" href="#!" aria-label="LinkedIn"><i class="fab fa-linkedin-in"></i></a>
-                    </div>
-                    <div class="col-lg-4 text-lg-end">
-                        <a class="link-dark text-decoration-none me-3" href="#!">Privacy Policy</a>
-                        <a class="link-dark text-decoration-none" href="#!">Terms of Use</a>
-                    </div>
-                </div>
-            </div>
-        </footer>
-        <!-- Portfolio Modals-->
-        <!-- Portfolio item 1 modal popup-->
-        <div class="portfolio-modal modal fade" id="portfolioModal1" tabindex="-1" role="dialog" aria-hidden="true">
-            <div class="modal-dialog">
-                <div class="modal-content">
-                    <div class="close-modal" data-bs-dismiss="modal"><img src="assets/img/close-icon.svg" alt="Close modal" /></div>
-                    <div class="container">
-                        <div class="row justify-content-center">
-                            <div class="col-lg-8">
-                                <div class="modal-body">
-                                    <!-- Project details-->
-                                    <h2 class="text-uppercase">Project Name</h2>
-                                    <p class="item-intro text-muted">Lorem ipsum dolor sit amet consectetur.</p>
-                                    <img class="img-fluid d-block mx-auto" src="assets/img/portfolio/1.jpg" alt="..." />
-                                    <p>Use this area to describe your project. Lorem ipsum dolor sit amet, consectetur adipisicing elit. Est blanditiis dolorem culpa incidunt minus dignissimos deserunt repellat aperiam quasi sunt officia expedita beatae cupiditate, maiores repudiandae, nostrum, reiciendis facere nemo!</p>
-                                    <ul class="list-inline">
-                                        <li>
-                                            <strong>Client:</strong>
-                                            Threads
-                                        </li>
-                                        <li>
-                                            <strong>Category:</strong>
-                                            Illustration
-                                        </li>
-                                    </ul>
-                                    <button class="btn btn-primary btn-xl text-uppercase" data-bs-dismiss="modal" type="button">
-                                        <i class="fas fa-xmark me-1"></i>
-                                        Close Project
-                                    </button>
-                                </div>
-                            </div>
-                        </div>
-                    </div>
-                </div>
-            </div>
-        </div>
-        <!-- Portfolio item 2 modal popup-->
-        <div class="portfolio-modal modal fade" id="portfolioModal2" tabindex="-1" role="dialog" aria-hidden="true">
-            <div class="modal-dialog">
-                <div class="modal-content">
-                    <div class="close-modal" data-bs-dismiss="modal"><img src="assets/img/close-icon.svg" alt="Close modal" /></div>
-                    <div class="container">
-                        <div class="row justify-content-center">
-                            <div class="col-lg-8">
-                                <div class="modal-body">
-                                    <!-- Project details-->
-                                    <h2 class="text-uppercase">Project Name</h2>
-                                    <p class="item-intro text-muted">Lorem ipsum dolor sit amet consectetur.</p>
-                                    <img class="img-fluid d-block mx-auto" src="assets/img/portfolio/2.jpg" alt="..." />
-                                    <p>Use this area to describe your project. Lorem ipsum dolor sit amet, consectetur adipisicing elit. Est blanditiis dolorem culpa incidunt minus dignissimos deserunt repellat aperiam quasi sunt officia expedita beatae cupiditate, maiores repudiandae, nostrum, reiciendis facere nemo!</p>
-                                    <ul class="list-inline">
-                                        <li>
-                                            <strong>Client:</strong>
-                                            Explore
-                                        </li>
-                                        <li>
-                                            <strong>Category:</strong>
-                                            Graphic Design
-                                        </li>
-                                    </ul>
-                                    <button class="btn btn-primary btn-xl text-uppercase" data-bs-dismiss="modal" type="button">
-                                        <i class="fas fa-xmark me-1"></i>
-                                        Close Project
-                                    </button>
-                                </div>
-                            </div>
-                        </div>
-                    </div>
-                </div>
-            </div>
-        </div>
-        <!-- Portfolio item 3 modal popup-->
-        <div class="portfolio-modal modal fade" id="portfolioModal3" tabindex="-1" role="dialog" aria-hidden="true">
-            <div class="modal-dialog">
-                <div class="modal-content">
-                    <div class="close-modal" data-bs-dismiss="modal"><img src="assets/img/close-icon.svg" alt="Close modal" /></div>
-                    <div class="container">
-                        <div class="row justify-content-center">
-                            <div class="col-lg-8">
-                                <div class="modal-body">
-                                    <!-- Project details-->
-                                    <h2 class="text-uppercase">Project Name</h2>
-                                    <p class="item-intro text-muted">Lorem ipsum dolor sit amet consectetur.</p>
-                                    <img class="img-fluid d-block mx-auto" src="assets/img/portfolio/3.jpg" alt="..." />
-                                    <p>Use this area to describe your project. Lorem ipsum dolor sit amet, consectetur adipisicing elit. Est blanditiis dolorem culpa incidunt minus dignissimos deserunt repellat aperiam quasi sunt officia expedita beatae cupiditate, maiores repudiandae, nostrum, reiciendis facere nemo!</p>
-                                    <ul class="list-inline">
-                                        <li>
-                                            <strong>Client:</strong>
-                                            Finish
-                                        </li>
-                                        <li>
-                                            <strong>Category:</strong>
-                                            Identity
-                                        </li>
-                                    </ul>
-                                    <button class="btn btn-primary btn-xl text-uppercase" data-bs-dismiss="modal" type="button">
-                                        <i class="fas fa-xmark me-1"></i>
-                                        Close Project
-                                    </button>
-                                </div>
-                            </div>
-                        </div>
-                    </div>
-                </div>
-            </div>
-        </div>
-        <!-- Portfolio item 4 modal popup-->
-        <div class="portfolio-modal modal fade" id="portfolioModal4" tabindex="-1" role="dialog" aria-hidden="true">
-            <div class="modal-dialog">
-                <div class="modal-content">
-                    <div class="close-modal" data-bs-dismiss="modal"><img src="assets/img/close-icon.svg" alt="Close modal" /></div>
-                    <div class="container">
-                        <div class="row justify-content-center">
-                            <div class="col-lg-8">
-                                <div class="modal-body">
-                                    <!-- Project details-->
-                                    <h2 class="text-uppercase">Project Name</h2>
-                                    <p class="item-intro text-muted">Lorem ipsum dolor sit amet consectetur.</p>
-                                    <img class="img-fluid d-block mx-auto" src="assets/img/portfolio/4.jpg" alt="..." />
-                                    <p>Use this area to describe your project. Lorem ipsum dolor sit amet, consectetur adipisicing elit. Est blanditiis dolorem culpa incidunt minus dignissimos deserunt repellat aperiam quasi sunt officia expedita beatae cupiditate, maiores repudiandae, nostrum, reiciendis facere nemo!</p>
-                                    <ul class="list-inline">
-                                        <li>
-                                            <strong>Client:</strong>
-                                            Lines
-                                        </li>
-                                        <li>
-                                            <strong>Category:</strong>
-                                            Branding
-                                        </li>
-                                    </ul>
-                                    <button class="btn btn-primary btn-xl text-uppercase" data-bs-dismiss="modal" type="button">
-                                        <i class="fas fa-xmark me-1"></i>
-                                        Close Project
-                                    </button>
-                                </div>
-                            </div>
-                        </div>
-                    </div>
-                </div>
-            </div>
-        </div>
-        <!-- Portfolio item 5 modal popup-->
-        <div class="portfolio-modal modal fade" id="portfolioModal5" tabindex="-1" role="dialog" aria-hidden="true">
-            <div class="modal-dialog">
-                <div class="modal-content">
-                    <div class="close-modal" data-bs-dismiss="modal"><img src="assets/img/close-icon.svg" alt="Close modal" /></div>
-                    <div class="container">
-                        <div class="row justify-content-center">
-                            <div class="col-lg-8">
-                                <div class="modal-body">
-                                    <!-- Project details-->
-                                    <h2 class="text-uppercase">Project Name</h2>
-                                    <p class="item-intro text-muted">Lorem ipsum dolor sit amet consectetur.</p>
-                                    <img class="img-fluid d-block mx-auto" src="assets/img/portfolio/5.jpg" alt="..." />
-                                    <p>Use this area to describe your project. Lorem ipsum dolor sit amet, consectetur adipisicing elit. Est blanditiis dolorem culpa incidunt minus dignissimos deserunt repellat aperiam quasi sunt officia expedita beatae cupiditate, maiores repudiandae, nostrum, reiciendis facere nemo!</p>
-                                    <ul class="list-inline">
-                                        <li>
-                                            <strong>Client:</strong>
-                                            Southwest
-                                        </li>
-                                        <li>
-                                            <strong>Category:</strong>
-                                            Website Design
-                                        </li>
-                                    </ul>
-                                    <button class="btn btn-primary btn-xl text-uppercase" data-bs-dismiss="modal" type="button">
-                                        <i class="fas fa-xmark me-1"></i>
-                                        Close Project
-                                    </button>
-                                </div>
-                            </div>
-                        </div>
-                    </div>
-                </div>
-            </div>
-        </div>
-        <!-- Portfolio item 6 modal popup-->
-        <div class="portfolio-modal modal fade" id="portfolioModal6" tabindex="-1" role="dialog" aria-hidden="true">
-            <div class="modal-dialog">
-                <div class="modal-content">
-                    <div class="close-modal" data-bs-dismiss="modal"><img src="assets/img/close-icon.svg" alt="Close modal" /></div>
-                    <div class="container">
-                        <div class="row justify-content-center">
-                            <div class="col-lg-8">
-                                <div class="modal-body">
-                                    <!-- Project details-->
-                                    <h2 class="text-uppercase">Project Name</h2>
-                                    <p class="item-intro text-muted">Lorem ipsum dolor sit amet consectetur.</p>
-                                    <img class="img-fluid d-block mx-auto" src="assets/img/portfolio/6.jpg" alt="..." />
-                                    <p>Use this area to describe your project. Lorem ipsum dolor sit amet, consectetur adipisicing elit. Est blanditiis dolorem culpa incidunt minus dignissimos deserunt repellat aperiam quasi sunt officia expedita beatae cupiditate, maiores repudiandae, nostrum, reiciendis facere nemo!</p>
-                                    <ul class="list-inline">
-                                        <li>
-                                            <strong>Client:</strong>
-                                            Window
-                                        </li>
-                                        <li>
-                                            <strong>Category:</strong>
-                                            Photography
-                                        </li>
-                                    </ul>
-                                    <button class="btn btn-primary btn-xl text-uppercase" data-bs-dismiss="modal" type="button">
-                                        <i class="fas fa-xmark me-1"></i>
-                                        Close Project
-                                    </button>
-                                </div>
-                            </div>
-                        </div>
-                    </div>
-                </div>
-            </div>
-        </div>
         <!-- Bootstrap core JS-->
         <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.2.3/dist/js/bootstrap.bundle.min.js"></script>
         <!-- Core theme JS-->
