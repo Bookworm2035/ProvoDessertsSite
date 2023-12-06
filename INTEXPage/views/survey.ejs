@@ -22,20 +22,18 @@
         <link href="css/styles.css" rel="stylesheet" />
         <style>
             .checkbox-container {
-                display: inline-block;
-                margin-bottom: 10px;
+                display: flex;
+                align-items: center;
             }
 
             .checkbox-container label {
-                display: inline-block;
-                vertical-align: left;
-                margin-right: 5px;
+                margin-right: 10px; /* Adjust the margin as needed */
             }
 
             .checkbox-container input {
-                display: inline-block;
-                vertical-align: right;
+                margin-bottom: 0px;
             }
+
 
             /* Add the following style to clear the float used in label.formtext */
             .clear-float {
@@ -185,23 +183,24 @@
                         <!--CHANGE - get label and checkboxes on same line-->
                         <form>
                             <label class="formtext" for="Affiliates">What type of organizations are you affiliated with? (check all that apply)</label>
-                            <br>
+                            <div class="checkbox-container">
                             <br>
                             <br>
                             <br>
                             <br>
                             <label for="cbUniversity">University</label>
-                            <input type="checkbox" id="cbUniversity" name="Affiliates" value="University">             
+                            <input type="checkbox" id="cbUniversity" name="Affiliates" value="University"><br><br>             
                             <label for="cbCompany">Company</label>
-                            <input type="checkbox" id="cbCompany" name="Affiliates" value="Company">
+                            <input type="checkbox" id="cbCompany" name="Affiliates" value="Company"><br><br> 
                             <label for="cbGovernment">Government</label>
-                            <input type="checkbox" id="cbGovernment" name="Affiliates" value="Government">
+                            <input type="checkbox" id="cbGovernment" name="Affiliates" value="Government"><br><br> 
                             <label for="cbPrivate">Private</label>
-                            <input type="checkbox" id="cbPrivate" name="Affiliates" value="Private">
+                            <input type="checkbox" id="cbPrivate" name="Affiliates" value="Private"><br><br> 
                             <label for="cbSchool">School</label>
-                            <input type="checkbox" id="cbSchool" name="Affiliates" value="School">
+                            <input type="checkbox" id="cbSchool" name="Affiliates" value="School"><br><br> 
                             <br>
                             <br>
+                            </div>
                         </form>
                         <br>
                         <br>
