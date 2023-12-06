@@ -27,7 +27,7 @@ const knex = require("knex")({
    port: process.env.RDS_PORT || 5432,
    ssl: process.env.DB_SSL ? {rejectUnauthorized: false}: false 
 }
-})
+});
 
 //get views
 app.set('views', path.join(__dirname,'./views'));
@@ -48,7 +48,7 @@ app.get("/login", (req, res) => {
 
 // Survey
 app.get("/survey", (req, res) => {
-   res.render("survey")
+   res.render("survey");
 });
 
 //Dashboard/Tableau
@@ -62,15 +62,15 @@ app.get("/error", (req, res) => {
 
 app.get("/indexUser", (req, res) => {
    res.render("indexUser");
-})
+});
 
 app.get("/logout", (req, res) => {
    res.render("logout");
-})
+});
 
 app.get("/database", (req, res) => {
    res.render("database");
-})
+});
 
 //This is for the admin who can see all the users and edit them
 //Need this for each table in the database later
@@ -101,26 +101,26 @@ app.post("/login", (req, res) => {
       .catch(err => {
          console.error(err);
          res.status(500).json({error: "Internal Server Error"})
-      })
-})
+      });
+});
 
 // Display all the users
 app.get("/displayUser", (req, res)=> {
     knex.select().from("users").then(users => {
       res.render("displayUser", {myUser: users});
-   })
-})
+   });
+});
 //display database :) 
 app.get("/database", (req, res)=> {
    knex.select().from("records").then(records => {
      res.render("database", {myRecords: records});
-  })
-})
+  });
+});
 
 // Site to add user to users
 app.get("/addUser", (req, res) => {
     res.render("addUser");
-})
+});
 
 // Adding to the users table
 app.post("/addUser", (req, res)=> {
@@ -129,7 +129,7 @@ app.post("/addUser", (req, res)=> {
       password: req.body.password
    }).then(myUser => {
       res.redirect("/");
-   })
+   });
 });
 
 
@@ -151,7 +151,7 @@ app.post("/editUser", (req, res)=> {
       password: req.body.password
    }).then(myUser => {
       res.redirect("/");
-   })
+   });
 });
 
 app.post("/deleteUser/:id", (req, res) => {
