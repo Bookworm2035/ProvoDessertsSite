@@ -110,6 +110,12 @@ app.get("/displayUser", (req, res)=> {
       res.render("displayUser", {myUser: users});
    })
 })
+//display database :) 
+app.get("/database", (req, res)=> {
+   knex.select().from("records").then(records => {
+     res.render("database", {myRecords: records});
+  })
+})
 
 // Site to add user to users
 app.get("/addUser", (req, res) => {
