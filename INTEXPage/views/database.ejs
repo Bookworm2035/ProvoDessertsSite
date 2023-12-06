@@ -162,7 +162,7 @@
                  </thead>
                  <tbody style="font-family: Arial; font-size: 9pt;">
                   <!--Going through each record in the LIST MYCOUNTRY that has the country variables, and now it is saying to create a table-->
-                  <% for (let iCount = 0; iCount < myRecords.length; iCount++) { %>
+                    <% for (let iCount = 0; iCount < myRecords.length; iCount++) { %>
                      <tr>
                        <td><%= myRecords[iCount].RecordNumber %></td>
                        <td><%= myRecords[iCount].Date %></td>
@@ -175,5 +175,6 @@
                  </tbody>
                </table>
                <br><br>
+               <%= console.log(myRecords) %>
             </body>
             </html>
