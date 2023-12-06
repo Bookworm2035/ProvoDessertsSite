@@ -1,179 +1,80 @@
-<!--
-    Natali Easton, Nya Croft, Tyler Hull, Hayden Cowart
-    Section 4
-    This is our Landing Page for our 403 Project
--->
 <!DOCTYPE html>
 <html lang="en">
+
 <head>
-        <meta charset="utf-8" />
-        <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no" />
-        <meta name="description" content="" />
-        <meta name="author" content="" />
-        <title>Mindful Provo</title>
-        <!-- Favicon-->
-        <link rel="icon" type="image/x-icon" href="assets/favicon.ico" />
-        <!-- Font Awesome icons (free version)-->
-        <script src="https://use.fontawesome.com/releases/v6.3.0/js/all.js" crossorigin="anonymous"></script>
-        <!-- Google fonts-->
-        <link href="https://fonts.googleapis.com/css?family=Montserrat:400,700" rel="stylesheet" type="text/css" />
-        <link href="https://fonts.googleapis.com/css?family=Roboto+Slab:400,100,300,700" rel="stylesheet" type="text/css" />
-        <!-- Core theme CSS (includes Bootstrap)-->
-        <link href="css/styles.css" rel="stylesheet" />
-        <style>
-            .checkbox-container {
-                display: inline-block;
-                margin-bottom: 10px;
-            }
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no" />
+    <meta name="description" content="" />
+    <meta name="author" content="" />
+    <title>Mindful Provo</title>
+    <!-- Favicon-->
+    <link rel="icon" type="image/x-icon" href="assets/favicon.ico" />
+    <!-- Font Awesome icons (free version)-->
+    <script src="https://use.fontawesome.com/releases/v6.3.0/js/all.js" crossorigin="anonymous"></script>
+    <!-- Google fonts-->
+    <link href="https://fonts.googleapis.com/css?family=Montserrat:400,700" rel="stylesheet" type="text/css" />
+    <link href="https://fonts.googleapis.com/css?family=Roboto+Slab:400,100,300,700" rel="stylesheet" type="text/css" />
+    <!-- Core theme CSS (includes Bootstrap)-->
+    <link href="css/styles.css" rel="stylesheet" />
+    <style>
+        /* Your styles go here */
+    </style>
+</head>
 
-            .checkbox-container label {
-                display: inline-block;
-                vertical-align: left;
-                margin-right: 5px;
-            }
+<body id="page-top">
+    <!-- Navigation-->
+    <nav class="navbar navbar-expand-lg navbar-dark bg-dark fixed-top" id="mainNav">
+        <!-- Your navigation content goes here -->
+    </nav>
 
-            .checkbox-container input {
-                display: inline-block;
-                vertical-align: right;
-            }
+    <!-- Submission Form -->
+    <header class="masthead">
+        <!-- Your header content goes here -->
+    </header>
 
-            /* Add the following style to clear the float used in label.formtext */
-            .clear-float {
-                clear: both;
-            }
+    <!-- Services-->
+    <section class="page-section" id="services">
+        <div class="container">
+            <!-- Your services content goes here -->
 
-            label.formtext {
-            float: left;
-            width: 200px;
-            margin-right: 20px; /* Optional margin between label and input */
-            }
+            <!-- Database Table -->
+            <label><b>Records:</b></label>
+            <br><br>
+            <table style="width: 100%; background-color: antiquewhite; border: 1px solid black;">
+                <!-- Table header -->
+                <thead style="background-color: cornflowerblue; color: white;">
+                    <tr>
+                        <!-- Table column headers -->
+                        <!-- Adjust these headers based on your actual column names -->
+                        <th style="text-align: left;">Record Number</th>
+                        <th style="text-align: left;">Date</th>
+                        <th style="text-align: left;">Time</th>
+                        <th style="text-align: left;">Occupation Status</th>
+                        <th style="text-align: left;">Platform ID</th>
+                        <th style="text-align: left;">Person ID</th>
+                        <th></th>
+                        <th></th>
+                    </tr>
+                </thead>
+                <!-- Table body -->
+                <tbody style="font-family: Arial; font-size: 9pt;">
+                    <!-- Loop through records and populate the table -->
+                    <% for (let iCount = 0; iCount < myRecords.length; iCount++) { %>
+                    <tr>
+                        <!-- Adjust these columns based on your actual column names -->
+                        <td><%= myRecords[iCount].RecordNumber %></td>
+                        <td><%= myRecords[iCount].Date %></td>
+                        <td><%= myRecords[iCount].Time %></td>
+                        <td><%= myRecords[iCount].OccupationStatus %></td>
+                        <td><%= myRecords[iCount].PlatformID %></td>
+                        <td><%= myRecords[iCount].PersonID %></td>
+                    </tr>
+                    <% } %>
+                </tbody>
+            </table>
+            <br><br>
+        </div>
+    </section>
+</body>
 
-            input,
-            select,
-            textarea {
-                width: 175px; /* Adjust the width as needed */
-            }
-
-
-            .submission-form label {
-                display: block;
-                text-align: left;
-                margin-bottom: 5px; /* Adjust the margin as needed */
-            }
-
-            .submission-form {
-                display: inline-block;
-                margin: 0 auto;
-                background-color: #ffffff9b;
-                padding: 20px;
-                border-radius: 8px;
-                box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
-                width: 450px;
-            }
-
-            .static-numbers {
-                color: black;
-                display: flex;
-                justify-content: space-between;
-                align-items: flex-end;
-                margin-top: 10px;
-                position: relative;
-                /*THIS WIDTH LINE IS WHAT SPACES IT OUT*/
-                width: 100%;
-            }
-
-            .static-numbers span {
-                text-align: center;
-                width: calc(20% - 10px);
-            }
-
-            #slider-container {
-                display: flex;
-                flex-direction: column;
-                align-items: center;
-            }
-    
-            .submission-form input,
-            .submission-form textarea {
-                display: inline-block;
-                width: 100%;
-                padding: 8px;
-                margin-bottom: 10px;
-                box-sizing: border-box;
-            }
-    
-            .submission-form button {
-                background-color: #b8930f;
-                color: #fff;
-                padding: 10px;
-                border: none;
-                border-radius: 4px;
-                cursor: pointer;
-            }
-            </style>
-        </head>
-    <body id="page-top">
-        <!-- Navigation-->
-        <nav class="navbar navbar-expand-lg navbar-dark bg-dark fixed-top" id="mainNav">
-            <div class="container">
-                <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarResponsive" aria-controls="navbarResponsive" aria-expanded="false" aria-label="Toggle navigation">
-                    Menu
-                    <i class="fas fa-bars ms-1"></i>
-                </button>
-                <div class="collapse navbar-collapse" id="navbarResponsive">
-                    <ul class="navbar-nav text-uppercase ms-auto py-4 py-lg-0">
-                        <!--change  these might need to be ejs now and update the file path-->
-                        <li class="nav-item"><a class="nav-link" href="/">Home</a></li>
-                        <li class="nav-item"><a class="nav-link" href="login">Login</a></li>
-                        <li class="nav-item"><a class="nav-link" href="database">Survey</a></li>
-                        <li class="nav-item"><a class="nav-link" href="dashboard">Dashboard</a></li>
-                    </ul>
-                </div>
-            </div>
-        </nav>
-        <!-- Submission Form -->
-        <!--Things that need to happen:
-            - zoom out background photo   
-        -->
-        <header class="masthead">
-            
-        </header>
-        <!-- Services-->
-        <section class="page-section" id="services">
-            <div class="container">
-                <title>Records</title>
-            </head>
-            <body>
-               <label><b>Records:</b></label>
-               <br><br>
-               <table style="width: 100%; background-color: antiquewhite; border: 1px solid black;">
-                 <thead style="background-color: cornflowerblue; color: white;">
-                   <tr>
-                     <!-- <th style="text-align: left;">Capital</th> -->
-                     <th style="text-align: left;">Record Number</th>
-                     <th style="text-align: left;">Date</th>
-                     <th style="text-align: left;">Time</th>
-                     <th style="text-align: left;">Occupation Status</th>
-                     <th style="text-align: left;">Platform ID</th>
-                     <th style="text-align: left;">Person ID</th>
-                     <th></th>
-                     <th></th>
-                   </tr>
-                 </thead>
-                 <tbody style="font-family: Arial; font-size: 9pt;">
-                  <!--Going through each record in the LIST MYCOUNTRY that has the country variables, and now it is saying to create a table-->
-                    <% for (let iCount = 0; iCount < myUser.length; iCount++) { %>
-                     <tr>
-                       <td><%= myUser[iCount].RecordNumber %></td>
-                       <td><%= myUser[iCount].Date %></td>
-                       <td><%= myUser[iCount].Time %></td>
-                       <td><%= myUser[iCount].OccupationStatus %></td>
-                       <td><%= myUser[iCount].PlatformID %></td>
-                       <td><%= myUser[iCount].PersonID %></td>
-                     </tr>
-                  <% } %>
-                 </tbody>
-               </table>
-               <br><br>
-            </body>
-            </html>
+</html>
