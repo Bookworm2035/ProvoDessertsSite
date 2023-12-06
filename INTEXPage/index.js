@@ -88,19 +88,21 @@ app.post("/login", (req, res) => {
    knex("users")
       .where({ username, password })
       .first()
-      .then(user => {
-         if (user) {
+      .then( user => {
+         if (user) 
+         {
             res.redirect("/indexUser");
-         } else {
+         }
+         else 
+         {
             res.redirect("/error");
          }
       })
       .catch(err => {
          console.error(err);
-         res.status(500).json({ error: "Internal Server Error" });
-      });  
-});
-
+         res.status(500).json({error: "Internal Server Error"})
+      })
+})
 
 // Display all the users
 app.get("/displayUser", (req, res)=> {
@@ -117,6 +119,9 @@ app.get("/addUser", (req, res) => {
 // Adding to the users table
 app.post("/addUser", (req, res)=> {
     knex("users").insert({
+      first_name: req.body.first_name,
+      last_name: req.body.last_name,
+      email: req.body,
       username: req.body.username,
       password: req.body.password,
    }).then(myUser => {
