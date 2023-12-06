@@ -1,0 +1,48 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+   <meta charset="UTF-8">
+   <meta name="viewport" content="width=device-width, initial-scale=1.0">
+   <title>Users</title>
+</head>
+<body>
+   <label><b>User Information:</b></label>
+   <br><br>
+   <table style="width: 100%; background-color: antiquewhite; border: 1px solid black;">
+     <thead style="background-color: cornflowerblue; color: white;">
+       <tr>
+          <th style="text-align: left;">user_id</th>
+         <th style="text-align: left;">Username</th>
+         <th style="text-align: left;">Password</th>
+         <!-- <th style="text-align: left;">Capital</th> -->
+         <th></th>
+         <th></th>
+       </tr>
+     </thead>
+     <tbody style="font-family: Arial; font-size: 9pt;">
+      <!--Going through each record in the LIST MYCOUNTRY that has the country variables, and now it is saying to create a table-->
+      <% for (let iCount = 0; iCount < myUser.length; iCount++) { %>
+         <tr>
+          <td><%= myUser[iCount].user_id %></td>
+           <td><%= myUser[iCount].username %></td>
+           <td><%= myUser[iCount].password %></td>
+           <td style="text-align: center;">
+             <form action="/editUser/<%= myUser[iCount].user_id %>" method="GET">
+               <button type="submit">Edit</button>
+             </form>
+           </td>
+           <td style="text-align: center;">
+             <form action="/deleteUser/<%= myUser[iCount].user_id %>" method="POST">
+               <button type="submit">Delete</button>
+             </form>
+           </td>
+         </tr>
+      <% } %>
+     </tbody>
+   </table>
+   <br><br>
+   <form action="/addUser" method="GET">
+     <button type="submit">Add User</button>
+   </form>
+</body>
+</html>
