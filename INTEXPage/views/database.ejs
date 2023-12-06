@@ -156,7 +156,6 @@
                      <th style="text-align: left;">Occupation Status</th>
                      <th style="text-align: left;">Platform ID</th>
                      <th style="text-align: left;">Person ID</th>
-                     
                      <th></th>
                      <th></th>
                    </tr>
@@ -171,53 +170,14 @@
                        <td><%= myRecords[iCount].OccupationStatus %></td>
                        <td><%= myRecords[iCount].PlatformID %></td>
                        <td><%= myRecords[iCount].PersonID %></td>
-                       <!-- <td style="text-align: center;"> -->
-                         <!-- <form action="/editDatabase/<%= myRecords[iCount].RecordNumber %>" method="GET">
-                           <button type="submit">Edit</button>
-                         </form>
-                       </td>
-                       <td style="text-align: center;">
-                         <form action="/deleteDatabase/<%= myRecords[iCount].RecordNumber %>" method="POST">
-                           <button type="submit">Delete</button>
-                         </form> -->
                        </td>
                      </tr>
+                  <% }
+                   else { %>
+                    <p>No records found.</p>
                   <% } %>
                  </tbody>
                </table>
                <br><br>
-               <!-- <form action="/addDatabase" method="GET">
-                 <button type="submit">Add User</button>
-               </form> -->
             </body>
             </html>
-
-
-
-            <!-- <th style="text-align: left;">PersonID</th>
-                    <th style="text-align: left;">Age</th>
-                    <th style="text-align: left;">Gender</th>
-                    <th style="text-align: left;">RelationshipStatus</th>
-                    <th style="text-align: left;">OccupationStatus</th>
-                    <th style="text-align: left;">Unaffiliated</th>
-                    <th style="text-align: left;">UniversityAffiliation</th>
-                    <th style="text-align: left;">SchoolAffiliation</th>
-                    <th style="text-align: left;">CompanyAffiliation</th>
-                    <th style="text-align: left;">PrivateAffiliation</th>
-                    <th style="text-align: left;">SocialMediaUser</th>
-                    <th style="text-align: left;">UsageID</th>
-                    <th style="text-align: left;">Q1</th>
-                    <th style="text-align: left;">Q2</th>
-                    <th style="text-align: left;">Q3</th>
-                    <th style="text-align: left;">Q4</th>
-                    <th style="text-align: left;">Q5</th>
-                    <th style="text-align: left;">Q6</th>
-                    <th style="text-align: left;">Q7</th>
-                    <th style="text-align: left;">Q8</th>
-                    <th style="text-align: left;">Q9</th>
-                    <th style="text-align: left;">Q10</th>
-                    <th style="text-align: left;">Q11</th>
-                    <th style="text-align: left;">Q12</th>
-                    <th style="text-align: left;">AverageScore</th>
-                    <th style="text-align: left;">PlatformCount</th>
-                    <th style="text-align: left;">Origin</th> -->
