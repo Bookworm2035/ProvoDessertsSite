@@ -129,9 +129,6 @@ app.get("/addUser", (req, res) => {
 // Adding to the users table
 app.post("/addUser", (req, res)=> {
     knex("users").insert({
-      first_name: req.body.first_name,
-      last_name: req.body.last_name,
-      email: req.body,
       username: req.body.username,
       password: req.body.password,
    }).then(myUser => {
