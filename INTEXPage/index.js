@@ -85,23 +85,33 @@ app.post("/login", (req, res) => {
    const { username, password } = req.body;
    //let username = req.body.username;
    //let password = req.body.password;
-   knex("users")
-      .where({ username, password })
-      .first()
-      .then( user => {
-         if (user) 
-         {
-            res.redirect("/indexUser");
-         }
-         else 
-         {
-            res.redirect("/error");
-         }
-      })
-      .catch(err => {
-         console.error(err);
-         res.status(500).json({error: "Internal Server Error"})
-      })
+   knex("admin")
+   .where({ username, password })
+   .first()
+   .then(admin => {
+      if (admin) {
+         res.redirect("/indexUser");
+      } else {
+         knex("users")
+            .where({ username, password })
+            .first()
+            .then(user => {
+               if (user) {
+                  res.redirect("/indexUser");
+               } else {
+                  res.redirect("/error");
+               }
+            })
+            .catch(err => {
+               console.error(err);
+               res.status(500).json({ error: "Internal Server Error" });
+            });
+      }
+   })
+   .catch(err => {
+      console.error(err);
+      res.status(500).json({ error: "Internal Server Error" });
+   });
 })
 
 // Display all the users
