@@ -38,7 +38,7 @@
             <!-- Your services content goes here -->
 
             <!-- Database Table -->
-            <label><b>Persons:</b></label>
+            <label><b>Records:</b></label>
             <br><br>
             <table style="width: 100%; background-color: antiquewhite; border: 1px solid black;">
                 <!-- Table header -->
@@ -58,16 +58,16 @@
                 </thead>
                 <!-- Table body -->
                 <tbody style="font-family: Arial; font-size: 9pt;">
-                    <!-- Loop through persons and populate the table -->
-                    <% for (let iCount = 0; iCount < myPersons.length; iCount++) { %>
+                    <!-- Loop through records and populate the table -->
+                    <% for (let iCount = 0; iCount < myRecords.length; iCount++) { %>
                     <tr>
                         <!-- Adjust these columns based on your actual column names -->
-                        <td><%= myPersons[iCount].RecordNumber %></td>
-                        <td><%= myPersons[iCount].Date %></td>
-                        <td><%= myPersons[iCount].Time %></td>
-                        <td><%= myPersons[iCount].OccupationStatus %></td>
-                        <td><%= myPersons[iCount].PlatformID %></td>
-                        <td><%= myPersons[iCount].PersonID %></td>
+                        <td><%= myRecords[iCount].RecordNumber %></td>
+                        <td><%= myRecords[iCount].Date %></td>
+                        <td><%= myRecords[iCount].Time %></td>
+                        <td><%= myRecords[iCount].OccupationStatus %></td>
+                        <td><%= myRecords[iCount].PlatformID %></td>
+                        <td><%= myRecords[iCount].PersonID %></td>
                     </tr>
                     <% } %>
                 </tbody>
