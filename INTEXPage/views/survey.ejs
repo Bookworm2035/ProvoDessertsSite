@@ -21,6 +21,21 @@
         <!-- Core theme CSS (includes Bootstrap)-->
         <link href="css/styles.css" rel="stylesheet" />
         <style>
+            .radio-container {
+                display: flex;
+                align-items: center;
+            }
+
+            .radio-container label {
+                display: inline-block;
+                margin-right: -80px;
+            }
+
+            .radio-container input {
+                margin-top: 7px;
+            }
+
+            
             .checkbox-container {
                 display: flex;
                 flex-direction: column;
@@ -198,13 +213,13 @@
                         </form>
                         <br>
                         <br>
-                        <label class="formtext clear-float"  for="SocialMediaBoolean">Do you use social media?</label>
-                        <br>
-                        <br>
-                        <label for="rbYes">Yes</label>
-                        <input type="radio" id="rbYes" name="SocialMediaBoolean" value="Yes"><br>
-                        <label for="rbNo">No</label>
-                        <input type="radio" id="rbNo" name="SocialMediaBoolean" value="No"><br>
+                        <div class="radio-container">
+                            <label class="formtext clear-float"  for="SocialMediaBoolean">Do you use social media?</label>
+                            <label for="rbYes">Yes</label>
+                            <input type="radio" id="rbYes" name="SocialMediaBoolean" value="Yes"><br>
+                            <label for="rbNo">No</label>
+                            <input type="radio" id="rbNo" name="SocialMediaBoolean" value="No"><br>
+                        </div>
                         <br>
                         <br>
                         <br>
