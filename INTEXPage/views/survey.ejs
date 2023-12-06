@@ -22,19 +22,21 @@
         <link href="css/styles.css" rel="stylesheet" />
         <style>
             .checkbox-container {
-                display: inline-block;
-                margin-bottom: 10px;
+                display: flex;
+                flex-direction: column;
+                align-items: flex-end;
+                float: right;
             }
 
             .checkbox-container label {
                 display: inline-block;
                 vertical-align: left;
                 margin-right: 10px;
+                margin-bottom: 10px;
             }
 
             .checkbox-container input {
-                display: inline-block;
-                vertical-align: right;
+                margin-top: 2px;
             }
 
             /* Add the following style to clear the float used in label.formtext */
@@ -45,7 +47,7 @@
             label.formtext {
             float: left;
             width: 200px;
-            margin-right: 225px; /* Optional margin between label and input */
+            margin-right: 215px; /* Optional margin between label and input */
             }
 
             input,
@@ -82,7 +84,7 @@
 
             .static-numbers span {
                 text-align: center;
-                width: calc(20% - 10px);
+                width: calc(20% - 30px); /*this line adjusts the width of the static numbers/words*/
             }
     
             .submission-form input,
@@ -140,7 +142,6 @@
                         <br>
                         <label class="formtext clear-float"  for="Age">Age:</label>
                         <input style="width: 175px;" type="number" pattern="\d+" step="1" id="Age" name="Age" required min="0" value="0">
-                        <br>
                         <br>
                         <br>
                         <br>
@@ -214,24 +215,26 @@
                             <br>
                             <br>        
                             <br>
-                            <label for="cbFacebook">Facebook</label>
-                            <input type="checkbox" id="cbFacebook" name="Platforms" value="Facebook">             
-                            <label for="cbTwitter">Twitter</label>
-                            <input type="checkbox" id="cbTwitter" name="Platforms" value="Twitter">
-                            <label for="cbInstagram">Instagram</label>
-                            <input type="checkbox" id="cbInstagram" name="Platforms" value="Instagram">
-                            <label for="cbYouTube">YouTube</label>
-                            <input type="checkbox" id="cbYouTube" name="Platforms" value="YouTube">
-                            <label for="cbDiscord">Discord</label>
-                            <input type="checkbox" id="cbDiscord" name="Platforms" value="Discord">
-                            <label for="cbReddit">Reddit</label>
-                            <input type="checkbox" id="cbReddit" name="Platforms" value="Reddit">
-                            <label for="cbPinterest">Pinterest</label>
-                            <input type="checkbox" id="cbPinterest" name="Platforms" value="Pinterest">
-                            <label for="cbTikTok">TikTok</label>
-                            <input type="checkbox" id="cbTikTok" name="Platforms" value="TikTok">
-                            <label for="cbSnapchat">Snapchat</label>
-                            <input type="checkbox" id="cbSnapchat" name="Platforms" value="Snapchat">
+                                <div class="checkbox-container">
+                                    <label for="cbFacebook">Facebook</label>
+                                    <input type="checkbox" id="cbFacebook" name="Platforms" value="Facebook">             
+                                    <label for="cbTwitter">Twitter</label>
+                                    <input type="checkbox" id="cbTwitter" name="Platforms" value="Twitter">
+                                    <label for="cbInstagram">Instagram</label>
+                                    <input type="checkbox" id="cbInstagram" name="Platforms" value="Instagram">
+                                    <label for="cbYouTube">YouTube</label>
+                                    <input type="checkbox" id="cbYouTube" name="Platforms" value="YouTube">
+                                    <label for="cbDiscord">Discord</label>
+                                    <input type="checkbox" id="cbDiscord" name="Platforms" value="Discord">
+                                    <label for="cbReddit">Reddit</label>
+                                    <input type="checkbox" id="cbReddit" name="Platforms" value="Reddit">
+                                    <label for="cbPinterest">Pinterest</label>
+                                    <input type="checkbox" id="cbPinterest" name="Platforms" value="Pinterest">
+                                    <label for="cbTikTok">TikTok</label>
+                                    <input type="checkbox" id="cbTikTok" name="Platforms" value="TikTok">
+                                    <label for="cbSnapchat">Snapchat</label>
+                                    <input type="checkbox" id="cbSnapchat" name="Platforms" value="Snapchat">
+                                </div>
                             <br>
                             <br>
                             <br>
@@ -453,9 +456,15 @@
                             </div>
                             <br>
                         </div>
+                        <br>
+                        <br>
+                        <br>
                         <button type="submit">Submit</button>
                     </form>
                 </div>
+                <br>
+                <br>
+                <br>s
                 <div class="text-center">
                     <h2 class="section-heading text-uppercase">Services</h2>
                     <h3 class="section-subheading text-muted">Lorem ipsum dolor sit amet consectetur.</h3>
