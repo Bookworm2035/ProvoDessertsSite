@@ -190,31 +190,58 @@
                         <br>
                         <br>
                         <br>
-                        <!--CHANGE - get label and checkboxes on same line-->
-                        <form>
-                            <label class="formtext" for="Affiliates">What type of organizations are you affiliated with? (check all that apply)</label>
-                            <br>
-                            <br>
-                            <br>
-                            <br>
-                            <br>
-                            <label for="cbUniversity">University</label>
-                            <input type="checkbox" id="cbUniversity" name="Affiliates" value="University">             
-                            <label for="cbCompany">Company</label>
-                            <input type="checkbox" id="cbCompany" name="Affiliates" value="Company">
-                            <label for="cbGovernment">Government</label>
-                            <input type="checkbox" id="cbGovernment" name="Affiliates" value="Government">
-                            <label for="cbPrivate">Private</label>
-                            <input type="checkbox" id="cbPrivate" name="Affiliates" value="Private">
-                            <label for="cbSchool">School</label>
-                            <input type="checkbox" id="cbSchool" name="Affiliates" value="School">
-                            <br>
-                            <br>
-                        </form>
+                        <div class="radio-container" name="AffiliatesRadios">
+                            <label class="formtext clear-float" for="UniversityBoolean">Are you affiliated with a University?</label>
+                            <label for="UniYes">Yes</label>
+                            <input type="radio" id="UniYes" name="UniversityBoolean" value="Yes"><br>
+                            <label for="UniNo">No</label> <!--Need to use the same name so that only one can be selected-->
+                            <input type="radio" id="UniNo" name="UniversityBoolean" value="No"><br>
+                        </div>
+                        <br>
+                        <br>
+                        <br>
+                        <div class="radio-container" name="AffiliatesRadios">
+                            <label class="formtext clear-float" for="CompanyBoolean">Are you affiliated with a Company?</label>
+                            <label for="CompYes">Yes</label>
+                            <input type="radio" id="CompYes" name="CompanyBoolean" value="Yes"><br>
+                            <label for="CompNo">No</label> <!--Need to use the same name so that only one can be selected-->
+                            <input type="radio" id="CompNo" name="CompanyBoolean" value="No"><br>
+                        </div>
+                        <br>
+                        <br>
+                        <br>
+                        <div class="radio-container" name="AffiliatesRadios">
+                            <label class="formtext clear-float" for="GovernmentBoolean">Are you affiliated with the Government?</label>
+                            <label for="GovYes">Yes</label>
+                            <input type="radio" id="GovYes" name="GovernmentBoolean" value="Yes"><br>
+                            <label for="GovNo">No</label> <!--Need to use the same name so that only one can be selected-->
+                            <input type="radio" id="GovNo" name="GovernmentBoolean" value="No"><br>
+                        </div>
+                        <br>
+                        <br>
+                        <br>
+                        <div class="radio-container" name="AffiliatesRadios">
+                            <label class="formtext clear-float" for="PrivateBoolean">Are you affiliated with a Private Organization (such as a religious organization)?</label>
+                            <label for="PrivYes">Yes</label>
+                            <input type="radio" id="PrivYes" name="PrivateBoolean" value="Yes"><br>
+                            <label for="PrivNo">No</label> <!--Need to use the same name so that only one can be selected-->
+                            <input type="radio" id="PrivNo" name="PrivateBoolean" value="No"><br>
+                        </div>
+                        <br>
+                        <br>
+                        <br>
+                        <div class="radio-container" name="AffiliatesRadios">
+                            <label class="formtext clear-float" for="SchoolBoolean">Are you affiliated with a (non-university) School?</label>
+                            <label for="SchoolYes">Yes</label>
+                            <input type="radio" id="SchoolYes" name="SchoolBoolean" value="Yes"><br>
+                            <label for="SchoolNo">No</label> <!--Need to use the same name so that only one can be selected-->
+                            <input type="radio" id="SchoolNo" name="SchoolBoolean" value="No"><br>
+                        </div>
+                        <br>
                         <br>
                         <br>
                         <div class="radio-container">
-                            <label class="formtext clear-float"  for="SocialMediaBoolean">Do you use social media?</label>
+                            <label class="formtext clear-float" for="SocialMediaBoolean">Do you use social media?</label>
                             <label for="rbYes">Yes</label>
                             <input type="radio" id="rbYes" name="SocialMediaBoolean" value="Yes"><br>
                             <label for="rbNo">No</label>
