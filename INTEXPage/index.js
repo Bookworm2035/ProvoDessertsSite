@@ -157,5 +157,70 @@ app.post("/deleteUser/:id", (req, res) => {
    });
 });
 
+
+
+
+
+
+
+app.post("/survey", async (req, res)=> {
+   try {
+      let rowCount = await knex('persons').count('PersonID as count').first();
+
+      let peopleCount = rowCount ? rowCount.count + 1 : 1;
+      //const formData = req.body
+      let  now = new Date();
+      let date = now.toISOString().split('T')[0];
+      let time = now.toISOString().split('T')[1].split('.')[0];
+      let platforms = ['cbFacebook', 'cbTwitter', 'cbInstagram', 'cbYouTube', 'cbDiscord', 'cbReddit', 'cbPinterest', 'cbTikTok', 'cbSnapchat']
+      for (let iCount = 0; iCount < platforms.length; iCount++)
+      {
+         let optionChecked = req.body[platforms[iCount]] === 'on';
+         if (optionChecked)
+         {
+            knex('records').insert({
+               Date: date,
+               Time: time,
+               OccupationStatus: req.body.OccupationStatus,
+               PlatformID: iCount + 1,
+               PersonID: peopleCount
+            });
+         }
+      }
+      
+      knex('persons').insert({
+         Age: req.body.Age,
+         Gender: req.body.Gender,
+         RelationshipStatus: req.body.RelationshipStatus,
+         OccupationStatus: req.body.OccupationStatus,
+         UniversityAffiliation: req.body.cbUniversity,
+         SchoolAffiliation: req.body.cbSchool,
+         CompanyAffiliation: req.body.cbCompany,
+         GovernmentAffiliation: req.body.cbGovernment, 
+         PrivateAffiliation: req.body.cbPrivate,
+         SocialMediaUser: req.body.cbSchool, 
+         UsageID: req.body.AvgTime,
+         Q1: req.body.specificPurpose,
+         Q2: req.body.DistractedBusy,
+         Q3: req.body.RestlessWithout,
+         Q4: req.body.EasilyDistracted,
+         Q5: req.body.BotheredByWorries,
+         Q6: req.body.DifficultyToConcentrate,
+         Q7: req.body.CompareYourself,
+         Q8: req.body.FeelAboutComparisons,
+         Q9: req.body.SeekValidation,
+         Q10: req.body.OftenDepressed,
+         Q11: req.body.InterestFluctuate,
+         Q12: req.body.SleepIssues,
+         //AverageScore: req.body, 
+         //PlatformCount:
+         Origin: 'Provo'
+      });
+   } catch (error) {
+      console.error(error);
+      res.status(500).send('Internal Server Error');
+   }
+});
+
  //listen at the end
 app.listen(port,() => console.log("I am listening"));
