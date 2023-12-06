@@ -85,12 +85,6 @@
                 text-align: center;
                 width: calc(20% - 10px);
             }
-
-            #slider-container {
-                display: flex;
-                flex-direction: column;
-                align-items: center;
-            }
     
             .submission-form input,
             .submission-form textarea {
@@ -242,6 +236,7 @@
                             <br>
                             <br>
                             <br>
+                            <br>
                             <label class="formtext" for="AvgTime">What is the average time you spend on social media every day?</label>
                             <select id="AvgTime" name="AvgTime">
                                 <option value="LessThan1">Less than 1 hour</option>
@@ -256,12 +251,13 @@
                             <br>
                             <br>
                             <br>
+                            <br><!---->
                         </form>
-                        <div id="slider-container">
+                        <div class="slider-container">
                             <!--CHANGE - get the label to be on the left, not over the 2-->
-                            <label class="formtext" for="specificPurpose">How often do you find yourself using social media without a specific purpose? <span id="starsValue">3</span></label>
+                            <label class="formtext" for="specificPurpose">How often do you find yourself using social media without a specific purpose? </label>
                             <br>
-                            <input style="width: 90%;" type="range" id="specificPurpose" name="specificPurpose" min="1" max="5" value="3" oninput="updateStarsValue(this.value)" required>
+                            <input style="width: 90%; display: block; margin: 0 auto;" type="range" id="specificPurpose" name="specificPurpose" min="1" max="5" value="3"  required>
                             <div class="static-numbers">
                                 <span>1</span>
                                 <span>2</span>
@@ -274,11 +270,11 @@
                         <br>
                         <br>
                         <br>
-                        <div id="slider-container">
+                        <div class="slider-container">
                             <!--CHANGE - get the label to be on the left, not over the 2-->
-                            <label class="formtext" for="Stars">Stars: <span id="starsValue">3</span></label>
+                            <label class="formtext" for="DistractedBusy">How often do you get distracted by social media when you are busy doing something? </label>
                             <br>
-                            <input style="width: 90%;" type="range" id="Stars" name="Stars" min="1" max="5" value="3" oninput="updateStarsValue(this.value)" required>
+                            <input style="width: 90%; display: block; margin: 0 auto;" type="range" id="DistractedBusy" name="DistractedBusy" min="1" max="5" value="3"  required>
                             <div class="static-numbers">
                                 <span>1</span>
                                 <span>2</span>
@@ -287,19 +283,177 @@
                                 <span>5</span>
                             </div>
                             <br>
-                        </div> 
-                        <div class="checkbox-container">
-                            <label class="formtext" for="Allergy">Allergy Friendly?</label>
-                            <input type="checkbox" id="Allergy" name="Allergy">
                         </div>
                         <br>
                         <br>
-                        <label class="formtext" for="Address">Address:</label>
-                        <input type="text" id="Address" name="Address" maxlength="30" required>
+                        <br>
+                        <div class="slider-container">
+                            <!--CHANGE - get the label to be on the left, not over the 2-->
+                            <label class="formtext" for="RestlessWithout">Do you feel restless if you haven’t used social media in a while? (change this one?) </label>
+                            <br>
+                            <input style="width: 90%; display: block; margin: 0 auto;" type="range" id="RestlessWithout" name="RestlessWithout" min="1" max="5" value="3"  required>
+                            <div class="static-numbers">
+                                <span>1</span>
+                                <span>2</span>
+                                <span>3</span>
+                                <span>4</span>
+                                <span>5</span>
+                            </div>
+                            <br>
+                        </div>
                         <br>
                         <br>
-                        <label class="formtext" for="comments">Comments:</label>
-                        <textarea id="comments" name="comments" rows="4" maxlength="200" required></textarea>
+                        <br>
+                        <div class="slider-container">
+                            <!--CHANGE - get the label to be on the left, not over the 2-->
+                            <label class="formtext" for="EasilyDistracted">How easily distracted are you?</label>
+                            <br>
+                            <input style="width: 90%; display: block; margin: 0 auto;" type="range" id="EasilyDistracted" name="EasilyDistracted" min="1" max="5" value="3"  required>
+                            <div class="static-numbers">
+                                <span>1</span>
+                                <span>2</span>
+                                <span>3</span>
+                                <span>4</span>
+                                <span>5</span>
+                            </div>
+                            <br>
+                        </div>
+                        <br>
+                        <br>
+                        <br>
+                        <div class="slider-container">
+                            <!--CHANGE - get the label to be on the left, not over the 2-->
+                            <label class="formtext" for="BotheredByWorries">How much are you bothered by worries?</label>
+                            <br>
+                            <input style="width: 90%; display: block; margin: 0 auto;" type="range" id="BotheredByWorries" name="BotheredByWorries" min="1" max="5" value="3"  required>
+                            <div class="static-numbers">
+                                <span>1</span>
+                                <span>2</span>
+                                <span>3</span>
+                                <span>4</span>
+                                <span>5</span>
+                            </div>
+                            <br>
+                        </div>
+                        <br>
+                        <br>
+                        <br>
+                        <div class="slider-container">
+                            <!--CHANGE - get the label to be on the left, not over the 2-->
+                            <label class="formtext" for="DifficultToConcentrate">Do you find it difficult to concentrate on things?</label>
+                            <br>
+                            <input style="width: 90%; display: block; margin: 0 auto;" type="range" id="DifficultToConcentrate" name="DifficultToConcentrate" min="1" max="5" value="3"  required>
+                            <div class="static-numbers">
+                                <span>1</span>
+                                <span>2</span>
+                                <span>3</span>
+                                <span>4</span>
+                                <span>5</span>
+                            </div>
+                            <br>
+                        </div>
+                        <br>
+                        <br>
+                        <br>
+                        <div class="slider-container">
+                            <!--CHANGE - get the label to be on the left, not over the 2-->
+                            <label class="formtext" for="CompareYourself">How often do you compare yourself to other successful people through the use of social media?</label>
+                            <br>
+                            <input style="width: 90%; display: block; margin: 0 auto;" type="range" id="CompareYourself" name="CompareYourself" min="1" max="5" value="3"  required>
+                            <div class="static-numbers">
+                                <span>1</span>
+                                <span>2</span>
+                                <span>3</span>
+                                <span>4</span>
+                                <span>5</span>
+                            </div>
+                            <br>
+                        </div>
+                        <br>
+                        <br>
+                        <br>
+                        <div class="slider-container">
+                            <!--CHANGE - get the label to be on the left, not over the 2-->
+                            <label class="formtext" for="FeelAboutComparisons">Following the previous question, how do you feel about these comparisons, generally speaking?</label>
+                            <br>
+                            <input style="width: 90%; display: block; margin: 0 auto;" type="range" id="FeelAboutComparisons" name="FeelAboutComparisons" min="1" max="5" value="3"  required>
+                            <div class="static-numbers">
+                                <span>1</span>
+                                <span>2</span>
+                                <span>3</span>
+                                <span>4</span>
+                                <span>5</span>
+                            </div>
+                            <br>
+                        </div>
+                        <br>
+                        <br>
+                        <br>
+                        <div class="slider-container">
+                            <!--CHANGE - get the label to be on the left, not over the 2-->
+                            <label class="formtext" for="SeekValidation">How often do you look to seek validation from features of social media?</label>
+                            <br>
+                            <input style="width: 90%; display: block; margin: 0 auto;" type="range" id="SeekValidation" name="SeekValidation" min="1" max="5" value="3"  required>
+                            <div class="static-numbers">
+                                <span>1</span>
+                                <span>2</span>
+                                <span>3</span>
+                                <span>4</span>
+                                <span>5</span>
+                            </div>
+                            <br>
+                        </div>
+                        <br>
+                        <br>
+                        <br>
+                        <div class="slider-container">
+                            <!--CHANGE - get the label to be on the left, not over the 2-->
+                            <label class="formtext" for="OftenDepressed">How often do you feel depressed or down?</label>
+                            <br>
+                            <input style="width: 90%; display: block; margin: 0 auto;" type="range" id="OftenDepressed" name="OftenDepressed" min="1" max="5" value="3"  required>
+                            <div class="static-numbers">
+                                <span>1</span>
+                                <span>2</span>
+                                <span>3</span>
+                                <span>4</span>
+                                <span>5</span>
+                            </div>
+                            <br>
+                        </div>
+                        <br>
+                        <br>
+                        <br>
+                        <div class="slider-container">
+                            <!--CHANGE - get the label to be on the left, not over the 2-->
+                            <label class="formtext" for="InterestFluctuate">How frequently does your interested in daily activities fluctuate?</label>
+                            <br>
+                            <input style="width: 90%; display: block; margin: 0 auto;" type="range" id="InterestFluctuate" name="InterestFluctuate" min="1" max="5" value="3"  required>
+                            <div class="static-numbers">
+                                <span>1</span>
+                                <span>2</span>
+                                <span>3</span>
+                                <span>4</span>
+                                <span>5</span>
+                            </div>
+                            <br>
+                        </div>
+                        <br>
+                        <br>
+                        <br>
+                        <div class="slider-container">
+                            <!--CHANGE - get the label to be on the left, not over the 2-->
+                            <label class="formtext" for="SleepIssues">How often do you face issues regarding sleep?</label>
+                            <br>
+                            <input style="width: 90%; display: block; margin: 0 auto;" type="range" id="SleepIssues" name="SleepIssues" min="1" max="5" value="3"  required>
+                            <div class="static-numbers">
+                                <span>1</span>
+                                <span>2</span>
+                                <span>3</span>
+                                <span>4</span>
+                                <span>5</span>
+                            </div>
+                            <br>
+                        </div>
                         <button type="submit">Submit</button>
                     </form>
                 </div>
