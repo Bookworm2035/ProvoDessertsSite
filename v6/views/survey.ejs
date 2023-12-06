@@ -1,0 +1,581 @@
+<!--
+    Natali Easton, Nya Croft, Tyler Hull, Hayden Cowart
+    Section 4
+    This is our Landing Page for our 403 Project
+-->
+<!DOCTYPE html>
+<html lang="en">
+    <head>
+        <meta charset="utf-8" />
+        <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no" />
+        <meta name="description" content="" />
+        <meta name="author" content="" />
+        <title>Mindful Provo</title>
+        <!-- Favicon-->
+        <link rel="icon" type="image/x-icon" href="assets/favicon.ico" />
+        <!-- Font Awesome icons (free version)-->
+        <script src="https://use.fontawesome.com/releases/v6.3.0/js/all.js" crossorigin="anonymous"></script>
+        <!-- Google fonts-->
+        <link href="https://fonts.googleapis.com/css?family=Montserrat:400,700" rel="stylesheet" type="text/css" />
+        <link href="https://fonts.googleapis.com/css?family=Roboto+Slab:400,100,300,700" rel="stylesheet" type="text/css" />
+        <!-- Core theme CSS (includes Bootstrap)-->
+        <link href="css/styles.css" rel="stylesheet" />
+        <style>
+            .checkbox-container {
+                display: inline-block;
+                margin-bottom: 10px;
+            }
+
+            .checkbox-container label {
+                display: inline-block;
+                vertical-align: left;
+                margin-right: 10px;
+            }
+
+            .checkbox-container input {
+                display: inline-block;
+                vertical-align: right;
+            }
+
+            /* Add the following style to clear the float used in label.formtext */
+            .clear-float {
+                clear: both;
+            }
+
+            label.formtext {
+            float: left;
+            width: 200px;
+            margin-right: 20px; /* Optional margin between label and input */
+            }
+
+            input,
+            select,
+            textarea {
+                width: 175px; /* Adjust the width as needed */
+            }
+
+
+            .submission-form label {
+                display: block;
+                text-align: left;
+                margin-bottom: 5px; /* Adjust the margin as needed */
+            }
+
+            .submission-form {
+                margin: 0 auto;
+                background-color: #ffffff9b;
+                padding: 20px;
+                border-radius: 8px;
+                box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+                width: 450px;
+            }
+
+            .static-numbers {
+                color: black;
+                display: flex;
+                justify-content: space-between;
+                align-items: flex-end;
+                margin-top: 10px;
+                position: relative;
+                /*THIS WIDTH LINE IS WHAT SPACES IT OUT*/
+                width: 100%;
+            }
+
+            .static-numbers span {
+                text-align: center;
+                width: calc(20% - 10px);
+            }
+
+            #slider-container {
+                display: flex;
+                flex-direction: column;
+                align-items: center;
+            }
+    
+            .submission-form input,
+            .submission-form textarea {
+                width: 100%;
+                padding: 8px;
+                margin-bottom: 10px;
+                box-sizing: border-box;
+                align-items: stretch;
+            }
+    
+            .submission-form button {
+                background-color: #b8930f;
+                color: #fff;
+                padding: 10px;
+                border: none;
+                border-radius: 4px;
+                cursor: pointer;
+            }
+        </style>
+    </head>
+    <body id="page-top">
+        <!-- Navigation-->
+        <nav class="navbar navbar-expand-lg navbar-dark bg-dark fixed-top" id="mainNav">
+            <div class="container">
+                <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarResponsive" aria-controls="navbarResponsive" aria-expanded="false" aria-label="Toggle navigation">
+                    Menu
+                    <i class="fas fa-bars ms-1"></i>
+                </button>
+                <div class="collapse navbar-collapse" id="navbarResponsive">
+                    <ul class="navbar-nav text-uppercase ms-auto py-4 py-lg-0">
+                        <!--change  these might need to be ejs now and update the file path-->
+                        <li class="nav-item"><a class="nav-link" href="/">Home</a></li>
+                        <li class="nav-item"><a class="nav-link" href="login">Login</a></li>
+                        <li class="nav-item"><a class="nav-link" href="survey">Survey</a></li>
+                        <li class="nav-item"><a class="nav-link" href="dashboard">Dashboard</a></li>
+                    </ul>
+                </div>
+            </div>
+        </nav>
+        <!-- Submission Form -->
+        <!--Things that need to happen:
+            - zoom out background photo   
+        -->
+        <header class="masthead">
+            
+        </header>
+        <!-- Services-->
+        <section class="page-section" id="services">
+            <div class="container">
+                <div class="submission-form">
+                    <h2 class="formtext">Submit Information</h2>
+                    <br>
+                    <form>
+                        <br>
+                        <label class="formtext clear-float"  for="Age">Age:</label>
+                        <input style="width: 175px;" type="number" pattern="\d+" step="1" id="Age" name="Age" required min="0" value="0">
+                        <br>
+                        <br>
+                        <br>
+                        <br>
+                        <label class="formtext" for="Gender">Gender:</label>
+                        <select id="Gender" name="Gender">
+                            <option value="Male">Male</option>
+                            <option value="Female">Female</option>
+                            <option value="Non-binary">Non-binary</option>
+                            <option value="Other">Other</option>
+                        </select>
+                        <br>
+                        <br>
+                        <br>
+                        <label class="formtext" for="RelationStatus">Relationship Status:</label>
+                        <select id="RelationStatus" name="RelationStatus">
+                            <option value="Single">Single</option>
+                            <option value="Relationship">In a relationship</option>
+                            <option value="Married">Married</option>
+                            <option value="Divorced">Divorced</option>
+                        </select>
+                        <br>
+                        <br>
+                        <br>
+                        <label class="formtext" for="OccupationStatus">Occupation Status:</label>
+                        <select id="OccupationStatus" name="OccupationStatus">
+                            <option value="UniversityStud">University Student</option>
+                            <option value="SchoolStud">School Student</option>
+                            <option value="SalariedWorker">Salaried Worker</option>
+                            <option value="Retired">Retired</option>
+                        </select>
+                        <br>
+                        <br>
+                        <br>
+                        <!--CHANGE - get label and checkboxes on same line-->
+                        <form>
+                            <label class="formtext" for="Affiliates">What type of organizations are you affiliated with? (check all that apply)</label>
+                            <br>
+                            <br>
+                            <br>
+                            <br>
+                            <br>
+                            <label for="cbUniversity">University</label>
+                            <input type="checkbox" id="cbUniversity" name="Affiliates" value="University">             
+                            <label for="cbCompany">Company</label>
+                            <input type="checkbox" id="cbCompany" name="Affiliates" value="Company">
+                            <label for="cbGovernment">Government</label>
+                            <input type="checkbox" id="cbGovernment" name="Affiliates" value="Government">
+                            <label for="cbPrivate">Private</label>
+                            <input type="checkbox" id="cbPrivate" name="Affiliates" value="Private">
+                            <label for="cbSchool">School</label>
+                            <input type="checkbox" id="cbSchool" name="Affiliates" value="School">
+                            <br>
+                            <br>
+                        </form>
+                        <br>
+                        <br>
+                        <label class="formtext clear-float"  for="SocialMediaBoolean">Do you use social media?</label>
+                        <br>
+                        <br>
+                        <label for="rbYes">Yes</label>
+                        <input type="radio" id="rbYes" name="SocialMediaBoolean" value="Yes"><br>
+                        <label for="rbNo">No</label>
+                        <input type="radio" id="rbNo" name="SocialMediaBoolean" value="No"><br>
+                        <br>
+                        <br>
+                        <br>
+                        <form>
+                            <label class="formtext" for="Platforms">What social media platforms do you commonly use? (check all that apply)</label>
+                            <br>
+                            <br>
+                            <br>
+                            <br>        
+                            <br>
+                            <label for="cbFacebook">Facebook</label>
+                            <input type="checkbox" id="cbFacebook" name="Platforms" value="Facebook">             
+                            <label for="cbTwitter">Twitter</label>
+                            <input type="checkbox" id="cbTwitter" name="Platforms" value="Twitter">
+                            <label for="cbInstagram">Instagram</label>
+                            <input type="checkbox" id="cbInstagram" name="Platforms" value="Instagram">
+                            <label for="cbYouTube">YouTube</label>
+                            <input type="checkbox" id="cbYouTube" name="Platforms" value="YouTube">
+                            <label for="cbDiscord">Discord</label>
+                            <input type="checkbox" id="cbDiscord" name="Platforms" value="Discord">
+                            <label for="cbReddit">Reddit</label>
+                            <input type="checkbox" id="cbReddit" name="Platforms" value="Reddit">
+                            <label for="cbPinterest">Pinterest</label>
+                            <input type="checkbox" id="cbPinterest" name="Platforms" value="Pinterest">
+                            <label for="cbTikTok">TikTok</label>
+                            <input type="checkbox" id="cbTikTok" name="Platforms" value="TikTok">
+                            <label for="cbSnapchat">Snapchat</label>
+                            <input type="checkbox" id="cbSnapchat" name="Platforms" value="Snapchat">
+                            <br>
+                            <br>
+                            <br>
+                            <label class="formtext" for="AvgTime">What is the average time you spend on social media every day?</label>
+                            <select id="AvgTime" name="AvgTime">
+                                <option value="LessThan1">Less than 1 hour</option>
+                                <option value="1-2">Between 1 and 2 hours</option>
+                                <option value="2-3">Between 2 and 3 hours</option>
+                                <option value="3-4">Between 3 and 4 hours</option>
+                                <option value="4-5">Between 4 and 5 hours</option>
+                                <option value="MoreThan5">More than 5 hours</option>
+                            </select>
+                            <br>
+                            <br>
+                            <br>
+                            <br>
+                            <br>
+                        </form>
+                        <div id="slider-container">
+                            <!--CHANGE - get the label to be on the left, not over the 2-->
+                            <label class="formtext" for="specificPurpose">How often do you find yourself using social media without a specific purpose? <span id="starsValue">3</span></label>
+                            <br>
+                            <input style="width: 90%;" type="range" id="specificPurpose" name="specificPurpose" min="1" max="5" value="3" oninput="updateStarsValue(this.value)" required>
+                            <div class="static-numbers">
+                                <span>1</span>
+                                <span>2</span>
+                                <span>3</span>
+                                <span>4</span>
+                                <span>5</span>
+                            </div>
+                            <br>
+                        </div>                    
+                        <br>
+                        <br>
+                        <br>
+                        <div id="slider-container">
+                            <!--CHANGE - get the label to be on the left, not over the 2-->
+                            <label class="formtext" for="Stars">Stars: <span id="starsValue">3</span></label>
+                            <br>
+                            <input style="width: 90%;" type="range" id="Stars" name="Stars" min="1" max="5" value="3" oninput="updateStarsValue(this.value)" required>
+                            <div class="static-numbers">
+                                <span>1</span>
+                                <span>2</span>
+                                <span>3</span>
+                                <span>4</span>
+                                <span>5</span>
+                            </div>
+                            <br>
+                        </div> 
+                        <div class="checkbox-container">
+                            <label class="formtext" for="Allergy">Allergy Friendly?</label>
+                            <input type="checkbox" id="Allergy" name="Allergy">
+                        </div>
+                        <br>
+                        <br>
+                        <label class="formtext" for="Address">Address:</label>
+                        <input type="text" id="Address" name="Address" maxlength="30" required>
+                        <br>
+                        <br>
+                        <label class="formtext" for="comments">Comments:</label>
+                        <textarea id="comments" name="comments" rows="4" maxlength="200" required></textarea>
+                        <button type="submit">Submit</button>
+                    </form>
+                </div>
+                <div class="text-center">
+                    <h2 class="section-heading text-uppercase">Services</h2>
+                    <h3 class="section-subheading text-muted">Lorem ipsum dolor sit amet consectetur.</h3>
+                </div>
+                <div class="row text-center">
+                    <div class="col-md-4">
+                        <span class="fa-stack fa-4x">
+                            <i class="fas fa-circle fa-stack-2x text-primary"></i>
+                            <i class="fas fa-shopping-cart fa-stack-1x fa-inverse"></i>
+                        </span>
+                        <h4 class="my-3">E-Commerce</h4>
+                        <p class="text-muted">Lorem ipsum dolor sit amet, consectetur adipisicing elit. Minima maxime quam architecto quo inventore harum ex magni, dicta impedit.</p>
+                    </div>
+                    <div class="col-md-4">
+                        <span class="fa-stack fa-4x">
+                            <i class="fas fa-circle fa-stack-2x text-primary"></i>
+                            <i class="fas fa-laptop fa-stack-1x fa-inverse"></i>
+                        </span>
+                        <h4 class="my-3">Responsive Design</h4>
+                        <p class="text-muted">Lorem ipsum dolor sit amet, consectetur adipisicing elit. Minima maxime quam architecto quo inventore harum ex magni, dicta impedit.</p>
+                    </div>
+                    <div class="col-md-4">
+                        <span class="fa-stack fa-4x">
+                            <i class="fas fa-circle fa-stack-2x text-primary"></i>
+                            <i class="fas fa-lock fa-stack-1x fa-inverse"></i>
+                        </span>
+                        <h4 class="my-3">Web Security</h4>
+                        <p class="text-muted">Lorem ipsum dolor sit amet, consectetur adipisicing elit. Minima maxime quam architecto quo inventore harum ex magni, dicta impedit.</p>
+                    </div>
+                </div>
+            </div>
+        </section>
+        <!-- Footer-->
+        <footer class="footer py-4">
+            <div class="container">
+                <div class="row align-items-center">
+                    <div class="col-lg-4 text-lg-start">Copyright &copy; Dream Team 2023</div>
+                    <div class="col-lg-4 my-3 my-lg-0">
+                        <a class="btn btn-dark btn-social mx-2" href="#!" aria-label="Twitter"><i class="fab fa-twitter"></i></a>
+                        <a class="btn btn-dark btn-social mx-2" href="#!" aria-label="Facebook"><i class="fab fa-facebook-f"></i></a>
+                        <a class="btn btn-dark btn-social mx-2" href="#!" aria-label="LinkedIn"><i class="fab fa-linkedin-in"></i></a>
+                    </div>
+                    <div class="col-lg-4 text-lg-end">
+                        <a class="link-dark text-decoration-none me-3" href="#!">Privacy Policy</a>
+                        <a class="link-dark text-decoration-none" href="#!">Terms of Use</a>
+                    </div>
+                </div>
+            </div>
+        </footer>
+        <!-- Portfolio Modals-->
+        <!-- Portfolio item 1 modal popup-->
+        <div class="portfolio-modal modal fade" id="portfolioModal1" tabindex="-1" role="dialog" aria-hidden="true">
+            <div class="modal-dialog">
+                <div class="modal-content">
+                    <div class="close-modal" data-bs-dismiss="modal"><img src="assets/img/close-icon.svg" alt="Close modal" /></div>
+                    <div class="container">
+                        <div class="row justify-content-center">
+                            <div class="col-lg-8">
+                                <div class="modal-body">
+                                    <!-- Project details-->
+                                    <h2 class="text-uppercase">Project Name</h2>
+                                    <p class="item-intro text-muted">Lorem ipsum dolor sit amet consectetur.</p>
+                                    <img class="img-fluid d-block mx-auto" src="assets/img/portfolio/1.jpg" alt="..." />
+                                    <p>Use this area to describe your project. Lorem ipsum dolor sit amet, consectetur adipisicing elit. Est blanditiis dolorem culpa incidunt minus dignissimos deserunt repellat aperiam quasi sunt officia expedita beatae cupiditate, maiores repudiandae, nostrum, reiciendis facere nemo!</p>
+                                    <ul class="list-inline">
+                                        <li>
+                                            <strong>Client:</strong>
+                                            Threads
+                                        </li>
+                                        <li>
+                                            <strong>Category:</strong>
+                                            Illustration
+                                        </li>
+                                    </ul>
+                                    <button class="btn btn-primary btn-xl text-uppercase" data-bs-dismiss="modal" type="button">
+                                        <i class="fas fa-xmark me-1"></i>
+                                        Close Project
+                                    </button>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <!-- Portfolio item 2 modal popup-->
+        <div class="portfolio-modal modal fade" id="portfolioModal2" tabindex="-1" role="dialog" aria-hidden="true">
+            <div class="modal-dialog">
+                <div class="modal-content">
+                    <div class="close-modal" data-bs-dismiss="modal"><img src="assets/img/close-icon.svg" alt="Close modal" /></div>
+                    <div class="container">
+                        <div class="row justify-content-center">
+                            <div class="col-lg-8">
+                                <div class="modal-body">
+                                    <!-- Project details-->
+                                    <h2 class="text-uppercase">Project Name</h2>
+                                    <p class="item-intro text-muted">Lorem ipsum dolor sit amet consectetur.</p>
+                                    <img class="img-fluid d-block mx-auto" src="assets/img/portfolio/2.jpg" alt="..." />
+                                    <p>Use this area to describe your project. Lorem ipsum dolor sit amet, consectetur adipisicing elit. Est blanditiis dolorem culpa incidunt minus dignissimos deserunt repellat aperiam quasi sunt officia expedita beatae cupiditate, maiores repudiandae, nostrum, reiciendis facere nemo!</p>
+                                    <ul class="list-inline">
+                                        <li>
+                                            <strong>Client:</strong>
+                                            Explore
+                                        </li>
+                                        <li>
+                                            <strong>Category:</strong>
+                                            Graphic Design
+                                        </li>
+                                    </ul>
+                                    <button class="btn btn-primary btn-xl text-uppercase" data-bs-dismiss="modal" type="button">
+                                        <i class="fas fa-xmark me-1"></i>
+                                        Close Project
+                                    </button>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <!-- Portfolio item 3 modal popup-->
+        <div class="portfolio-modal modal fade" id="portfolioModal3" tabindex="-1" role="dialog" aria-hidden="true">
+            <div class="modal-dialog">
+                <div class="modal-content">
+                    <div class="close-modal" data-bs-dismiss="modal"><img src="assets/img/close-icon.svg" alt="Close modal" /></div>
+                    <div class="container">
+                        <div class="row justify-content-center">
+                            <div class="col-lg-8">
+                                <div class="modal-body">
+                                    <!-- Project details-->
+                                    <h2 class="text-uppercase">Project Name</h2>
+                                    <p class="item-intro text-muted">Lorem ipsum dolor sit amet consectetur.</p>
+                                    <img class="img-fluid d-block mx-auto" src="assets/img/portfolio/3.jpg" alt="..." />
+                                    <p>Use this area to describe your project. Lorem ipsum dolor sit amet, consectetur adipisicing elit. Est blanditiis dolorem culpa incidunt minus dignissimos deserunt repellat aperiam quasi sunt officia expedita beatae cupiditate, maiores repudiandae, nostrum, reiciendis facere nemo!</p>
+                                    <ul class="list-inline">
+                                        <li>
+                                            <strong>Client:</strong>
+                                            Finish
+                                        </li>
+                                        <li>
+                                            <strong>Category:</strong>
+                                            Identity
+                                        </li>
+                                    </ul>
+                                    <button class="btn btn-primary btn-xl text-uppercase" data-bs-dismiss="modal" type="button">
+                                        <i class="fas fa-xmark me-1"></i>
+                                        Close Project
+                                    </button>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <!-- Portfolio item 4 modal popup-->
+        <div class="portfolio-modal modal fade" id="portfolioModal4" tabindex="-1" role="dialog" aria-hidden="true">
+            <div class="modal-dialog">
+                <div class="modal-content">
+                    <div class="close-modal" data-bs-dismiss="modal"><img src="assets/img/close-icon.svg" alt="Close modal" /></div>
+                    <div class="container">
+                        <div class="row justify-content-center">
+                            <div class="col-lg-8">
+                                <div class="modal-body">
+                                    <!-- Project details-->
+                                    <h2 class="text-uppercase">Project Name</h2>
+                                    <p class="item-intro text-muted">Lorem ipsum dolor sit amet consectetur.</p>
+                                    <img class="img-fluid d-block mx-auto" src="assets/img/portfolio/4.jpg" alt="..." />
+                                    <p>Use this area to describe your project. Lorem ipsum dolor sit amet, consectetur adipisicing elit. Est blanditiis dolorem culpa incidunt minus dignissimos deserunt repellat aperiam quasi sunt officia expedita beatae cupiditate, maiores repudiandae, nostrum, reiciendis facere nemo!</p>
+                                    <ul class="list-inline">
+                                        <li>
+                                            <strong>Client:</strong>
+                                            Lines
+                                        </li>
+                                        <li>
+                                            <strong>Category:</strong>
+                                            Branding
+                                        </li>
+                                    </ul>
+                                    <button class="btn btn-primary btn-xl text-uppercase" data-bs-dismiss="modal" type="button">
+                                        <i class="fas fa-xmark me-1"></i>
+                                        Close Project
+                                    </button>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <!-- Portfolio item 5 modal popup-->
+        <div class="portfolio-modal modal fade" id="portfolioModal5" tabindex="-1" role="dialog" aria-hidden="true">
+            <div class="modal-dialog">
+                <div class="modal-content">
+                    <div class="close-modal" data-bs-dismiss="modal"><img src="assets/img/close-icon.svg" alt="Close modal" /></div>
+                    <div class="container">
+                        <div class="row justify-content-center">
+                            <div class="col-lg-8">
+                                <div class="modal-body">
+                                    <!-- Project details-->
+                                    <h2 class="text-uppercase">Project Name</h2>
+                                    <p class="item-intro text-muted">Lorem ipsum dolor sit amet consectetur.</p>
+                                    <img class="img-fluid d-block mx-auto" src="assets/img/portfolio/5.jpg" alt="..." />
+                                    <p>Use this area to describe your project. Lorem ipsum dolor sit amet, consectetur adipisicing elit. Est blanditiis dolorem culpa incidunt minus dignissimos deserunt repellat aperiam quasi sunt officia expedita beatae cupiditate, maiores repudiandae, nostrum, reiciendis facere nemo!</p>
+                                    <ul class="list-inline">
+                                        <li>
+                                            <strong>Client:</strong>
+                                            Southwest
+                                        </li>
+                                        <li>
+                                            <strong>Category:</strong>
+                                            Website Design
+                                        </li>
+                                    </ul>
+                                    <button class="btn btn-primary btn-xl text-uppercase" data-bs-dismiss="modal" type="button">
+                                        <i class="fas fa-xmark me-1"></i>
+                                        Close Project
+                                    </button>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <!-- Portfolio item 6 modal popup-->
+        <div class="portfolio-modal modal fade" id="portfolioModal6" tabindex="-1" role="dialog" aria-hidden="true">
+            <div class="modal-dialog">
+                <div class="modal-content">
+                    <div class="close-modal" data-bs-dismiss="modal"><img src="assets/img/close-icon.svg" alt="Close modal" /></div>
+                    <div class="container">
+                        <div class="row justify-content-center">
+                            <div class="col-lg-8">
+                                <div class="modal-body">
+                                    <!-- Project details-->
+                                    <h2 class="text-uppercase">Project Name</h2>
+                                    <p class="item-intro text-muted">Lorem ipsum dolor sit amet consectetur.</p>
+                                    <img class="img-fluid d-block mx-auto" src="assets/img/portfolio/6.jpg" alt="..." />
+                                    <p>Use this area to describe your project. Lorem ipsum dolor sit amet, consectetur adipisicing elit. Est blanditiis dolorem culpa incidunt minus dignissimos deserunt repellat aperiam quasi sunt officia expedita beatae cupiditate, maiores repudiandae, nostrum, reiciendis facere nemo!</p>
+                                    <ul class="list-inline">
+                                        <li>
+                                            <strong>Client:</strong>
+                                            Window
+                                        </li>
+                                        <li>
+                                            <strong>Category:</strong>
+                                            Photography
+                                        </li>
+                                    </ul>
+                                    <button class="btn btn-primary btn-xl text-uppercase" data-bs-dismiss="modal" type="button">
+                                        <i class="fas fa-xmark me-1"></i>
+                                        Close Project
+                                    </button>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <!-- Bootstrap core JS-->
+        <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.2.3/dist/js/bootstrap.bundle.min.js"></script>
+        <!-- Core theme JS-->
+        <script src="js/scripts.js"></script>
+        <!-- * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * *-->
+        <!-- * *                               SB Forms JS                               * *-->
+        <!-- * * Activate your form at https://startbootstrap.com/solution/contact-forms * *-->
+        <!-- * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * *-->
+        <script src="https://cdn.startbootstrap.com/sb-forms-latest.js"></script>      
+        <script>
+            function updateStarsValue(value) {
+                document.getElementById('starsValue').innerText = value;
+            }
+        </script>
+    </body>
+</html>
