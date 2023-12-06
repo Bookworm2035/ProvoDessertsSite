@@ -20,6 +20,115 @@
         <link href="https://fonts.googleapis.com/css?family=Roboto+Slab:400,100,300,700" rel="stylesheet" type="text/css" />
         <!-- Core theme CSS (includes Bootstrap)-->
         <link href="css/styles.css" rel="stylesheet" />
+        <style>
+            .radio-container {
+                display: flex;
+                align-items: center;
+            }
+
+            .radio-container label {
+                display: inline-block;
+                margin-right: -80px;
+            }
+
+            .radio-container input {
+                margin-top: 7px;
+                vertical-align: middle;
+            }
+
+            
+            .checkbox-container {
+                display: flex;
+                flex-direction: column;
+                align-items: flex-start;
+                margin-bottom: 20px;
+            }
+
+            .checkbox-container label {
+                display: flex;
+                align-items: center;
+                margin-right: 10px;
+                margin-bottom: 10px;
+            }
+
+            .checkbox-container label input {
+                /*margin-top: 2px;*/
+                margin-left: 8px;
+            }
+
+
+            .checkbox-group {
+                width: 33.33%; /* Each group takes up 1/3 of the container width */
+                box-sizing: border-box;
+                padding: 0 10px; /* Add some padding for spacing between groups */
+            }
+
+            /* Add the following style to clear the float used in label.formtext */
+            .clear-float {
+                clear: both;
+            }
+
+            label.formtext {
+            float: left;
+            width: 200px;
+            margin-right: 215px; /* Optional margin between label and input */
+            }
+
+            input,
+            select,
+            textarea {
+                width: 175px; /* Adjust the width as needed */
+            }
+
+            .submission-form label {
+                display: block;
+                text-align: left;
+                margin-bottom: 5px; /* Adjust the margin as needed */
+            }
+
+            .submission-form {
+                margin: 0 auto;
+                background-color: #ffffff9b;
+                padding: 20px;
+                border-radius: 8px;
+                box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+                width: 650px;
+            }
+
+            .static-numbers {
+                color: black;
+                display: flex;
+                justify-content: space-between;
+                align-items: flex-end;
+                margin-top: 10px;
+                position: relative;
+                /*THIS WIDTH LINE IS WHAT SPACES IT OUT*/
+                width: 100%;
+            }
+
+            .static-numbers span {
+                text-align: center;
+                width: calc(20% - 30px); /*this line adjusts the width of the static numbers/words*/
+            }
+    
+            .submission-form input,
+            .submission-form textarea {
+                width: 100%;
+                padding: 8px;
+                margin-bottom: 10px;
+                box-sizing: border-box;
+                align-items: stretch;
+            }
+    
+            .submission-form button {
+                background-color: #b8930f;
+                color: #fff;
+                padding: 10px;
+                border: none;
+                border-radius: 4px;
+                cursor: pointer;
+            }
+        </style>
     </head>
     <body id="page-top">
         <!-- Navigation-->
@@ -325,7 +434,7 @@
                         <br>
                         <div class="slider-container">
                             <!--CHANGE - get the label to be on the left, not over the 2-->
-                            <label class="formtext" for="FeelAboutComparisons">Following the previous question, how much do these comparisons <strong><em>negatively</em></strong> affect you?</label>
+                            <label class="formtext" for="FeelAboutComparisons">Following the previous question, how much do these comparisons <strong><em>negatively</em></strong> affect you, generally speaking?</label>
                             <br>
                             <input style="width: 90%; display: block; margin: 0 auto;" type="range" id="FeelAboutComparisons" name="FeelAboutComparisons" min="1" max="5" value="3"  required>
                             <div class="static-numbers">
