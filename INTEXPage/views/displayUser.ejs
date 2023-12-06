@@ -1,46 +1,94 @@
 <!DOCTYPE html>
 <html lang="en">
+
 <head>
-   <meta charset="UTF-8">
-   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-   <title>Users</title>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Users</title>
+    <style>
+        * {
+            /* Change your font family */
+            font-family: sans-serif;
+        }
+
+        .content-table {
+            border-collapse: collapse;
+            margin: 25px 0;
+            font-size: 0.9em;
+            min-width: 400px;
+            border-radius: 5px 5px 0 0;
+            overflow: hidden;
+            box-shadow: 0 0 20px rgba(0, 0, 0, 0.15);
+        }
+
+        .content-table thead tr {
+            background-color: #009879;
+            color: #ffffff;
+            text-align: left;
+            font-weight: bold;
+        }
+
+        .content-table th,
+        .content-table td {
+            padding: 12px 15px;
+        }
+
+        .content-table tbody tr {
+            border-bottom: 1px solid #dddddd;
+        }
+
+        .content-table tbody tr:nth-of-type(even) {
+            background-color: #f3f3f3;
+        }
+
+        .content-table tbody tr:last-of-type {
+            border-bottom: 2px solid #009879;
+        }
+
+        .content-table tbody tr.active-row {
+            font-weight: bold;
+            color: #009879;
+        }
+    </style>
 </head>
+
 <body>
-   <label><b>User Information:</b></label>
-   <br><br>
-   <table style="width: 100%; background-color: antiquewhite; border: 1px solid black;">
-     <thead style="background-color: cornflowerblue; color: white;">
-       <tr>
-         <th style="text-align: left;">Username</th>
-         <th style="text-align: left;">Password</th>
-         <!-- <th style="text-align: left;">Capital</th> -->
-         <th></th>
-         <th></th>
-       </tr>
-     </thead>
-     <tbody style="font-family: Arial; font-size: 9pt;">
-      <!--Going through each record in the LIST MYCOUNTRY that has the country variables, and now it is saying to create a table-->
-      <% for (let iCount = 0; iCount < myUser.length; iCount++) { %>
-         <tr>
-           <td><%= myUser[iCount].username %></td>
-           <td><%= myUser[iCount].password %></td>
-           <td style="text-align: center;">
-             <form action="/editUser/<%= myUser[iCount].user_id %>" method="GET">
-               <button type="submit">Edit</button>
-             </form>
-           </td>
-           <td style="text-align: center;">
-             <form action="/deleteUser/<%= myUser[iCount].user_id %>" method="POST">
-               <button type="submit">Delete</button>
-             </form>
-           </td>
-         </tr>
-      <% } %>
-     </tbody>
-   </table>
-   <br><br>
-   <form action="/addUser" method="GET">
-     <button type="submit">Add User</button>
-   </form>
+    <label><b>User Information:</b></label>
+    <br><br>
+    <table class="content-table">
+        <thead>
+            <tr>
+                <th style="text-align: left;">Username</th>
+                <th style="text-align: left;">Password</th>
+                <th></th>
+                <th></th>
+            </tr>
+        </thead>
+        <tbody>
+            <!-- Loop through records and populate the table, starting from the second row -->
+            <% for (let iCount = 1; iCount < myUser.length; iCount++) { %>
+            <tr>
+                <!-- Adjust these columns based on your actual column names -->
+                <td><%= myUser[iCount].username %></td>
+                <td><%= myUser[iCount].password %></td>
+                <td style="text-align: center;">
+                    <form action="/editUser/<%= myUser[iCount].user_id %>" method="GET">
+                        <button type="submit">Edit</button>
+                    </form>
+                </td>
+                <td style="text-align: center;">
+                    <form action="/deleteUser/<%= myUser[iCount].user_id %>" method="POST">
+                        <button type="submit">Delete</button>
+                    </form>
+                </td>
+            </tr>
+            <% } %>
+        </tbody>
+    </table>
+    <br><br>
+    <form action="/addUser" method="GET">
+        <button type="submit">Add User</button>
+    </form>
 </body>
+
 </html>
