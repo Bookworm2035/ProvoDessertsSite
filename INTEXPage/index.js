@@ -163,30 +163,30 @@ app.post("/deleteUser/:id", (req, res) => {
 
 
 
-app.post("/survey", async (req, res)=> {
+app.post("/survey", (req, res)=> {
    try {
-      let rowCount = await knex('persons').count('PersonID as count').first();
+    //  let rowCount = await knex('persons').count('PersonID as count').first();
 
-      let peopleCount = rowCount ? rowCount.count + 1 : 1;
-      const formData = req.body
-      let  now = new Date();
-      let date = now.toISOString().split('T')[0];
-      let time = now.toISOString().split('T')[1].split('.')[0];
-      let platforms = ['cbFacebook', 'cbTwitter', 'cbInstagram', 'cbYouTube', 'cbDiscord', 'cbReddit', 'cbPinterest', 'cbTikTok', 'cbSnapchat']
-      for (let iCount = 0; iCount < platforms.length; iCount++)
-      {
-         let optionChecked = req.body[platforms[iCount]] === 'on';
-         if (optionChecked)
-         {
-            knex('records').insert({
-               Date: date,
-               Time: time,
-               OccupationStatus: req.body.OccupationStatus,
-               PlatformID: iCount + 1,
-               PersonID: peopleCount
-            });
-         }
-      }
+      //let peopleCount = rowCount ? rowCount.count + 1 : 1;
+   //   const formData = req.body
+     // let  now = new Date();
+    //  let date = now.toISOString().split('T')[0];
+     // let time = now.toISOString().split('T')[1].split('.')[0];
+     // let platforms = ['cbFacebook', 'cbTwitter', 'cbInstagram', 'cbYouTube', 'cbDiscord', 'cbReddit', 'cbPinterest', 'cbTikTok', 'cbSnapchat']
+     // for (let iCount = 0; iCount < platforms.length; iCount++)
+     // {
+       //  let optionChecked = req.body[platforms[iCount]] === 'on';
+       //  if (optionChecked)
+       //  {
+        //    knex('records').insert({
+          //     Date: date,
+            //   Time: time,
+              // OccupationStatus: req.body.OccupationStatus,
+             //  PlatformID: iCount + 1,
+             //  PersonID: peopleCount
+           // });
+       //  }
+    //  }
          
       knex('persons').insert({
          Age: req.body.Age,
@@ -216,7 +216,7 @@ app.post("/survey", async (req, res)=> {
          //PlatformCount:
          Origin: 'Provo'
       });
-      res.status(200).json({ message: 'Survey submitted successfully' });
+
    } catch (error) {
       console.error('Error submitting survey:', error);
       // Handle the error and send an appropriate response
