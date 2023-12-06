@@ -105,7 +105,7 @@ app.post("/login", (req, res) => {
 })
 
 // Display all the users
-app.get("/users", (req, res)=> {
+app.get("/displayUser", (req, res)=> {
     knex.select().from("users").then(users => {
       res.render("displayUser", {myUser: users});
    })
