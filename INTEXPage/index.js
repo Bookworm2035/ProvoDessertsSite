@@ -163,7 +163,7 @@ app.post("/deleteUser/:id", (req, res) => {
 
 
 
-app.post("/survey", (req, res)=> {
+app.post("/survey", async (req, res)=> {
    try {
     //  let rowCount = await knex('persons').count('PersonID as count').first();
 
@@ -188,7 +188,7 @@ app.post("/survey", (req, res)=> {
        //  }
     //  }
          
-      knex('persons').insert({
+      await knex('persons').insert({
          Age: req.body.Age,
          Gender: req.body.Gender,
          RelationshipStatus: req.body.RelationshipStatus,
