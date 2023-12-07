@@ -1,11 +1,15 @@
 //This is our Node Index
 //Authors Natali, Nya, Hayden, Tyler Section 04
 
-
-
+const session = require("express-session");
 const express = require("express");
-
 let app = express();
+app.use(session({
+   secret: "dreamteam",
+   resave: false,
+   saveUninitialized: true
+}));
+
 app.use(express.json());
 
 let path = require('path');
@@ -43,6 +47,7 @@ app.use(express.static(path.join(__dirname,'./static')));
 //index page
 app.get('/', (req, res) => {
    //with ejs
+   req.session.username = null;
    res.render('index');
 });
 
@@ -66,8 +71,15 @@ app.get("/error", (req, res) => {
 });
 
 app.get("/indexUser", (req, res) => {
-   res.render("indexUser", { username: username });
-})
+   const username = req.session.username;
+   if (!username) {
+      // Redirect to the login page if username is not available
+      res.redirect("/login");
+   } else {
+      // Render the indexUser page with the username
+      res.render("indexUser", { username: username });
+   }
+});
 
 app.get("/logout", (req, res) => {
    res.render("logout");
@@ -86,7 +98,9 @@ app.post("/login", (req, res) => {
       .then( user => {
          if (user) {
             // Pass the username to the indexUser view
-            res.render("indexUser", { username: username });
+            req.session.username = username;
+            // Redirect to the indexUser page
+            res.redirect("/indexUser");
          } else {
             res.redirect("/error");
          }
@@ -94,9 +108,8 @@ app.post("/login", (req, res) => {
       .catch(err => {
          console.error(err);
          res.status(500).json({ error: "Internal Server Error" });
-      })
+      });
 });
-
 
 // Display all the users
 app.get("/displayUser", (req, res)=> {
