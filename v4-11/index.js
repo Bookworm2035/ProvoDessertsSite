@@ -121,7 +121,7 @@ app.post('/filterPersons', (req, res) => {
    const selectedPersonID = parseInt(req.body.PersonID); // Ensure it's a number if PersonID is numeric in the database
    knex.select().from('persons').where('PersonID', selectedPersonID)
       .then(filteredPersons => {
-         res.render("database", { allPersons: filteredPersons }); // Pass only filteredPersons
+         res.render("database", { filteredPersons: filteredPersons }); // Pass only filteredPersons
       })
       .catch(error => {
          console.error('Error fetching filtered persons:', error);
