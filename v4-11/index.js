@@ -2,16 +2,14 @@
 //Authors Natali, Nya, Hayden, Tyler Section 04
 
 const session = require("express-session");
-
+const express = require("express");
+let app = express();
 app.use(session({
    secret: "dreamteam",
    resave: false,
    saveUninitialized: true
 }));
 
-const express = require("express");
-
-let app = express();
 app.use(express.json());
 
 let path = require('path');
