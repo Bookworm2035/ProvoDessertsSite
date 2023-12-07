@@ -129,9 +129,6 @@ app.post('/filterPersons', (req, res) => {
          console.error('Error fetching filtered persons:', error);
          res.status(500).send('Error fetching filtered persons');
       });
-   }).catch(error => {
-      console.error('Error fetching all persons:', error);
-      res.status(500).send('Error fetching all persons');
 });
 
 
