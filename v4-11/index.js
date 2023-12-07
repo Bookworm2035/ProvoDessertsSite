@@ -84,20 +84,19 @@ app.post("/login", (req, res) => {
       .where({ username, password })
       .first()
       .then( user => {
-         if (user) 
-         {
-            res.redirect("/indexUser");
-         }
-         else 
-         {
+         if (user) {
+            // Pass the username to the indexUser view
+            res.render("indexUser", { username: username });
+         } else {
             res.redirect("/error");
          }
       })
       .catch(err => {
          console.error(err);
-         res.status(500).json({error: "Internal Server Error"})
+         res.status(500).json({ error: "Internal Server Error" });
       })
-})
+});
+
 
 // Display all the users
 app.get("/displayUser", (req, res)=> {
