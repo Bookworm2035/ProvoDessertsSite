@@ -100,15 +100,14 @@
   <form action="/filterPersons" method="POST">
     <label for="PersonID">Filter by PersonID:</label>
     <select name="PersonID" id="PersonID">
-      <% for (let iCount = 1; iCount < allPersons.length + 1; iCount++) { %>
-        <option value="<%= iCount %>"><%= iCount %></option>
-      <% } %>
+        <option value="all" <%= PersonID === 'all' ? 'selected' : '' %>>All Records</option>
+        <% for (let iCount = 1; iCount < allPersons.length + 1; iCount++) { %>
+            <option value="<%= iCount %>" <%= PersonID === iCount.toString() ? 'selected' : '' %>><%= iCount %></option>
+        <% } %>
     </select>
+    
     <br><br>
     <button type="submit">Submit</button>
-    <form action="/resetform" method="GET">
-        <button type="submit">Reset Filter</button>
-    </form>
     <br>
     <br>
   </form>

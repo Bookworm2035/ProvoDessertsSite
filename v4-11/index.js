@@ -129,10 +129,6 @@ app.post('/filterPersons', (req, res) => {
       });
 });
 
-app.get("/resetform", (req, res) => {
-   res.render("database");
-})
-
 
 // Site to add user to users
 app.get("/addUser", (req, res) => {
