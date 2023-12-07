@@ -97,7 +97,7 @@ body {
   <form action="/filterPersons" method="POST">
     <label for="PersonID">Filter by PersonID:</label>
     <select name="PersonID" id="PersonID">
-      <% for (let iCount = 0; iCount < allPersons.length; iCount++) { %>
+      <% for (let iCount = 1; iCount < allPersons.length + 1; iCount++) { %>
         <option value="<%= iCount %>"><%= iCount %></option>
       <% } %>
     </select>
