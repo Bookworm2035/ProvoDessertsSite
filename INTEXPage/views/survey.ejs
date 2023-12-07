@@ -1,522 +1,90 @@
-<!--
-    Natali Easton, Nya Croft, Tyler Hull, Hayden Cowart
-    Section 4
-    This is our Landing Page for our 403 Project
--->
 <!DOCTYPE html>
 <html lang="en">
-    <head>
-        <meta charset="utf-8" />
-        <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no" />
-        <meta name="description" content="" />
-        <meta name="author" content="" />
-        <title>Mindful Provo</title>
-        <!-- Favicon-->
-        <link rel="icon" type="image/x-icon" href="assets/favicon.ico" />
-        <!-- Font Awesome icons (free version)-->
-        <script src="https://use.fontawesome.com/releases/v6.3.0/js/all.js" crossorigin="anonymous"></script>
-        <!-- Google fonts-->
-        <link href="https://fonts.googleapis.com/css?family=Montserrat:400,700" rel="stylesheet" type="text/css" />
-        <link href="https://fonts.googleapis.com/css?family=Roboto+Slab:400,100,300,700" rel="stylesheet" type="text/css" />
-        <!-- Core theme CSS (includes Bootstrap)-->
-        <link href="css/styles.css" rel="stylesheet" />
-        <style>
-            .radio-container {
-                display: flex;
-                align-items: center;
-            }
-
-            .radio-container label {
-                display: inline-block;
-                margin-right: -80px;
-            }
-
-            .radio-container input {
-                margin-top: 7px;
-            }
-
-            
-            .checkbox-container {
-                display: flex;
-                flex-direction: column;
-                align-items: flex-end;
-                float: right;
-            }
-
-            .checkbox-container label {
-                display: inline-block;
-                vertical-align: left;
-                margin-right: 10px;
-                margin-bottom: 10px;
-            }
-
-            .checkbox-container input {
-                margin-top: 2px;
-            }
-
-            /* Add the following style to clear the float used in label.formtext */
-            .clear-float {
-                clear: both;
-            }
-
-            label.formtext {
-            float: left;
-            width: 200px;
-            margin-right: 215px; /* Optional margin between label and input */
-            }
-
-            input,
-            select,
-            textarea {
-                width: 175px; /* Adjust the width as needed */
-            }
-
-            .submission-form label {
-                display: block;
-                text-align: left;
-                margin-bottom: 5px; /* Adjust the margin as needed */
-            }
-
-            .submission-form {
-                margin: 0 auto;
-                background-color: #ffffff9b;
-                padding: 20px;
-                border-radius: 8px;
-                box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
-                width: 650px;
-            }
-
-            .static-numbers {
-                color: black;
-                display: flex;
-                justify-content: space-between;
-                align-items: flex-end;
-                margin-top: 10px;
-                position: relative;
-                /*THIS WIDTH LINE IS WHAT SPACES IT OUT*/
-                width: 100%;
-            }
-
-            .static-numbers span {
-                text-align: center;
-                width: calc(20% - 30px); /*this line adjusts the width of the static numbers/words*/
-            }
-    
-            .submission-form input,
-            .submission-form textarea {
-                width: 100%;
-                padding: 8px;
-                margin-bottom: 10px;
-                box-sizing: border-box;
-                align-items: stretch;
-            }
-    
-            .submission-form button {
-                background-color: #b8930f;
-                color: #fff;
-                padding: 10px;
-                border: none;
-                border-radius: 4px;
-                cursor: pointer;
-            }
-        </style>
-    </head>
-    <body id="page-top">
-        <!-- Navigation-->
-        <nav class="navbar navbar-expand-lg navbar-dark bg-dark fixed-top" id="mainNav">
-            <div class="container">
-                <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarResponsive" aria-controls="navbarResponsive" aria-expanded="false" aria-label="Toggle navigation">
-                    Menu
-                    <i class="fas fa-bars ms-1"></i>
-                </button>
-                <div class="collapse navbar-collapse" id="navbarResponsive">
-                    <ul class="navbar-nav text-uppercase ms-auto py-4 py-lg-0">
-                        <!--change  these might need to be ejs now and update the file path-->
-                        <li class="nav-item"><a class="nav-link" href="/">Home</a></li>
-                        <li class="nav-item"><a class="nav-link" href="login">Login</a></li>
-                        <li class="nav-item"><a class="nav-link" href="survey">Survey</a></li>
-                        <li class="nav-item"><a class="nav-link" href="dashboard">Dashboard</a></li>
-                    </ul>
-                </div>
-            </div>
-        </nav>
-        <!-- Submission Form -->
-        <!--Things that need to happen:
-            - zoom out background photo   
-        -->
-        <header class="masthead">
-            
-        </header>
-        <!-- Services-->
-        <section class="page-section" id="services">
-            <div class="container">
-                <div class="submission-form">
-                    <h2 class="formtext">Submit Information</h2>
-                    <br>
-                <form action="/survey" method="POST"> 
-                        <br>
-                        <label class="formtext clear-float"  for="Age">Age:</label>
-                        <input style="width: 175px;" type="number" pattern="\d+" step="1" id="Age" name="Age" required min="0" value="0">
-                        <br>
-                        <br>
-                        <br>
-                        <label class="formtext" for="Gender">Gender:</label>
-                        <select id="Gender" name="Gender">
-                            <option value="Male">Male</option>
-                            <option value="Female">Female</option>
-                            <option value="Non-binary">Non-binary</option>
-                            <option value="Other">Other</option>
-                        </select>
-                        <br>
-                        <br>
-                        <br>
-                        <label class="formtext" for="RelationStatus">Relationship Status:</label>
-                        <select id="RelationStatus" name="RelationStatus">
-                            <option value="Single">Single</option>
-                            <option value="Relationship">In a relationship</option>
-                            <option value="Married">Married</option>
-                            <option value="Divorced">Divorced</option>
-                        </select>
-                        <br>
-                        <br>
-                        <br>
-                        <label class="formtext" for="OccupationStatus">Occupation Status:</label>
-                        <select id="OccupationStatus" name="OccupationStatus">
-                            <option value="UniversityStud">University Student</option>
-                            <option value="SchoolStud">School Student</option>
-                            <option value="SalariedWorker">Salaried Worker</option>
-                            <option value="Retired">Retired</option>
-                        </select>
-                        <br>
-                        <br>
-                        <br>
-                        <div class="radio-container" name="AffiliatesRadios">
-                            <label class="formtext clear-float" for="UniversityBoolean">Are you affiliated with a University?</label>
-                            <label for="UniYes">Yes</label>
-                            <input type="radio" id="UniYes" name="UniversityBoolean" value="Yes"><br>
-                            <label for="UniNo">No</label> <!--Need to use the same name so that only one can be selected-->
-                            <input type="radio" id="UniNo" name="UniversityBoolean" value="No"><br>
-                        </div>
-                        <br>
-                        <br>
-                        <br>
-                        <div class="radio-container" name="AffiliatesRadios">
-                            <label class="formtext clear-float" for="CompanyBoolean">Are you affiliated with a Company?</label>
-                            <label for="CompYes">Yes</label>
-                            <input type="radio" id="CompYes" name="CompanyBoolean" value="Yes"><br>
-                            <label for="CompNo">No</label> <!--Need to use the same name so that only one can be selected-->
-                            <input type="radio" id="CompNo" name="CompanyBoolean" value="No"><br>
-                        </div>
-                        <br>
-                        <br>
-                        <br>
-                        <div class="radio-container" name="AffiliatesRadios">
-                            <label class="formtext clear-float" for="GovernmentBoolean">Are you affiliated with the Government?</label>
-                            <label for="GovYes">Yes</label>
-                            <input type="radio" id="GovYes" name="GovernmentBoolean" value="Yes"><br>
-                            <label for="GovNo">No</label> <!--Need to use the same name so that only one can be selected-->
-                            <input type="radio" id="GovNo" name="GovernmentBoolean" value="No"><br>
-                        </div>
-                        <br>
-                        <br>
-                        <br>
-                        <div class="radio-container" name="AffiliatesRadios">
-                            <label class="formtext clear-float" for="PrivateBoolean">Are you affiliated with a Private Organization (such as a religious organization)?</label>
-                            <label for="PrivYes">Yes</label>
-                            <input type="radio" id="PrivYes" name="PrivateBoolean" value="Yes"><br>
-                            <label for="PrivNo">No</label> <!--Need to use the same name so that only one can be selected-->
-                            <input type="radio" id="PrivNo" name="PrivateBoolean" value="No"><br>
-                        </div>
-                        <br>
-                        <br>
-                        <br>
-                        <div class="radio-container" name="AffiliatesRadios">
-                            <label class="formtext clear-float" for="SchoolBoolean">Are you affiliated with a (non-university) School?</label>
-                            <label for="SchoolYes">Yes</label>
-                            <input type="radio" id="SchoolYes" name="SchoolBoolean" value="Yes"><br>
-                            <label for="SchoolNo">No</label> <!--Need to use the same name so that only one can be selected-->
-                            <input type="radio" id="SchoolNo" name="SchoolBoolean" value="No"><br>
-                        </div>
-                        <br>
-                        <br>
-                        <br>
-                        <div class="radio-container">
-                            <label class="formtext clear-float" for="SocialMediaBoolean">Do you use social media?</label>
-                            <label for="rbYes">Yes</label>
-                            <input type="radio" id="rbYes" name="SocialMediaBoolean" value="Yes"><br>
-                            <label for="rbNo">No</label>
-                            <input type="radio" id="rbNo" name="SocialMediaBoolean" value="No"><br>
-                        </div>
-                        <br>
-                        <br>
-                        <br>
-                        
-                        <label class="formtext" for="Platforms">What social media platforms do you commonly use? (check all that apply)</label>
-                        <br>
-                        <br>
-                        <br>
-                        <br>        
-                        <br>
-                            <div class="checkbox-container">
-                                <label for="cbFacebook">Facebook</label>
-                                <input type="checkbox" id="cbFacebook" name="Platforms" value="1">             
-                                <label for="cbTwitter">Twitter</label>
-                                <input type="checkbox" id="cbTwitter" name="Platforms" value="2">
-                                <label for="cbInstagram">Instagram</label>
-                                <input type="checkbox" id="cbInstagram" name="Platforms" value="3">
-                                <label for="cbYouTube">YouTube</label>
-                                <input type="checkbox" id="cbYouTube" name="Platforms" value="4">
-                                <label for="cbDiscord">Discord</label>
-                                <input type="checkbox" id="cbDiscord" name="Platforms" value="5">
-                                <label for="cbReddit">Reddit</label>
-                                <input type="checkbox" id="cbReddit" name="Platforms" value="6">
-                                <label for="cbPinterest">Pinterest</label>
-                                <input type="checkbox" id="cbPinterest" name="Platforms" value="7">
-                                <label for="cbTikTok">TikTok</label>
-                                <input type="checkbox" id="cbTikTok" name="Platforms" value="8">
-                                <label for="cbSnapchat">Snapchat</label>
-                                <input type="checkbox" id="cbSnapchat" name="Platforms" value="9">
-                            </div>
-                        <br>
-                        <br>
-                        <br>
-                        <br>
-                        <label class="formtext" for="AvgTime">What is the average time you spend on social media every day?</label>
-                        <select id="AvgTime" name="AvgTime">
-                            <option value="1">Less than 1 hour</option>
-                            <option value="2">Between 1 and 2 hours</option>
-                            <option value="3">Between 2 and 3 hours</option>
-                            <option value="4">Between 3 and 4 hours</option>
-                            <option value="5">Between 4 and 5 hours</option>
-                            <option value="6">More than 5 hours</option>
-                        </select>
-                        <br>
-                        <br>
-                        <br>
-                        <br>
-                        <br>
-                        <br><!---->
-                    
-                    <div class="slider-container">
-                        <!--CHANGE - get the label to be on the left, not over the 2-->
-                        <label class="formtext" for="specificPurpose">How often do you find yourself using social media without a specific purpose? </label>
-                        <br>
-                        <input style="width: 90%; display: block; margin: 0 auto;" type="range" id="specificPurpose" name="specificPurpose" min="1" max="5" value="3"  required>
-                        <div class="static-numbers">
-                            <span>Never</span>
-                            <span>Rarely</span>
-                            <span>Sometimes</span>
-                            <span>Frequently</span>
-                            <span>Always</span>
-                        </div>
-                        <br>
-                    </div>                    
-                    <br>
-                    <br>
-                    <br>
-                    <div class="slider-container">
-                        <!--CHANGE - get the label to be on the left, not over the 2-->
-                        <label class="formtext" for="DistractedBusy">How often do you get distracted by social media when you are busy doing something? </label>
-                        <br>
-                        <input style="width: 90%; display: block; margin: 0 auto;" type="range" id="DistractedBusy" name="DistractedBusy" min="1" max="5" value="3"  required>
-                        <div class="static-numbers">
-                            <span>Never</span>
-                            <span>Rarely</span>
-                            <span>Sometimes</span>
-                            <span>Frequently</span>
-                            <span>Always</span>
-                        </div>
-                        <br>
-                    </div>
-                    <br>
-                    <br>
-                    <br>
-                    <div class="slider-container">
-                        <!--CHANGE - get the label to be on the left, not over the 2-->
-                        <label class="formtext" for="RestlessWithout">How often do you feel restless if you haven’t used social media in a while?</label>
-                        <br>
-                        <input style="width: 90%; display: block; margin: 0 auto;" type="range" id="RestlessWithout" name="RestlessWithout" min="1" max="5" value="3"  required>
-                        <div class="static-numbers">
-                            <span>Never</span>
-                            <span>Rarely</span>
-                            <span>Sometimes</span>
-                            <span>Frequently</span>
-                            <span>Always</span>
-                        </div>
-                        <br>
-                    </div>
-                    <br>
-                    <br>
-                    <br>
-                    <div class="slider-container">
-                        <!--CHANGE - get the label to be on the left, not over the 2-->
-                        <label class="formtext" for="EasilyDistracted">How easily distracted are you?</label>
-                        <br>
-                        <input style="width: 90%; display: block; margin: 0 auto;" type="range" id="EasilyDistracted" name="EasilyDistracted" min="1" max="5" value="3"  required>
-                        <div class="static-numbers">
-                            <span>1</span>
-                            <span>2</span>
-                            <span>3</span>
-                            <span>4</span>
-                            <span>5</span>
-                        </div>
-                        <br>
-                    </div>
-                    <br>
-                    <br>
-                    <br>
-                    <div class="slider-container">
-                        <!--CHANGE - get the label to be on the left, not over the 2-->
-                        <label class="formtext" for="BotheredByWorries">How much are you bothered by worries?</label>
-                        <br>
-                        <input style="width: 90%; display: block; margin: 0 auto;" type="range" id="BotheredByWorries" name="BotheredByWorries" min="1" max="5" value="3"  required>
-                        <div class="static-numbers">
-                            <span>1</span>
-                            <span>2</span>
-                            <span>3</span>
-                            <span>4</span>
-                            <span>5</span>
-                        </div>
-                        <br>
-                    </div>
-                    <br>
-                    <br>
-                    <br>
-                    <div class="slider-container">
-                        <!--CHANGE - get the label to be on the left, not over the 2-->
-                        <label class="formtext" for="DifficultToConcentrate">How often do you find it difficult to concentrate on things?</label>
-                        <br>
-                        <input style="width: 90%; display: block; margin: 0 auto;" type="range" id="DifficultToConcentrate" name="DifficultToConcentrate" min="1" max="5" value="3"  required>
-                        <div class="static-numbers">
-                            <span>Never</span>
-                            <span>Rarely</span>
-                            <span>Sometimes</span>
-                            <span>Frequently</span>
-                            <span>Always</span>
-                        </div>
-                        <br>
-                    </div>
-                    <br>
-                    <br>
-                    <br>
-                    <div class="slider-container">
-                        <!--CHANGE - get the label to be on the left, not over the 2-->
-                        <label class="formtext" for="CompareYourself">How often do you compare yourself to other successful people through the use of social media?</label>
-                        <br>
-                        <input style="width: 90%; display: block; margin: 0 auto;" type="range" id="CompareYourself" name="CompareYourself" min="1" max="5" value="3"  required>
-                        <div class="static-numbers">
-                            <span>Never</span>
-                            <span>Rarely</span>
-                            <span>Sometimes</span>
-                            <span>Frequently</span>
-                            <span>Always</span>
-                        </div>
-                        <br>
-                    </div>
-                    <br>
-                    <br>
-                    <br>
-                    <div class="slider-container">
-                        <!--CHANGE - get the label to be on the left, not over the 2-->
-                        <label class="formtext" for="FeelAboutComparisons">Following the previous question, how do you feel about these comparisons, generally speaking?</label>
-                        <br>
-                        <input style="width: 90%; display: block; margin: 0 auto;" type="range" id="FeelAboutComparisons" name="FeelAboutComparisons" min="1" max="5" value="3"  required>
-                        <div class="static-numbers">
-                            <span>1</span>
-                            <span>2</span>
-                            <span>3</span>
-                            <span>4</span>
-                            <span>5</span>
-                        </div>
-                        <br>
-                    </div>
-                    <br>
-                    <br>
-                    <br>
-                    <div class="slider-container">
-                        <!--CHANGE - get the label to be on the left, not over the 2-->
-                        <label class="formtext" for="SeekValidation">How often do you look to seek validation from features of social media?</label>
-                        <br>
-                        <input style="width: 90%; display: block; margin: 0 auto;" type="range" id="SeekValidation" name="SeekValidation" min="1" max="5" value="3"  required>
-                        <div class="static-numbers">
-                            <span>Never</span>
-                            <span>Rarely</span>
-                            <span>Sometimes</span>
-                            <span>Frequently</span>
-                            <span>Always</span>
-                        </div>
-                        <br>
-                    </div>
-                    <br>
-                    <br>
-                    <br>
-                    <div class="slider-container">
-                        <!--CHANGE - get the label to be on the left, not over the 2-->
-                        <label class="formtext" for="OftenDepressed">How often do you feel depressed or down?</label>
-                        <br>
-                        <input style="width: 90%; display: block; margin: 0 auto;" type="range" id="OftenDepressed" name="OftenDepressed" min="1" max="5" value="3"  required>
-                        <div class="static-numbers">
-                            <span>Never</span>
-                            <span>Rarely</span>
-                            <span>Sometimes</span>
-                            <span>Frequently</span>
-                            <span>Always</span>
-                        </div>
-                        <br>
-                    </div>
-                    <br>
-                    <br>
-                    <br>
-                    <div class="slider-container">
-                        <!--CHANGE - get the label to be on the left, not over the 2-->
-                        <label class="formtext" for="InterestFluctuate">How frequently does your interested in daily activities fluctuate?</label>
-                        <br>
-                        <input style="width: 90%; display: block; margin: 0 auto;" type="range" id="InterestFluctuate" name="InterestFluctuate" min="1" max="5" value="3"  required>
-                        <div class="static-numbers">
-                            <span>Never</span>
-                            <span>Rarely</span>
-                            <span>Sometimes</span>
-                            <span>Frequently</span>
-                            <span>Always</span>
-                        </div>
-                        <br>
-                    </div>
-                    <br>
-                    <br>
-                    <br>
-                    <div class="slider-container">
-                        <!--CHANGE - get the label to be on the left, not over the 2-->
-                        <label class="formtext" for="SleepIssues">How often do you face issues regarding sleep?</label>
-                        <br>
-                        <input style="width: 90%; display: block; margin: 0 auto;" type="range" id="SleepIssues" name="SleepIssues" min="1" max="5" value="3"  required>
-                        <div class="static-numbers">
-                            <span>Never</span>
-                            <span>Rarely</span>
-                            <span>Sometimes</span>
-                            <span>Frequently</span>
-                            <span>Always</span>
-                        </div>
-                        <br>
-                    </div>
-                    <br>
-                    <br>
-                    <br>
-                    <button type="submit">Submit</button>
-                </form>
-                </div>
-        <!-- Bootstrap core JS-->
-        <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.2.3/dist/js/bootstrap.bundle.min.js"></script>
-        <!-- Core theme JS-->
-        <script src="js/scripts.js"></script>
-        <!-- * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * *-->
-        <!-- * *                               SB Forms JS                               * *-->
-        <!-- * * Activate your form at https://startbootstrap.com/solution/contact-forms * *-->
-        <!-- * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * *-->
-        <script src="https://cdn.startbootstrap.com/sb-forms-latest.js"></script>      
-        <script>
-            function updateStarsValue(value) {
-                document.getElementById('starsValue').innerText = value;
-            }
-        </script>
-    </body>
+<head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no" />
+    <meta name="description" content="" />
+    <meta name="author" content="" />
+    <title>Your Form Title</title>
+    <!-- Add any additional styling or external CSS links here -->
+</head>
+<body>
+    <form action="/survey" method="POST">
+        <!-- Age -->
+        <label for="age">Age:</label>
+        <input type="text" id="age" name="age" required><br>
+        <!-- Gender -->
+        <label for="gender">Gender:</label>
+        <select id="gender" name="gender" required>
+            <option value="male">Male</option>
+            <option value="female">Female</option>
+            <!-- Add more gender options as needed -->
+        </select><br>
+        <!-- Relationship Status -->
+        <label for="relationshipStatus">Relationship Status:</label>
+        <input type="text" id="relationshipStatus" name="relationshipStatus" required><br>
+        <!-- Occupation Status -->
+        <label for="occupationStatus">Occupation Status:</label>
+        <input type="text" id="occupationStatus" name="occupationStatus" required><br>
+        <!-- University Affiliation -->
+        <label for="universityAffiliation">University Affiliation:</label>
+        <input type="text" id="universityAffiliation" name="universityAffiliation" required><br>
+        <!-- School Affiliation -->
+        <label for="schoolAffiliation">School Affiliation:</label>
+        <input type="text" id="schoolAffiliation" name="schoolAffiliation" required><br>
+        <!-- Company Affiliation -->
+        <label for="companyAffiliation">Company Affiliation:</label>
+        <input type="text" id="companyAffiliation" name="companyAffiliation" required><br>
+        <!-- Government Affiliation -->
+        <label for="governmentAffiliation">Government Affiliation:</label>
+        <input type="text" id="governmentAffiliation" name="governmentAffiliation" required><br>
+        <!-- Private Affiliation -->
+        <label for="privateAffiliation">Private Affiliation:</label>
+        <input type="text" id="privateAffiliation" name="privateAffiliation" required><br>
+        <!-- Social Media User -->
+        <label for="socialMediaUser">Social Media User:</label>
+        <input type="text" id="socialMediaUser" name="socialMediaUser" required><br>
+        <!-- Usage ID -->
+        <label for="usageID">Usage ID:</label>
+        <input type="text" id="usageID" name="usageID" required><br>
+        <!-- Usage ID -->
+        <label for="Q1">Q1:</label>
+        <input type="text" id="Q1" name="Q1" required><br>
+        <!-- Usage ID -->
+        <label for="Q2">Q2:</label>
+        <input type="text" id="Q2" name="Q2" required><br>
+        <!-- Usage ID -->
+        <label for="Q3">Q3:</label>
+        <input type="text" id="Q3" name="Q3" required><br>
+        <!-- Usage ID -->
+        <label for="Q4">Q4:</label>
+        <input type="text" id="Q4" name="Q4" required><br>
+        <!-- Usage ID -->
+        <label for="Q5">Q5:</label>
+        <input type="text" id="Q5" name="Q5" required><br>
+        <!-- Usage ID -->
+        <label for="Q6">Q6:</label>
+        <input type="text" id="Q6" name="Q6" required><br>
+        <!-- Usage ID -->
+        <label for="Q7">Q7:</label>
+        <input type="text" id="Q7" name="Q7" required><br>
+        <!-- Usage ID -->
+        <label for="Q8">Q8:</label>
+        <input type="text" id="Q8" name="Q8" required><br>
+        <!-- Usage ID -->
+        <label for="Q9">Q9:</label>
+        <input type="text" id="Q9" name="Q9" required><br>
+        <!-- Usage ID -->
+        <label for="Q10">Q10:</label>
+        <input type="text" id="Q10" name="Q10" required><br>
+        <!-- Usage ID -->
+        <label for="Q11">Q11:</label>
+        <input type="text" id="Q11" name="Q11" required><br>
+        <!-- Usage ID -->
+        <label for="Q12">Q12:</label>
+        <input type="text" id="Q12" name="Q12" required><br>
+        <!-- Submit Button -->
+        <button type="submit">Submit</button>
+    </form>
+</body>
 </html>

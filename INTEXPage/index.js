@@ -1,5 +1,7 @@
-//This is our Node Index
+n//This is our Node Index
 //Authors Natali, Nya, Hayden, Tyler Section 04
+
+
 
 const express = require("express");
 
@@ -20,7 +22,9 @@ app.use(express.urlencoded({extended:true}));
 const knex = require("knex")({
    client: "pg",
    connection: {
-   host: process.env.RDS_HOSTNAME || "localhost", 
+      host:
+         process.env.DB_ENDPOINT || 
+         "awseb-e-fbbnwcpagp-stack-awsebrdsdatabase-bea3yfm1iimr.cevqwie9c4vj.us-east-2.rds.amazonaws.com",
    user: process.env.RDS_USERNAME || "postgres",
    password: process.env.RDS_PASSWORD || "Comolibros44ever",
    database: process.env.RDS_DB_NAME || "health_data",
@@ -68,9 +72,9 @@ app.get("/logout", (req, res) => {
    res.render("logout");
 })
 
-app.get("/database", (req, res) => {
-   res.render("database");
-})
+//app.get("/database", (req, res) => {
+ //  res.render("database");
+//})
 
 //This is for the admin who can see all the users and edit them
 //Need this for each table in the database later
@@ -110,6 +114,13 @@ app.get("/displayUser", (req, res)=> {
       res.render("displayUser", {myUser: users});
    })
 })
+
+app.get("/database", (req, res) => {
+   knex.select().from("records").then(records => {
+      res.render("database", {myRecords: records})
+   })
+})
+
 
 // Site to add user to users
 app.get("/addUser", (req, res) => {
@@ -158,72 +169,64 @@ app.post("/deleteUser/:id", (req, res) => {
 });
 
 
+app.post("/submit-survey", (req, res)=> {
+   const {
+      Age,
+      Gender,
+      RelationshipStatus,
+      OccupationStatus,
+      UniversityAffiliation,
+      SchoolAffiliation,
+      CompanyAffiliation,
+      GovernmentAffiliation,
+      PrivateAffiliation,
+      SocialMediaUser,
+      UsageID,
+      Q1,
+      Q2,
+      Q3,
+      Q4,
+      Q5,
+      Q6,
+      Q7,
+      Q8,
+      Q9,
+      Q10,
+      Q11,
+      Q12
+      // PlatformCount
+   } = req.body
 
-
-
-
-
-app.post("/survey", async (req, res)=> {
-   try {
-    //  let rowCount = await knex('persons').count('PersonID as count').first();
-
-      //let peopleCount = rowCount ? rowCount.count + 1 : 1;
-   //   const formData = req.body
-     // let  now = new Date();
-    //  let date = now.toISOString().split('T')[0];
-     // let time = now.toISOString().split('T')[1].split('.')[0];
-     // let platforms = ['cbFacebook', 'cbTwitter', 'cbInstagram', 'cbYouTube', 'cbDiscord', 'cbReddit', 'cbPinterest', 'cbTikTok', 'cbSnapchat']
-     // for (let iCount = 0; iCount < platforms.length; iCount++)
-     // {
-       //  let optionChecked = req.body[platforms[iCount]] === 'on';
-       //  if (optionChecked)
-       //  {
-        //    knex('records').insert({
-          //     Date: date,
-            //   Time: time,
-              // OccupationStatus: req.body.OccupationStatus,
-             //  PlatformID: iCount + 1,
-             //  PersonID: peopleCount
-           // });
-       //  }
-    //  }
-         
-      await knex('persons').insert({
-         Age: req.body.Age,
-         Gender: req.body.Gender,
-         RelationshipStatus: req.body.RelationshipStatus,
-         OccupationStatus: req.body.OccupationStatus,
-         UniversityAffiliation: req.body.cbUniversity,
-         SchoolAffiliation: req.body.cbSchool,
-         CompanyAffiliation: req.body.cbCompany,
-         GovernmentAffiliation: req.body.cbGovernment, 
-         PrivateAffiliation: req.body.cbPrivate,
-         SocialMediaUser: req.body.cbSchool, 
-         UsageID: req.body.AvgTime,
-         Q1: req.body.specificPurpose,
-         Q2: req.body.DistractedBusy,
-         Q3: req.body.RestlessWithout,
-         Q4: req.body.EasilyDistracted,
-         Q5: req.body.BotheredByWorries,
-         Q6: req.body.DifficultyToConcentrate,
-         Q7: req.body.CompareYourself,
-         Q8: req.body.FeelAboutComparisons,
-         Q9: req.body.SeekValidation,
-         Q10: req.body.OftenDepressed,
-         Q11: req.body.InterestFluctuate,
-         Q12: req.body.SleepIssues,
-         //AverageScore: req.body, 
-         //PlatformCount:
-         Origin: 'Provo'
-      });
-
-   } catch (error) {
-      console.error('Error submitting survey:', error);
-      // Handle the error and send an appropriate response
-      res.status(500).json({ error: 'Internal Server Error' });
-   }
+   knex('persons').insert({
+      Age: Age,
+      Gender: Gender, 
+      RelationshipStatus: RelationshipStatus,
+      OccupationStatus: OccupationStatus,
+      UniversityAffiliation: UniversityAffiliation,
+      SchoolAffiliation: SchoolAffiliation,
+      CompanyAffiliation: CompanyAffiliation,
+      GovernmentAffiliation: GovernmentAffiliation,
+      PrivateAffiliation: PrivateAffiliation,
+      SocialMediaUser: SocialMediaUser,
+      UsageID: UsageID,
+      Q1: Q1,
+      Q2: Q2,
+      Q3: Q3,
+      Q4: Q4,
+      Q5: Q5,
+      Q6: Q6,
+      Q7: Q7,
+      Q8: Q8,
+      Q9: Q9,
+      Q10: Q10,
+      Q11: Q11,
+      Q12: Q12,
+      PlatformCount: '10',
+      Origin: "Provo"
+   }).then(myPersons => {
+         res.redirect("/");
+   })
 });
-
 
  //listen at the end
 app.listen(port,() => console.log("I am listening"));
