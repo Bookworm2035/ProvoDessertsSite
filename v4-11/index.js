@@ -121,7 +121,8 @@ app.get('/filterPersons', (req, res) => {
    const selectedPersonID = req.query.selectedPersonID || 'all'; // Ensure it's a string
    knex.select().from('persons').where('PersonID', parseInt(selectedPersonID))
       .then(filteredPersons => {
-         res.render("database", { allPersons: filteredPersons });
+         res.render("database", { allPersons: filteredPersons,
+         selectedPersonID });
       })
       .catch(error => {
          console.error('Error fetching filtered persons:', error);
