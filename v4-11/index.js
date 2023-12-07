@@ -157,65 +157,54 @@ app.post("/deleteUser/:id", (req, res) => {
    });
 });
 
-app.post("/submitSurvey", (req, res)=> {
-   const {
-      Age,
-      Gender,
-      RelationshipStatus,
-      OccupationStatus,
-      UniversityAffiliation,
-      SchoolAffiliation,
-      CompanyAffiliation,
-      GovernmentAffiliation,
-      PrivateAffiliation,
-      SocialMediaUser,
-      UsageID,
-      Q1,
-      Q2,
-      Q3,
-      Q4,
-      Q5,
-      Q6,
-      Q7,
-      Q8,
-      Q9,
-      Q10,
-      Q11,
-      Q12
-      // PlatformCount
-   } = req.body
-console.log("CHICKEN")
-console.log(req.body)
-console.log(Age)
-   knex('persons').insert({
-      Age: Age,
-      Gender: Gender, 
-      RelationshipStatus: RelationshipStatus,
-      OccupationStatus: OccupationStatus,
-      UniversityAffiliation: UniversityAffiliation,
-      SchoolAffiliation: SchoolAffiliation,
-      CompanyAffiliation: CompanyAffiliation,
-      GovernmentAffiliation: GovernmentAffiliation,
-      PrivateAffiliation: PrivateAffiliation,
-      SocialMediaUser: SocialMediaUser,
-      UsageID: UsageID,
-      Q1: Q1,
-      Q2: Q2,
-      Q3: Q3,
-      Q4: Q4,
-      Q5: Q5,
-      Q6: Q6,
-      Q7: Q7,
-      Q8: Q8,
-      Q9: Q9,
-      Q10: Q10,
-      Q11: Q11,
-      Q12: Q12,
-      PlatformCount: '10',
-      Origin: "Provo"
-   }).then(myPersons => {
-         res.redirect("/");
-   })
+app.post("/submitsurvey", async (req, res) => {
+   const hardcodedorigin = "Provo";
+   const selectedPlatforms = req.body.PlatformID;
+   try {
+      const surveyId = await knex("persons")
+         .insert({
+            Age: req.body.Age,
+            Gender:req.body.Gender,
+            RelationshipStatus:req.body.RelationshipStatus,
+            OccupationStatus: req.body.OccupationStatus,
+            UniversityAffiliation: req.body.UniversityAffiliation,
+            SchoolAffiliation: req.body.SchoolAffiliation,
+            CompanyAffiliation: req.body.CompanyAffiliation,
+            GovernmentAffiliation: req.body.GovernmentAffiliation,
+            PrivateAffiliation: req.body.PrivateAffiliation,
+            SocialMediaUser: req.body.SocialMediaUser,
+            UsageID: req.body.UsageID,
+            Q1: req.body.Q1,
+            Q2: req.body.Q2,
+            Q3: req.body.Q3,
+            Q4: req.body.Q4,
+            Q5: req.body.Q5,
+            Q6: req.body.Q6,
+            Q7: req.body.Q7,
+            Q8: req.body.Q8,
+            Q9: req.body.Q9,
+            Q10: req.body.Q10,
+            Q11: req.body.Q11,
+            Q12: req.body.Q12,
+            Origin: hardcodedorigin
+         })
+         .returning('PersonID');
+      console.log(surveyId);
+      const platformInsertPromises = selectedPlatforms.map(platform => {
+         return knex("records").insert({
+            Date: knex.raw('CURRENT_TIMESTAMP'),
+            Time: knex.raw('CURRENT_TIMESTAMP'),
+            OccupationStatus: req.body.OccupationStatus,
+            PlatformID: platform,
+            PersonID: surveyId[0].PersonID,
+         });
+      });
+      await Promise.all(platformInsertPromises);
+      res.redirect("/");
+   } catch (error) {
+      console.error('Error:', error);
+      res.status(500).send('Error submitting survey.');
+   }
 });
 
  //listen at the end
