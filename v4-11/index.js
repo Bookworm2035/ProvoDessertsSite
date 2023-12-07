@@ -171,7 +171,7 @@ app.post("/survey", async (req, res) => {
             SchoolAffiliation: req.body.SchoolAffiliation,
             CompanyAffiliation: req.body.CompanyAffiliation,
             GovernmentAffiliation: req.body.GovernmentAffiliation,
-            PrivateAfiliation: req.body.PrivateAfiliation,
+            PrivateAffiliation: req.body.PrivateAffiliation,
             SocialMediaUser: req.body.SocialMediaUser,
             UsageID: req.body.UsageID,
             Q1: req.body.Q1,
@@ -189,7 +189,9 @@ app.post("/survey", async (req, res) => {
             Origin: hardcodedorigin
          })
          .returning('PersonID');
-      
+      console.log(Age)
+      console.log(Chicken)
+      console.log(surveyId)
       const platformInsertPromises = selectedPlatforms.map(platform => {
          return knex("records").insert({
             Date: knex.raw('CURRENT_TIMESTAMP'),
