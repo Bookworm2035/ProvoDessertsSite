@@ -106,11 +106,35 @@ app.get("/displayUser", (req, res)=> {
    })
 })
 
+
+// Displaying database
 app.get("/database", (req, res) => {
-   knex.select().from("records").then(records => {
-      res.render("database", {myRecords: records})
+   knex.select().from("persons").then(persons => {
+      res.render("database", {allPersons: persons})
    })
 })
+
+app.post('/filterPersons', (req, res) => {
+   const selectedPersonID = req.body.PersonID
+
+   knex.select().from('persons').then(allPersons => {
+      knex.select().from('persons').where('PersonID', selectedPersonID).then(filteredPersons => {
+         res.render('database', {
+            myPersonsID: myPersonsID,
+            filteredPersons: filteredPersons,
+            allPersons: allPersons
+         });
+      }).catch(error => {
+         console.error('Error fetching filtered persons:', error);
+         res.status(500).send('Error fetching filtered persons');
+      });
+   }).catch(error => {
+      console.error('Error fetching all persons:', error);
+      res.status(500).send('Error fetching all persons');
+   });
+});
+
+
 
 
 // Site to add user to users
