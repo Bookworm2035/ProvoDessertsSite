@@ -117,20 +117,17 @@ app.get("/database", (req, res) => {
    });
 });
 
-// app.post('/filterPersons', (req, res) => {
-//    const selectedPersonID = req.body.PersonID;
-
-//    knex.select().from('persons').then(myPersons => {
-//       const filteredPersons = myPersons.filter(person => person.PersonID === selectedPersonID);
-
-//       res.render("database", { allPersons: myPersons, filteredPersons: filteredPersons, myPersonsID: myPersons });
-
-//       }).catch(error => {
-//          console.error('Error fetching filtered persons:', error);
-//          res.status(500).send('Error fetching filtered persons');
-//       });
-// });
-
+app.post('/filterPersons', (req, res) => {
+   const selectedPersonID = parseInt(req.body.PersonID); // Ensure it's a number if PersonID is numeric in the database
+   knex.select().from('persons').where('PersonID', selectedPersonID)
+      .then(filteredPersons => {
+         res.render("database", { allPersons: filteredPersons }); // Pass only filteredPersons
+      })
+      .catch(error => {
+         console.error('Error fetching filtered persons:', error);
+         res.status(500).send('Error fetching filtered persons');
+      });
+});
 
 
 

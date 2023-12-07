@@ -94,6 +94,18 @@ html lang="en">
 <body>
   <!--Why does this not show up even?-->
   <br><br>
+    <form action="/filterPersons" method="POST">
+    <label for="PersonID">Filter by PersonID:</label>
+    <select name="PersonID" id="PersonID">
+        <% for (let iCount = 0; iCount < myPersonsID.length; iCount++) { %>
+            <option value="<%= myPersonsID[iCount].PersonID %>"><%= myPersonsID[iCount].PersonID %></option>
+        <% } %>
+    </select>
+    <br><br>
+    <button type="submit">Submit</button>
+    <br>
+    <br>
+    </form>
   <!--MAKE THIS BIGGER AND PRETTIER-->
     <label><b><h2>Database:</h2></b></label>
     <br>
