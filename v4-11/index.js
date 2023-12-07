@@ -117,19 +117,19 @@ app.get("/database", (req, res) => {
    });
 });
 
-app.post('/filterPersons', (req, res) => {
-   const selectedPersonID = req.body.PersonID;
+// app.post('/filterPersons', (req, res) => {
+//    const selectedPersonID = req.body.PersonID;
 
-   knex.select().from('persons').then(myPersons => {
-      const filteredPersons = myPersons.filter(person => person.PersonID === selectedPersonID);
+//    knex.select().from('persons').then(myPersons => {
+//       const filteredPersons = myPersons.filter(person => person.PersonID === selectedPersonID);
 
-      res.render("database", { allPersons: myPersons, filteredPersons: filteredPersons, myPersonsID: myPersons });
+//       res.render("database", { allPersons: myPersons, filteredPersons: filteredPersons, myPersonsID: myPersons });
 
-      }).catch(error => {
-         console.error('Error fetching filtered persons:', error);
-         res.status(500).send('Error fetching filtered persons');
-      });
-});
+//       }).catch(error => {
+//          console.error('Error fetching filtered persons:', error);
+//          res.status(500).send('Error fetching filtered persons');
+//       });
+// });
 
 
 

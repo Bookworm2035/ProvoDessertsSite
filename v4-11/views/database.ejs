@@ -1,93 +1,101 @@
 <!DOCTYPE html>
-<html lang="en">
-<head>
-  <meta charset="UTF-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>Dropdown List Example</title>
+html lang="en">
+    <head>
+        <meta charset="utf-8" />
+        <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no" />
+        <meta name="description" content="" />
+        <meta name="author" content="" />
+        <title>Provo Pulse</title>
+        <!-- Favicon-->
+        <link rel="icon" type="image/x-icon" href="assets/favicon.ico" />
+        <!-- Font Awesome icons (free version)-->
+        <script src="https://use.fontawesome.com/releases/v6.3.0/js/all.js" crossorigin="anonymous"></script>
+        <!-- Google fonts-->
+        <link href="https://fonts.googleapis.com/css?family=Montserrat:400,700" rel="stylesheet" type="text/css" />
+        <link href="https://fonts.googleapis.com/css?family=Roboto+Slab:400,100,300,700" rel="stylesheet" type="text/css" />
+        <!-- Core theme CSS (includes Bootstrap)-->
+        <link href="css/styles.css" rel="stylesheet" />
 
-</head>
+        <style>
+          * {
+              /* Change your font family */
+              font-family: sans-serif;
+          }
+  
+        
+          body {
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            padding-top: 20px; /* Add padding to the top */
+          }
+
+          .content-table {
+            border-collapse: collapse;
+            width: 75%; /* Set the width to 75% of the screen */
+            margin-top: 20px; /* Add margin to the top */
+            margin-bottom: 20px; /* Add margin to the bottom */
+            font-size: 0.9em;
+            min-width: 400px;
+            border-radius: 5px 5px 0 0;
+            overflow: hidden;
+            box-shadow: 0 0 20px rgba(0, 0, 0, 0.15);
+          }
+  
+          .content-table thead tr {
+              background-color: #009879;
+              color: #ffffff;
+              text-align: left;
+              font-weight: bold;
+          }
+  
+          .content-table th,
+          .content-table td {
+              padding: 12px 15px;
+          }
+  
+          .content-table tbody tr {
+              border-bottom: 1px solid #dddddd;
+          }
+  
+          .content-table tbody tr:nth-of-type(even) {
+              background-color: #f3f3f3;
+          }
+  
+          .content-table tbody tr:last-of-type {
+              border-bottom: 2px solid #009879;
+          }
+  
+          .content-table tbody tr.active-row {
+              font-weight: bold;
+              color: #009879;
+          }
+      </style>
+    </head>
+    <body id="page-top">
+        <!-- Navigation-->
+        <nav class="navbar navbar-expand-lg navbar-dark bg-dark fixed-top" id="mainNav">
+            <div class="container">
+                <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarResponsive" aria-controls="navbarResponsive" aria-expanded="false" aria-label="Toggle navigation">
+                    Menu
+                    <i class="fas fa-bars ms-1"></i>
+                </button>
+                <div class="collapse navbar-collapse" id="navbarResponsive">
+                    <ul class="navbar-nav text-uppercase ms-auto py-4 py-lg-0">
+                        <li class="nav-item"><a class="nav-link" href="indexUser">Home</a></li>
+                        <li class="nav-item"><a class="nav-link" href="database">Database</a></li>
+                        <li class="nav-item"><a class="nav-link" href="displayUser">Users</a></li>
+                        <li class="nav-item"><a class="nav-link" href="/">Logout</a></li>
+
+                    </ul>
+                </div>
+            </div>
+        </nav>
 <body>
-
-    <form action="/filterPersons" method="POST">
-        <label for="PersonID">Filter by PersonID:</label>
-        <select name="PersonID" id="PersonID">
-            <% for (let iCount = 0; iCount < myPersonsID.length; iCount++) { %>
-                <option value="<%= myPersonsID[iCount].PersonID %>"><%= myPersonsID[iCount].PersonID %></option>
-            <% } %>
-        </select>
-        <br><br>
-        <button type="submit">Submit</button>
-        <br>
-        <br>
-    </form>
-        <table class="content-table">
-        <thead>
-            <tr>
-                <!--Add in two line breaks to make more readable -->
-                <br>
-                <br>
-                <th style="text-align: left;">Age</th>
-                <th style="text-align: left;">Gender</th>
-                <th style="text-align: left;">Relationship Status</th>
-                <th style="text-align: left;">Occupation Status</th>
-                <th style="text-align: left;">University Affiliation</th>
-                <th style="text-align: left;">School Affiliation</th>
-                <th style="text-align: left;">Company Affiliation</th>
-                <th style="text-align: left;">Government Affiliation</th>
-                <th style="text-align: left;">Private Affiliation</th>
-                <th style="text-align: left;">Social Media User</th>
-                <th style="text-align: left;">Usage ID</th>
-                <th style="text-align: left;">Specific Purpose</th>
-                <th style="text-align: left;">Distracted When Busy</th>
-                <th style="text-align: left;">Restless</th>
-                <th style="text-align: left;">Distracted</th>
-                <th style="text-align: left;">Bothered by Worries</th>
-                <th style="text-align: left;">Difficult to Concentrate</th>
-                <th style="text-align: left;">Comparison</th>
-                <th style="text-align: left;">Negative Comparisons</th>
-                <th style="text-align: left;">Seek Validation</th>
-                <th style="text-align: left;">Depressed</th>
-                <th style="text-align: left;">Interest</th>
-                <th style="text-align: left;">Sleep Issues</th>
-                <th style="text-align: left;">Origin</th>
-                <th></th>
-                <th></th>
-              </tr>
-        </thead>
-        <tbody>
-            <!-- Loop through records and populate the table, starting from the second row -->
-            <% for (let iCount = 0; iCount < filteredPersons.length; iCount++) { %>
-            <tr>
-                <!-- Adjust these columns based on your actual column names -->
-                <td><%= filteredPersons[iCount].Age %></td>
-                <td><%= filteredPersons[iCount].Gender %></td>
-                <td><%= filteredPersons[iCount].RelationshipStatus %></td>
-                <td><%= filteredPersons[iCount].OccupationStatus %></td>
-                <td><%= filteredPersons[iCount].UniversityAffiliation %></td>
-                <td><%= filteredPersons[iCount].SchoolAffiliation %></td>
-                <td><%= filteredPersons[iCount].CompanyAffiliation %></td>
-                <td><%= filteredPersons[iCount].GovernmentAffiliation %></td>
-                <td><%= filteredPersons[iCount].PrivateAffiliation %></td>
-                <td><%= filteredPersons[iCount].SocialMediaUser %></td>
-                <td><%= filteredPersons[iCount].UsageID %></td>
-                <td><%= filteredPersons[iCount].Q1 %></td>
-                <td><%= filteredPersons[iCount].Q2 %></td>
-                <td><%= filteredPersons[iCount].Q3 %></td>
-                <td><%= filteredPersons[iCount].Q4 %></td>
-                <td><%= filteredPersons[iCount].Q5 %></td>
-                <td><%= filteredPersons[iCount].Q6 %></td>
-                <td><%= filteredPersons[iCount].Q7 %></td>
-                <td><%= filteredPersons[iCount].Q8 %></td>
-                <td><%= filteredPersons[iCount].Q9 %></td>
-                <td><%= filteredPersons[iCount].Q10 %></td>
-                <td><%= filteredPersons[iCount].Q11 %></td>
-                <td><%= filteredPersons[iCount].Q12 %></td>
-                <td><%= filteredPersons[iCount].Origin %></td>
-            </tr>
-            <% } %>
-        </tbody>
-    </table>
-    <br>
+  <!--Why does this not show up even?-->
+  <br><br>
+  <!--MAKE THIS BIGGER AND PRETTIER-->
+    <label><b><h2>Database:</h2></b></label>
     <br>
     <br>
     <table class="content-table">

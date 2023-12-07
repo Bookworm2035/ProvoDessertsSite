@@ -1,0 +1,80 @@
+
+<form action="/filterPersons" method="POST">
+    <label for="PersonID">Filter by PersonID:</label>
+    <select name="PersonID" id="PersonID">
+        <% for (let iCount = 0; iCount < myPersonsID.length; iCount++) { %>
+            <option value="<%= myPersonsID[iCount].PersonID %>"><%= myPersonsID[iCount].PersonID %></option>
+        <% } %>
+    </select>
+    <br><br>
+    <button type="submit">Submit</button>
+    <br>
+    <br>
+</form>
+    <table class="content-table">
+    <thead>
+        <tr>
+            <!--Add in two line breaks to make more readable -->
+            <br>
+            <br>
+            <th style="text-align: left;">Age</th>
+            <th style="text-align: left;">Gender</th>
+            <th style="text-align: left;">Relationship Status</th>
+            <th style="text-align: left;">Occupation Status</th>
+            <th style="text-align: left;">University Affiliation</th>
+            <th style="text-align: left;">School Affiliation</th>
+            <th style="text-align: left;">Company Affiliation</th>
+            <th style="text-align: left;">Government Affiliation</th>
+            <th style="text-align: left;">Private Affiliation</th>
+            <th style="text-align: left;">Social Media User</th>
+            <th style="text-align: left;">Usage ID</th>
+            <th style="text-align: left;">Specific Purpose</th>
+            <th style="text-align: left;">Distracted When Busy</th>
+            <th style="text-align: left;">Restless</th>
+            <th style="text-align: left;">Distracted</th>
+            <th style="text-align: left;">Bothered by Worries</th>
+            <th style="text-align: left;">Difficult to Concentrate</th>
+            <th style="text-align: left;">Comparison</th>
+            <th style="text-align: left;">Negative Comparisons</th>
+            <th style="text-align: left;">Seek Validation</th>
+            <th style="text-align: left;">Depressed</th>
+            <th style="text-align: left;">Interest</th>
+            <th style="text-align: left;">Sleep Issues</th>
+            <th style="text-align: left;">Origin</th>
+            <th></th>
+            <th></th>
+          </tr>
+    </thead>
+    <tbody>
+        <!-- Loop through records and populate the table, starting from the second row -->
+        <% for (let iCount = 0; iCount < filteredPersons.length; iCount++) { %>
+        <tr>
+            <!-- Adjust these columns based on your actual column names -->
+            <td><%= filteredPersons[iCount].Age %></td>
+            <td><%= filteredPersons[iCount].Gender %></td>
+            <td><%= filteredPersons[iCount].RelationshipStatus %></td>
+            <td><%= filteredPersons[iCount].OccupationStatus %></td>
+            <td><%= filteredPersons[iCount].UniversityAffiliation %></td>
+            <td><%= filteredPersons[iCount].SchoolAffiliation %></td>
+            <td><%= filteredPersons[iCount].CompanyAffiliation %></td>
+            <td><%= filteredPersons[iCount].GovernmentAffiliation %></td>
+            <td><%= filteredPersons[iCount].PrivateAffiliation %></td>
+            <td><%= filteredPersons[iCount].SocialMediaUser %></td>
+            <td><%= filteredPersons[iCount].UsageID %></td>
+            <td><%= filteredPersons[iCount].Q1 %></td>
+            <td><%= filteredPersons[iCount].Q2 %></td>
+            <td><%= filteredPersons[iCount].Q3 %></td>
+            <td><%= filteredPersons[iCount].Q4 %></td>
+            <td><%= filteredPersons[iCount].Q5 %></td>
+            <td><%= filteredPersons[iCount].Q6 %></td>
+            <td><%= filteredPersons[iCount].Q7 %></td>
+            <td><%= filteredPersons[iCount].Q8 %></td>
+            <td><%= filteredPersons[iCount].Q9 %></td>
+            <td><%= filteredPersons[iCount].Q10 %></td>
+            <td><%= filteredPersons[iCount].Q11 %></td>
+            <td><%= filteredPersons[iCount].Q12 %></td>
+            <td><%= filteredPersons[iCount].Origin %></td>
+        </tr>
+        <% } %>
+    </tbody>
+</table>
