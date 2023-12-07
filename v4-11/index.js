@@ -118,16 +118,17 @@ app.get("/database", (req, res) => {
 });
 
 app.get('/filterPersons', (req, res) => {
-   const selectedPersonID = req.query.selectedPersonID || 'all'; // Ensure it's a number if PersonID is numeric in the database
-   knex.select().from('persons').where('PersonID', selectedPersonID)
+   const selectedPersonID = req.query.selectedPersonID || 'all'; // Ensure it's a string
+   knex.select().from('persons').where('PersonID', parseInt(selectedPersonID))
       .then(filteredPersons => {
-         res.render("database", { allPersons: filteredPersons }); // Pass only filteredPersons
+         res.render("database", { allPersons: filteredPersons });
       })
       .catch(error => {
          console.error('Error fetching filtered persons:', error);
          res.status(500).send('Error fetching filtered persons');
       });
 });
+
 
 
 // Site to add user to users
