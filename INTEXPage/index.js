@@ -194,7 +194,9 @@ app.post("/submitSurvey", (req, res)=> {
       Q12
       // PlatformCount
    } = req.body
-
+console.log("CHICKEN")
+console.log(req.body)
+console.log(Age)
    knex('persons').insert({
       Age: Age,
       Gender: Gender, 
