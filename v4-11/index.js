@@ -118,7 +118,7 @@ app.get("/database", (req, res) => {
 });
 
 app.get('/filterPersons', (req, res) => {
-   const selectedPersonID = parseInt(req.query.PersonID) || 'all'; // Ensure it's a number if PersonID is numeric in the database
+   const selectedPersonID = req.query.selectedPersonID || 'all'; // Ensure it's a number if PersonID is numeric in the database
    knex.select().from('persons').where('PersonID', selectedPersonID)
       .then(filteredPersons => {
          res.render("database", { allPersons: filteredPersons }); // Pass only filteredPersons
