@@ -78,7 +78,6 @@
   --bs-code-color: #d63384;
   --bs-highlight-bg: #fff4cc;
 }
-
 .radio-container {
   display: flex;
   align-items: center;
@@ -91,25 +90,34 @@
 
 .radio-container input {
   margin-top: 7px;
+  vertical-align: middle;
 }
 
 
 .checkbox-container {
   display: flex;
   flex-direction: column;
-  align-items: flex-end;
-  float: right;
+  align-items: flex-start;
+  margin-bottom: 20px;
 }
 
 .checkbox-container label {
-  display: inline-block;
-  vertical-align: left;
+  display: flex;
+  align-items: center;
   margin-right: 10px;
   margin-bottom: 10px;
 }
 
-.checkbox-container input {
-  margin-top: 2px;
+.checkbox-container label input {
+  /*margin-top: 2px;*/
+  margin-left: 8px;
+}
+
+
+.checkbox-group {
+  width: 33.33%; /* Each group takes up 1/3 of the container width */
+  box-sizing: border-box;
+  padding: 0 10px; /* Add some padding for spacing between groups */
 }
 
 /* Add the following style to clear the float used in label.formtext */
@@ -170,14 +178,13 @@ textarea {
 }
 
 .submission-form button {
-  background-color: #b8930f;
-  color: #fff;
+  background-color: #009879; 
+  color: #fff;          
   padding: 10px;
   border: none;
   border-radius: 4px;
   cursor: pointer;
 }
-
 /* CSS */
 .button-container {
   text-align: center; /* Center the buttons */
