@@ -113,21 +113,24 @@ app.post("/login", (req, res) => {
 
 // Display all the users
 app.get("/displayUser", (req, res)=> {
+   const username= req.session.username;
     knex.select().from("users").then(users => {
-      res.render("displayUser", {myUser: users});
+      res.render("displayUser", {myUser: users, username: username});
    })
 })
 
 app.get("/database", (req, res) => {
+   const username= req.session.username;
    knex.select().from("records").then(records => {
-      res.render("database", {myRecords: records})
+      res.render("database", {myRecords: records, username: username});
    })
 })
 
 
 // Site to add user to users
 app.get("/addUser", (req, res) => {
-    res.render("addUser");
+   const username= req.session.username;
+    res.render("addUser", { username: username });
 })
 
 // Adding to the users table
