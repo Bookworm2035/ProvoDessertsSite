@@ -15,26 +15,22 @@
         <link href="https://fonts.googleapis.com/css?family=Roboto+Slab:400,100,300,700" rel="stylesheet" type="text/css" />
         <!-- Core theme CSS (includes Bootstrap)-->
         <link href="css/styles.css" rel="stylesheet" />
-
         <style>
             * {
                 font-family: sans-serif;
             }
-    
             body {
                 display: flex;
                 flex-direction: column;
                 align-items: center;
                 padding-top: 20px;
             }
-    
             .table-container {
                 overflow-x: auto;
                 width: 75%;
                 margin-top: 20px;
                 margin-bottom: 20px;
             }
-    
             .content-table {
                 border-collapse: collapse;
                 width: 100%;
@@ -44,30 +40,24 @@
                 overflow: hidden;
                 box-shadow: 0 0 20px rgba(0, 0, 0, 0.15);
             }
-    
             .content-table thead tr {
                 background-color: #009879;
-                color: #ffffff;
+                color: #FFFFFF;
                 text-align: left;
                 font-weight: bold;
             }
-    
             .content-table th, .content-table td {
                 padding: 12px 15px;
             }
-    
             .content-table tbody tr {
-                border-bottom: 1px solid #dddddd;
+                border-bottom: 1px solid #DDDDDD;
             }
-    
             .content-table tbody tr:nth-of-type(even) {
-                background-color: #f3f3f3;
+                background-color: #F3F3F3;
             }
-    
             .content-table tbody tr:last-of-type {
                 border-bottom: 2px solid #009879;
             }
-    
             .content-table tbody tr.active-row {
                 font-weight: bold;
                 color: #009879;
@@ -88,7 +78,6 @@
                         <li class="nav-item"><a class="nav-link" href="database">Database</a></li>
                         <li class="nav-item"><a class="nav-link" href="displayUser">Users</a></li>
                         <li class="nav-item"><a class="nav-link" href="/">Logout</a></li>
-
                     </ul>
                 </div>
             </div>
@@ -97,22 +86,18 @@
   <!--Why does this not show up even?-->
   <br><br>
   <br><br>
-  <form action="/filterPersons" method="GET">
-    <label for="selectedPersonID">Filter by PersonID:</label>
-    <select name="selectedPersonID" id="selectedPersonID">
-        <option value="all" <%= selectedPersonID === 'all' ? 'selected' : '' %>>All Records</option>
-        <% for (let iCount = 1; iCount < allPersons.length + 1; iCount++) { %>
-            <option value="<%= iCount %>" <%= selectedPersonID === iCount.toString() ? 'selected' : '' %>><%= iCount %></option>
-        <% } %>
+  <form action="/filterPersons" method="POST">
+    <label for="PersonID">Filter by PersonID:</label>
+    <select name="PersonID" id="PersonID">
+      <% for (let iCount = 1; iCount < allPersons.length + 1; iCount++) { %>
+        <option value="<%= iCount %>"><%= iCount %></option>
+      <% } %>
     </select>
-    
     <br><br>
     <button type="submit">Submit</button>
     <br>
     <br>
-</form>
-
-  
+  </form>
   <!--MAKE THIS BIGGER AND PRETTIER-->
     <label><b><h2>Database:</h2></b></label>
     <br>
