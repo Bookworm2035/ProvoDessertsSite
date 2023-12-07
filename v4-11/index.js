@@ -109,21 +109,22 @@ app.get("/displayUser", (req, res)=> {
 
 // Displaying database
 app.get("/database", (req, res) => {
-   knex.select().from("persons").then(persons => {
-      res.render("database", {allPersons: persons})
-   })
-})
+   knex.select().from("persons").then(myPersons => {
+      res.render("database", {allPersons: myPersons})
+   }).catch(error => {
+      console.error('Error fetching all persons:', error);
+      res.status(500).send('Error fetching all persons');
+   });
+});
 
 app.post('/filterPersons', (req, res) => {
-   const selectedPersonID = req.body.PersonID
+   const selectedPersonID = req.body.PersonID;
 
-   knex.select().from('persons').then(allPersons => {
-      knex.select().from('persons').where('PersonID', selectedPersonID).then(filteredPersons => {
-         res.render('database', {
-            myPersonsID: myPersonsID,
-            filteredPersons: filteredPersons,
-            allPersons: allPersons
-         });
+   knex.select().from('persons').then(myPersons => {
+      const filteredPersons = myPersons.filter(person => person.PersonID === selectedPersonID);
+
+      res.render("database", { allPersons: myPersons, filteredPersons: filteredPersons, myPersonsID: myPersons });
+
       }).catch(error => {
          console.error('Error fetching filtered persons:', error);
          res.status(500).send('Error fetching filtered persons');
@@ -131,7 +132,6 @@ app.post('/filterPersons', (req, res) => {
    }).catch(error => {
       console.error('Error fetching all persons:', error);
       res.status(500).send('Error fetching all persons');
-   });
 });
 
 
