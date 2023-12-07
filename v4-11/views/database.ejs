@@ -1,0 +1,241 @@
+<!DOCTYPE html>
+<html lang="en">
+    <head>
+        <meta charset="utf-8" />
+        <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no" />
+        <meta name="description" content="" />
+        <meta name="author" content="" />
+        <title>Provo Pulse</title>
+        <!-- Favicon-->
+        <link rel="icon" type="image/x-icon" href="assets/favicon.ico" />
+        <!-- Font Awesome icons (free version)-->
+        <script src="https://use.fontawesome.com/releases/v6.3.0/js/all.js" crossorigin="anonymous"></script>
+        <!-- Google fonts-->
+        <link href="https://fonts.googleapis.com/css?family=Montserrat:400,700" rel="stylesheet" type="text/css" />
+        <link href="https://fonts.googleapis.com/css?family=Roboto+Slab:400,100,300,700" rel="stylesheet" type="text/css" />
+        <!-- Core theme CSS (includes Bootstrap)-->
+        <link href="css/styles.css" rel="stylesheet" />
+
+        <style>
+        * {
+    font-family: sans-serif;
+}
+
+body {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    padding-top: 20px;
+}
+
+.content-table {
+    border-collapse: collapse;
+    width: 95%; /* Adjust the width based on your preference */
+    margin-top: 20px;
+    margin-bottom: 20px;
+    font-size: 0.8em; /* Adjust the font size based on your preference */
+    min-width: 400px;
+    border-radius: 5px 5px 0 0;
+    overflow: hidden;
+    box-shadow: 0 0 20px rgba(0, 0, 0, 0.15);
+}
+
+.content-table thead tr {
+    background-color: #009879;
+    color: #ffffff;
+    text-align: left;
+    font-weight: bold;
+}
+
+.content-table th,
+.content-table td {
+    padding: 12px 15px;
+}
+
+.content-table tbody tr {
+    border-bottom: 1px solid #dddddd;
+}
+
+.content-table tbody tr:nth-of-type(even) {
+    background-color: #f3f3f3;
+}
+
+.content-table tbody tr:last-of-type {
+    border-bottom: 2px solid #009879;
+}
+
+.content-table tbody tr.active-row {
+    font-weight: bold;
+    color: #009879;
+}
+
+    </style>
+    </head>
+    <body id="page-top">
+        <!-- Navigation-->
+        <nav class="navbar navbar-expand-lg navbar-dark bg-dark fixed-top" id="mainNav">
+            <div class="container">
+                <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarResponsive" aria-controls="navbarResponsive" aria-expanded="false" aria-label="Toggle navigation">
+                    Menu
+                    <i class="fas fa-bars ms-1"></i>
+                </button>
+                <div class="collapse navbar-collapse" id="navbarResponsive">
+                    <ul class="navbar-nav text-uppercase ms-auto py-4 py-lg-0">
+                        <li class="nav-item"><a class="nav-link" href="indexUser">Home</a></li>
+                        <li class="nav-item"><a class="nav-link" href="database">Database</a></li>
+                        <li class="nav-item"><a class="nav-link" href="displayUser">Users</a></li>
+                        <li class="nav-item"><a class="nav-link" href="/">Logout</a></li>
+
+                    </ul>
+                </div>
+            </div>
+        </nav>
+<!-- <body> -->
+  <!--Why does this not show up even?-->
+  <br><br>
+  <!--MAKE THIS BIGGER AND PRETTIER-->
+    <label><b><h2>Database:</h2></b></label>
+    <br>
+    <label class="selectedRow" for="selectedRow">Chose a PersonID</label>
+    <select id="selectedRow" name="selectedRow">
+        <% for (let iCount = 0; iCount < allPersons.length; iCount++) { %>
+            <option value="<%= iCount %>" <%= selectedRow == iCount ? 'selected' : '' %>>Row <%= iCount + 1 %></option>
+        <% } %>
+        </select>
+        <% if (selectedRow !== '') { %>
+            <!-- Execute logic for the selected row, e.g., highlight or navigate to the row -->
+            <table class="content-table">
+                <thead>
+                    <tr>
+                      <!--Add in two line breaks to make more readable -->
+                      <br>
+                        <th style="text-align: left;">Age</th>
+                        <th style="text-align: left;">Gender</th>
+                        <th style="text-align: left;">Relationship Status</th>
+                        <th style="text-align: left;">Occupation Status</th>
+                        <th style="text-align: left;">University Affiliation</th>
+                        <th style="text-align: left;">School Affiliation</th>
+                        <th style="text-align: left;">Company Affiliation</th>
+                        <th style="text-align: left;">Government Affiliation</th>
+                        <th style="text-align: left;">Private Affiliation</th>
+                        <th style="text-align: left;">Social Media User</th>
+                        <th style="text-align: left;">Usage ID</th>
+                        <th style="text-align: left;">Specific Purpose</th>
+                        <th style="text-align: left;">Distracted When Busy</th>
+                        <th style="text-align: left;">Restless</th>
+                        <th style="text-align: left;">Distracted</th>
+                        <th style="text-align: left;">Bothered by Worries</th>
+                        <th style="text-align: left;">Difficult to Concentrate</th>
+                        <th style="text-align: left;">Comparison</th>
+                        <th style="text-align: left;">Negative Comparisons</th>
+                        <th style="text-align: left;">Seek Validation</th>
+                        <th style="text-align: left;">Depressed</th>
+                        <th style="text-align: left;">Interest</th>
+                        <th style="text-align: left;">Sleep Issues</th>
+                        <th style="text-align: left;">Origin</th>
+                        <th></th>
+                        <th></th>
+                    </tr>
+                </thead>
+                <tbody>
+                        <!-- Loop through records and populate the table, starting from the second row -->
+                    <tr>
+                    <td><%= allPersons[selectedRow].Age %></td>
+                    <td><%= allPersons[selectedRow].Gender %></td>
+                    <td><%= allPersons[selectedRow].RelationshipStatus %></td>
+                    <td><%= allPersons[selectedRow].OccupationStatus %></td>
+                    <td><%= allPersons[selectedRow].UniversityAffiliation %></td>
+                    <td><%= allPersons[selectedRow].SchoolAffiliation %></td>
+                    <td><%= allPersons[selectedRow].CompanyAffiliation %></td>
+                    <td><%= allPersons[selectedRow].GovernmentAffiliation %></td>
+                    <td><%= allPersons[selectedRow].PrivateAffiliation %></td>
+                    <td><%= allPersons[selectedRow].SocialMediaUser %></td>
+                    <td><%= allPersons[selectedRow].UsageID %></td>
+                    <td><%= allPersons[selectedRow].Q1 %></td>
+                    <td><%= allPersons[selectedRow].Q2 %></td>
+                    <td><%= allPersons[selectedRow].Q3 %></td>
+                    <td><%= allPersons[selectedRow].Q4 %></td>
+                    <td><%= allPersons[selectedRow].Q5 %></td>
+                    <td><%= allPersons[selectedRow].Q6 %></td>
+                    <td><%= allPersons[selectedRow].Q7 %></td>
+                    <td><%= allPersons[selectedRow].Q8 %></td>
+                    <td><%= allPersons[selectedRow].Q9 %></td>
+                    <td><%= allPersons[selectedRow].Q10 %></td>
+                    <td><%= allPersons[selectedRow].Q11 %></td>
+                    <td><%= allPersons[selectedRow].Q12 %></td>
+                    <td><%= allPersons[selectedRow].Origin %></td>
+                    </tr>
+                    <% } %>
+                </tbody>
+            </table>
+<br><br><br>
+    <br>
+    <table class="content-table">
+        <thead>
+            <tr>
+              <!--Add in two line breaks to make more readable -->
+              <br>
+              <br>
+                <th style="text-align: left;">Age</th>
+                <th style="text-align: left;">Gender</th>
+                <th style="text-align: left;">Relationship Status</th>
+                <th style="text-align: left;">Occupation Status</th>
+                <th style="text-align: left;">University Affiliation</th>
+                <th style="text-align: left;">School Affiliation</th>
+                <th style="text-align: left;">Company Affiliation</th>
+                <th style="text-align: left;">Government Affiliation</th>
+                <th style="text-align: left;">Private Affiliation</th>
+                <th style="text-align: left;">Social Media User</th>
+                <th style="text-align: left;">Usage ID</th>
+                <th style="text-align: left;">Specific Purpose</th>
+                <th style="text-align: left;">Distracted When Busy</th>
+                <th style="text-align: left;">Restless</th>
+                <th style="text-align: left;">Distracted</th>
+                <th style="text-align: left;">Bothered by Worries</th>
+                <th style="text-align: left;">Difficult to Concentrate</th>
+                <th style="text-align: left;">Comparison</th>
+                <th style="text-align: left;">Negative Comparisons</th>
+                <th style="text-align: left;">Seek Validation</th>
+                <th style="text-align: left;">Depressed</th>
+                <th style="text-align: left;">Interest</th>
+                <th style="text-align: left;">Sleep Issues</th>
+                <th style="text-align: left;">Origin</th>
+                <th></th>
+                <th></th>
+            </tr>
+        </thead>
+        <tbody>
+            <!-- Loop through records and populate the table, starting from the second row -->
+            <% for (let iCount = 0; iCount < allPersons.length; iCount++) { %>
+            <tr>
+                <!-- Adjust these columns based on your actual column names -->
+                <td><%= allPersons[iCount].Age %></td>
+                <td><%= allPersons[iCount].Gender %></td>
+                <td><%= allPersons[iCount].RelationshipStatus %></td>
+                <td><%= allPersons[iCount].OccupationStatus %></td>
+                <td><%= allPersons[iCount].UniversityAffiliation %></td>
+                <td><%= allPersons[iCount].SchoolAffiliation %></td>
+                <td><%= allPersons[iCount].CompanyAffiliation %></td>
+                <td><%= allPersons[iCount].GovernmentAffiliation %></td>
+                <td><%= allPersons[iCount].PrivateAffiliation %></td>
+                <td><%= allPersons[iCount].SocialMediaUser %></td>
+                <td><%= allPersons[iCount].UsageID %></td>
+                <td><%= allPersons[iCount].Q1 %></td>
+                <td><%= allPersons[iCount].Q2 %></td>
+                <td><%= allPersons[iCount].Q3 %></td>
+                <td><%= allPersons[iCount].Q4 %></td>
+                <td><%= allPersons[iCount].Q5 %></td>
+                <td><%= allPersons[iCount].Q6 %></td>
+                <td><%= allPersons[iCount].Q7 %></td>
+                <td><%= allPersons[iCount].Q8 %></td>
+                <td><%= allPersons[iCount].Q9 %></td>
+                <td><%= allPersons[iCount].Q10 %></td>
+                <td><%= allPersons[iCount].Q11 %></td>
+                <td><%= allPersons[iCount].Q12 %></td>
+                <td><%= allPersons[iCount].Origin %></td>
+            </tr>
+            <% } %>
+        </tbody>
+    </table>
+</body>
+</html>
