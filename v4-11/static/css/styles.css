@@ -11134,7 +11134,7 @@ p {
   }
 }
 header.masthead {
-  padding-top: 10.5rem;
+  padding-top: 40vh;
   padding-bottom: 6rem;
   text-align: center;
   color: black;
@@ -11144,6 +11144,8 @@ header.masthead {
   background-position: center center;
   background-size: cover;
   background-position: center;
+  height: 700px;
+  margin: 0;
 }
 header.masthead .masthead-subheading {
   font-size: 1.5rem;
@@ -11162,7 +11164,7 @@ header.masthead .masthead-heading {
 
 @media (min-width: 768px) {
   header.masthead {
-    padding-top: 17rem;
+    padding-top: -30rem;
     padding-bottom: 12.5rem;
   }
   header.masthead .masthead-subheading {
