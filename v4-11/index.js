@@ -66,7 +66,7 @@ app.get("/error", (req, res) => {
 });
 
 app.get("/indexUser", (req, res) => {
-   res.render("indexUser");
+   res.render("indexUser", { username: username });
 })
 
 app.get("/logout", (req, res) => {
