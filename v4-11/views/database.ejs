@@ -97,12 +97,12 @@
   <!--Why does this not show up even?-->
   <br><br>
   <br><br>
-  <form action="/filterPersons" method="POST">
-    <label for="PersonID">Filter by PersonID:</label>
-    <select name="PersonID" id="PersonID">
-        <option value="all" <%= PersonID === 'all' ? 'selected' : '' %>>All Records</option>
+  <form action="/filterPersons" method="GET">
+    <label for="selectedPersonID">Filter by PersonID:</label>
+    <select name="selectedPersonID" id="selectedPersonID">
+        <option value="all" <%= selectedPersonID === 'all' ? 'selected' : '' %>>All Records</option>
         <% for (let iCount = 1; iCount < allPersons.length + 1; iCount++) { %>
-            <option value="<%= iCount %>" <%= PersonID === iCount.toString() ? 'selected' : '' %>><%= iCount %></option>
+            <option value="<%= iCount %>" <%= selectedPersonID === iCount.toString() ? 'selected' : '' %>><%= iCount %></option>
         <% } %>
     </select>
     
