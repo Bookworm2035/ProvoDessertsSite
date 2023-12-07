@@ -157,191 +157,57 @@ app.post("/deleteUser/:id", (req, res) => {
    });
 });
 
-app.post("/submitSurvey", async (req, res) => {
+app.post("/survey", async (req, res) => {
+   const hardcodedorigin = "Provo";
+   const selectedPlatforms = req.body.PlatformID;
    try {
-      // const uploadData = req.body;
-      const {
-         Age,
-         Gender,
-         RelationshipStatus,
-         OccupationStatus,
-         UniversityAffiliation,
-         SchoolAffiliation,
-         CompanyAffiliation,
-         GovernmentAfilliation,
-         PrivateAfilliation,
-         SocialMediaUser,
-         UsageID,
-         Q1,
-         Q2,
-         Q3,
-         Q4,
-         Q5,
-         Q6,
-         Q7,
-         Q8,
-         Q9,
-         Q10,
-         Q11,
-         Q12,
-         Origin
-      } = req.body;
-
-      await knex("persons").insert({
-         Age,
-         Gender,
-         RelationshipStatus,
-         OccupationStatus,
-         UniversityAffiliation,
-         SchoolAffiliation,
-         CompanyAffiliation,
-         GovernmentAfilliation,
-         PrivateAfilliation,
-         SocialMediaUser,
-         UsageID,
-         Q1,
-         Q2,
-         Q3,
-         Q4,
-         Q5,
-         Q6,
-         Q7,
-         Q8,
-         Q9,
-         Q10,
-         Q11,
-         Q12,
-         Origin
+      const surveyId = await knex("persons")
+         .insert({
+            Age: req.body.Age,
+            Gender:req.body.Gender,
+            RelationshipStatus:req.body.RelationshipStatus,
+            OccupationStatus: req.body.OccupationStatus,
+            UniversityAffiliation: req.body.UniversityAffiliation,
+            SchoolAffiliation: req.body.SchoolAffiliation,
+            CompanyAffiliation: req.body.CompanyAffiliation,
+            GovernmentAffiliation: req.body.GovernmentAffiliation,
+            PrivateAfiliation: req.body.PrivateAfiliation,
+            SocialMediaUser: req.body.SocialMediaUser,
+            UsageID: req.body.UsageID,
+            Q1: req.body.Q1,
+            Q2: req.body.Q2,
+            Q3: req.body.Q3,
+            Q4: req.body.Q4,
+            Q5: req.body.Q5,
+            Q6: req.body.Q6,
+            Q7: req.body.Q7,
+            Q8: req.body.Q8,
+            Q9: req.body.Q9,
+            Q10: req.body.Q10,
+            Q11: req.body.Q11,
+            Q12: req.body.Q12,
+            Origin: hardcodedorigin
+         })
+         .returning('PersonID');
+      
+      const platformInsertPromises = selectedPlatforms.map(platform => {
+         return knex("records").insert({
+            Date: knex.raw('CURRENT_TIMESTAMP'),
+            Time: knex.raw('CURRENT_TIMESTAMP'),
+            OccupationStatus: req.body.OccupationStatus,
+            PlatformID: platform,
+            PersonID: surveyId[0].PersonID,
+         });
       });
 
-      // rest of your code...
+      await Promise.all(platformInsertPromises);
 
-      res.status(200).json({ message: 'Survey submitted successfully' });
+      res.redirect("/");
    } catch (error) {
-      console.error('Error submitting survey:', error);
-      res.status(500).json({ error: 'Internal Server Error' });
+      console.error('Error:', error);
+      res.status(500).send('Error submitting survey.');
    }
 });
-
-
-
-
-
-
-
-
-// app.post("/submitSurvey", async (req, res) => {
-//    try {
-//       // const{ }=req.body
-//       const uploadData = req.body;
-//       // 
-      // const {
-      //    Age,
-      //    Gender,
-      //    RelationshipStatus,
-      //    OccupationStatus,
-      //    UniversityAffiliation,
-      //    SchoolAffiliation,
-      //    CompanyAffiliation,
-      //    GovernmentAfilliation,
-      //    PrivateAfilliation,
-      //    SocialMediaUser,
-      //    UsageID,
-      //    Q1,
-      //    Q2,
-      //    Q3,
-      //    Q4,
-      //    Q5,
-      //    Q6,
-      //    Q7,
-      //    Q8,
-      //    Q9,
-      //    Q10,
-      //    Q11,
-      //    Q12,
-      //    Origin
-      // } = req.body;
-      // console.log(Age)
-      // console.log(Gender)
-      // console.log(RelationshipStatus)
-//       console.log(req.body['age'])
-//       knex.into('persons').insert(uploadData).column(Age,Gender,RelationshipStatus,OccupationStatus,UniversityAffiliation,SchoolAffiliation,
-//             CompanyAffiliation,
-//             GovernmentAfilliation,
-//             PrivateAfilliation,
-//             SocialMediaUser,
-//             UsageID,
-//             Q1,
-//             Q2,
-//             Q3,
-//             Q4,
-//             Q5,
-//             Q6,
-//             Q7,
-//             Q8,
-//             Q9,
-//             Q10,
-//             Q11,
-//             Q12,
-//             Origin);
-//          res.status(200).json({ message: 'Survey submitted successfully' });
-//       } catch (error) {
-//          console.error('Error submitting survey:', error);
-//          res.status(500).json({ error: 'Internal Server Error' });
-//       }
-// })
-
-      // await knex("persons").insert({
-      //    Age: Age,
-      //    Gender: Gender,
-      //    RelationshipStatus: RelationshipStatus,
-      //    OccupationStatus: OccupationStatus,
-      //    UniversityAffiliation: UniversityAffiliation,
-      //    SchoolAffiliation: SchoolAffiliation,
-      //    CompanyAffiliation: CompanyAffiliation,
-      //    GovernmentAfilliation: GovernmentAfilliation,
-      //    PrivateAfilliation: PrivateAfilliation,
-      //    SocialMediaUser: SocialMediaUser,
-      //    UsageID: UsageID,
-      //    Q1: Q1,
-      //    Q2: Q2,
-      //    Q3: Q3,
-      //    Q4: Q4,
-      //    Q5: Q5,
-      //    Q6: Q6,
-      //    Q7: Q7,
-      //    Q8: Q8,
-      //    Q9: Q9,
-      //    Q10: Q10,
-      //    Q11: Q11,
-      //    Q12: Q12,
-      //    Origin: Origin
-      // });
-
-//       const rowCount = await knex('persons').count('PersonID as count').first();
-//       const peopleCount = rowCount ? rowCount.count + 1 : 1;
-//       const now = new Date();
-//       const date = now.toISOString().split('T')[0];
-//       const time = now.toISOString().split('T')[1].split('.')[0];
-//       const platforms = ['cbFacebook', 'cbTwitter', 'cbInstagram', 'cbYouTube', 'cbDiscord', 'cbReddit', 'cbPinterest', 'cbTikTok', 'cbSnapchat'];
-//       for (let iCount = 0; iCount < platforms.length; iCount++) {
-//          const optionChecked = req.body[platforms[iCount]] === 'on';
-//          if (optionChecked) {
-//             await knex('records').insert({
-//                Date: date,
-//                Time: time,
-//                OccupationStatus: OccupationStatus,
-//                PlatformID: iCount + 1,
-//                PersonID: peopleCount
-//             });
-//          }
-//       }
-//       res.status(200).json({ message: 'Survey submitted successfully' });
-//    } catch (error) {
-//       console.error('Error submitting survey:', error);
-//       res.status(500).json({ error: 'Internal Server Error' });
-//    }
-// });
 
  //listen at the end
 app.listen(port,() => console.log("I am listening"));
