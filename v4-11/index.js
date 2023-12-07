@@ -73,23 +73,13 @@ app.get("/logout", (req, res) => {
    res.render("logout");
 })
 
-//app.get("/database", (req, res) => {
- //  res.render("database");
-//})
-
 //This is for the admin who can see all the users and edit them
 //Need this for each table in the database later
 // UserInfo THIS WILL ONLY SHOW UP DYNAMICALLY AFTER THEY ARE AUTHENTICATED AND SIGNED IN:)
 
 
 app.post("/login", (req, res) => {
-   //username = document.getElementById("username").value;
-   //localStorage.setItem('username', username);
-   //password = document.getElementById('password').value;
-   //localStorage.setItem('password', password);
    const { username, password } = req.body;
-   //let username = req.body.username;
-   //let password = req.body.password;
    knex("users")
       .where({ username, password })
       .first()
@@ -138,8 +128,6 @@ app.post("/addUser", (req, res)=> {
    })
 });
 
-
-
 app.get("/editUser/:id", (req, res)=> {
     knex.select("user_id",
       "username",
@@ -171,9 +159,82 @@ app.post("/deleteUser/:id", (req, res) => {
 
 app.post("/submitSurvey", async (req, res) => {
    try {
-      // const{ }=req.body
-      const uploadData = req.body;
-      // 
+      // const uploadData = req.body;
+      const {
+         Age,
+         Gender,
+         RelationshipStatus,
+         OccupationStatus,
+         UniversityAffiliation,
+         SchoolAffiliation,
+         CompanyAffiliation,
+         GovernmentAfilliation,
+         PrivateAfilliation,
+         SocialMediaUser,
+         UsageID,
+         Q1,
+         Q2,
+         Q3,
+         Q4,
+         Q5,
+         Q6,
+         Q7,
+         Q8,
+         Q9,
+         Q10,
+         Q11,
+         Q12,
+         Origin
+      } = req.body;
+
+      await knex("persons").insert({
+         Age,
+         Gender,
+         RelationshipStatus,
+         OccupationStatus,
+         UniversityAffiliation,
+         SchoolAffiliation,
+         CompanyAffiliation,
+         GovernmentAfilliation,
+         PrivateAfilliation,
+         SocialMediaUser,
+         UsageID,
+         Q1,
+         Q2,
+         Q3,
+         Q4,
+         Q5,
+         Q6,
+         Q7,
+         Q8,
+         Q9,
+         Q10,
+         Q11,
+         Q12,
+         Origin
+      });
+
+      // rest of your code...
+
+      res.status(200).json({ message: 'Survey submitted successfully' });
+   } catch (error) {
+      console.error('Error submitting survey:', error);
+      res.status(500).json({ error: 'Internal Server Error' });
+   }
+});
+
+
+
+
+
+
+
+
+// app.post("/submitSurvey", async (req, res) => {
+//    try {
+//       // const{ }=req.body
+//       const uploadData = req.body;
+//       // 
       // const {
       //    Age,
       //    Gender,
@@ -203,32 +264,32 @@ app.post("/submitSurvey", async (req, res) => {
       // console.log(Age)
       // console.log(Gender)
       // console.log(RelationshipStatus)
-      console.log(req.body['age'])
-      knex.into('persons').insert(uploadData).column(Age,Gender,RelationshipStatus,OccupationStatus,UniversityAffiliation,SchoolAffiliation,
-            CompanyAffiliation,
-            GovernmentAfilliation,
-            PrivateAfilliation,
-            SocialMediaUser,
-            UsageID,
-            Q1,
-            Q2,
-            Q3,
-            Q4,
-            Q5,
-            Q6,
-            Q7,
-            Q8,
-            Q9,
-            Q10,
-            Q11,
-            Q12,
-            Origin);
-         res.status(200).json({ message: 'Survey submitted successfully' });
-      } catch (error) {
-         console.error('Error submitting survey:', error);
-         res.status(500).json({ error: 'Internal Server Error' });
-      }
-})
+//       console.log(req.body['age'])
+//       knex.into('persons').insert(uploadData).column(Age,Gender,RelationshipStatus,OccupationStatus,UniversityAffiliation,SchoolAffiliation,
+//             CompanyAffiliation,
+//             GovernmentAfilliation,
+//             PrivateAfilliation,
+//             SocialMediaUser,
+//             UsageID,
+//             Q1,
+//             Q2,
+//             Q3,
+//             Q4,
+//             Q5,
+//             Q6,
+//             Q7,
+//             Q8,
+//             Q9,
+//             Q10,
+//             Q11,
+//             Q12,
+//             Origin);
+//          res.status(200).json({ message: 'Survey submitted successfully' });
+//       } catch (error) {
+//          console.error('Error submitting survey:', error);
+//          res.status(500).json({ error: 'Internal Server Error' });
+//       }
+// })
 
       // await knex("persons").insert({
       //    Age: Age,
