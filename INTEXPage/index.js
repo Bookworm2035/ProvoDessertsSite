@@ -1,11 +1,9 @@
-n//This is our Node Index
+//This is our Node Index
 //Authors Natali, Nya, Hayden, Tyler Section 04
-
-
-
 const express = require("express");
 
 let app = express();
+app.use(express.json());
 
 let path = require('path');
 
@@ -169,7 +167,7 @@ app.post("/deleteUser/:id", (req, res) => {
 });
 
 
-app.post("/submit-survey", (req, res)=> {
+app.post("/submitSurvey", (req, res)=> {
    const {
       Age,
       Gender,
