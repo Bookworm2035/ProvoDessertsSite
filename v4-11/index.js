@@ -106,7 +106,7 @@ app.post("/login", (req, res) => {
    // Check if the username and password are both "admin"
    if (username === "admin" && password === "admin") {
       // Redirect to a different page for admin
-      res.redirect("/indexAdmin");
+      res.redirect("/indexAdmin", { username, password } );
    } else {
       // Check the username and password in the database
       knex("users")
