@@ -102,11 +102,13 @@ app.get("/logout", (req, res) => {
 
 //login page that authenticates
 app.post("/login", (req, res) => {
-   const { username, password } = req.body;
+   console.log(username)
+   console.log(password)
    // Check if the username and password are both "admin"
    if (username === "admin" && password === "admin") {
       // Redirect to a different page for admin
-      res.redirect("/indexAdmin", { username, password } );
+      req.session.username = username;
+      res.redirect("/indexAdmin" );
    } else {
       // Check the username and password in the database
       knex("users")
@@ -178,6 +180,7 @@ app.post("/addUser", (req, res)=> {
 
 //editing the users DISPLAY if logged in
 app.get("/editUser/:id", (req, res)=> {
+   const username= req.session.username;
     knex.select("user_id",
       "username",
       "password").from("users").where("user_id", req.params.id).then(User => {
