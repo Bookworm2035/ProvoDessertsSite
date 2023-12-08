@@ -1,0 +1,96 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no" />
+    <meta name="description" content="" />
+    <meta name="author" content="" />
+    <title>Mindful Provo</title>
+    <!-- Favicon-->
+    <link rel="icon" type="image/x-icon" href="assets/img/utahfavcon.png" />
+    <!-- Font Awesome icons (free version)-->
+    <script src="https://use.fontawesome.com/releases/v6.3.0/js/all.js" crossorigin="anonymous"></script>
+    <!-- Google fonts-->
+    <link href="https://fonts.googleapis.com/css?family=Montserrat:400,700" rel="stylesheet" type="text/css" />
+    <link href="https://fonts.googleapis.com/css?family=Roboto+Slab:400,100,300,700" rel="stylesheet" type="text/css" />
+    <!-- Core theme CSS (includes Bootstrap)-->
+    <link href="css/styles.css" rel="stylesheet" />
+    <style>
+    .login-box {
+    margin: 100px auto; /* Adjust the margin to center the box vertically */
+    background-color: #ffffffc7;
+    padding: 20px;
+    border-radius: 8px;
+    box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+    width: 400px;
+    text-align: center;
+}
+.login-box {
+    margin: 100px auto; /* Adjust the margin to center the box vertically */
+    background-color: #ffffffc7;
+    padding: 20px;
+    border-radius: 8px;
+    border: 2px solid #009879; /* Add a border style */
+    box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+    width: 400px;
+    text-align: center;
+}
+.login-box button {
+    background-color: #009879; /* Set the background color to green */
+    color: #fff;
+    padding: 10px;
+    border: none;
+    border-radius: 4px;
+    cursor: pointer;
+}
+.login-box label {
+  text-align: left;
+  margin-bottom: 5px;
+  white-space: nowrap; /* Prevent text from wrapping */
+  display: block; /* Ensure each label is on a new line */
+}
+</style>
+</head>
+<body id="page-top">
+ <!-- Navigation & Menu-->
+    <nav class="navbar navbar-expand-lg navbar-dark bg-dark fixed-top" id="mainNav">
+        <div class="container">
+          <div class="logo-container">
+            <a class="navbar-brand" style="height: 100%;" href="indexUser"><img src="assets/img/MindfulProvoLogo.png" alt="..." /></a>
+          </div>
+            <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarResponsive" aria-controls="navbarResponsive" aria-expanded="false" aria-label="Toggle navigation">
+                Menu
+                <i class="fas fa-bars ms-1"></i>
+            </button>
+            <div class="collapse navbar-collapse" id="navbarResponsive">
+                <ul class="navbar-nav text-uppercase ms-auto py-4 py-lg-0">
+                    <li class="nav-item"><a class="nav-link" href="indexUser">Home</a></li>
+                    <li class="nav-item"><a class="nav-link" href="database">Database</a></li>
+                    <li class="nav-item"><a class="nav-link" href="displayUser">Users</a></li>
+                    <li class="nav-item"><a class="nav-link" href="/">Logout: <%= username %></a></li>
+                </ul>
+            </div>
+        </div>
+    </nav>
+<br>
+<!--Create a form that asks for the username and password POST not GET-->
+  <div class="login-box">
+    <form action="/addUser" method="POST">
+      <fieldset style="width: 0px;">
+     
+      <label for="username">Enter a username:</label>
+      <input type="text" id="username" name="username">
+      <br><br>
+      <label for="password">Enter a password:</label>
+      <input type="password" id="password" name="password">
+      <br><br>
+      <label for="password2">Confirm password:</label>
+      <input type="password" id="password2" name="password2">
+      <br><br>
+      <br><br>
+      </fieldset>
+      <button type="submit">Save</button>
+    </form>
+  </div>
+</body>
+</html>
