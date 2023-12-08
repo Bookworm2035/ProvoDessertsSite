@@ -92,7 +92,23 @@ body {
         </nav>
 <!-- <body> -->
   <!--Why does this not show up even?-->
+<<<<<<< Updated upstream
   <br><br>
+=======
+  <br><br><br>
+  <br><br><br>
+  <form action="/filterPersons" method="POST">
+    <label for="PersonID">Filter by PersonID:</label>
+    <select name="PersonID" id="PersonID">
+      <% for (let iCount = 1; iCount < allPersons.length + 1; iCount++) { %>
+        <option value="<%= iCount %>"><%= iCount %></option>
+      <% } %>
+    </select>
+    <button type="submit" style="display: inline-block">Filter</button>
+    <br>
+    <br>
+  </form>
+>>>>>>> Stashed changes
   <!--MAKE THIS BIGGER AND PRETTIER-->
     <label><b><h2>Database:</h2></b></label>
     <br>
@@ -170,7 +186,7 @@ body {
             </table>
 <br><br><br>
     <br>
-    <table class="content-table">
+    <table class="content-table" style='position: relative; max-width: 80%; aspect-ratio: 16/9;'>
         <thead>
             <tr>
               <!--Add in two line breaks to make more readable -->
