@@ -90,7 +90,7 @@
                 </button>
                 <div class="collapse navbar-collapse" id="navbarResponsive">
                     <ul class="navbar-nav text-uppercase ms-auto py-4 py-lg-0">
-                        <li class="nav-item"><a class="nav-link" href="indexUser">Home</a></li>
+                        <li class="nav-item"><a class="nav-link" href="indexAdmin">Home</a></li>
                         <li class="nav-item"><a class="nav-link" href="database">Database</a></li>
                         <li class="nav-item"><a class="nav-link" href="displayUser">Users</a></li>
                         <li class="nav-item"><a class="nav-link" href="/">Logout: <%= username %></a></li>
@@ -99,45 +99,92 @@
                 </div>
             </div>
         </nav>
-<body>
+    <body> 
   <!--Why does this not show up even?-->
   <br><br>
+  <br><br>
+  <form action="/filterPersons" method="POST">
+    <label for="PersonID">Filter by PersonID:</label>
+    <select name="PersonID" id="PersonID">
+      <% for (let iCount = 1; iCount < allPersons.length + 1; iCount++) { %>
+        <option value="<%= iCount %>"><%= iCount %></option>
+      <% } %>
+    </select>
+    <br><br>
+    <button type="submit">Submit</button>
+    <br>
+    <br>
+  </form>
   <!--MAKE THIS BIGGER AND PRETTIER-->
     <label><b><h2>Database:</h2></b></label>
-    <br><br>
+    <br>
+    <br>
     <table class="content-table">
         <thead>
             <tr>
               <!--Add in two line breaks to make more readable -->
               <br>
               <br>
-                <th style="text-align: left;">Record Number</th>
-                <th style="text-align: left;">Date</th>
-                <th style="text-align: left;">Time</th>
+                <th style="text-align: left;">Age</th>
+                <th style="text-align: left;">Gender</th>
+                <th style="text-align: left;">Relationship Status</th>
                 <th style="text-align: left;">Occupation Status</th>
-                <th style="text-align: left;">PlatformID</th>
-                <th style="text-align: left;">PersonID</th>
+                <th style="text-align: left;">University Affiliation</th>
+                <th style="text-align: left;">School Affiliation</th>
+                <th style="text-align: left;">Company Affiliation</th>
+                <th style="text-align: left;">Government Affiliation</th>
+                <th style="text-align: left;">Private Affiliation</th>
+                <th style="text-align: left;">Social Media User</th>
+                <th style="text-align: left;">Usage ID</th>
+                <th style="text-align: left;">Specific Purpose</th>
+                <th style="text-align: left;">Distracted When Busy</th>
+                <th style="text-align: left;">Restless</th>
+                <th style="text-align: left;">Distracted</th>
+                <th style="text-align: left;">Bothered by Worries</th>
+                <th style="text-align: left;">Difficult to Concentrate</th>
+                <th style="text-align: left;">Comparison</th>
+                <th style="text-align: left;">Negative Comparisons</th>
+                <th style="text-align: left;">Seek Validation</th>
+                <th style="text-align: left;">Depressed</th>
+                <th style="text-align: left;">Interest</th>
+                <th style="text-align: left;">Sleep Issues</th>
+                <th style="text-align: left;">Origin</th>
                 <th></th>
                 <th></th>
             </tr>
         </thead>
         <tbody>
             <!-- Loop through records and populate the table, starting from the second row -->
-            <% for (let iCount = 0; iCount < myRecords.length; iCount++) { %>
+            <% for (let iCount = 0; iCount < allPersons.length; iCount++) { %>
             <tr>
                 <!-- Adjust these columns based on your actual column names -->
-                <td><%= myRecords[iCount].RecordNumber %></td>
-                <td><%= myRecords[iCount].Date %></td>
-                <td><%= myRecords[iCount].Time %></td>
-                <td><%= myRecords[iCount].OccupationStatus %></td>
-                <td><%= myRecords[iCount].PlatformID %></td>
-                <td><%= myRecords[iCount].PersonID %></td>
+                <td><%= allPersons[iCount].Age %></td>
+                <td><%= allPersons[iCount].Gender %></td>
+                <td><%= allPersons[iCount].RelationshipStatus %></td>
+                <td><%= allPersons[iCount].OccupationStatus %></td>
+                <td><%= allPersons[iCount].UniversityAffiliation %></td>
+                <td><%= allPersons[iCount].SchoolAffiliation %></td>
+                <td><%= allPersons[iCount].CompanyAffiliation %></td>
+                <td><%= allPersons[iCount].GovernmentAffiliation %></td>
+                <td><%= allPersons[iCount].PrivateAffiliation %></td>
+                <td><%= allPersons[iCount].SocialMediaUser %></td>
+                <td><%= allPersons[iCount].UsageID %></td>
+                <td><%= allPersons[iCount].Q1 %></td>
+                <td><%= allPersons[iCount].Q2 %></td>
+                <td><%= allPersons[iCount].Q3 %></td>
+                <td><%= allPersons[iCount].Q4 %></td>
+                <td><%= allPersons[iCount].Q5 %></td>
+                <td><%= allPersons[iCount].Q6 %></td>
+                <td><%= allPersons[iCount].Q7 %></td>
+                <td><%= allPersons[iCount].Q8 %></td>
+                <td><%= allPersons[iCount].Q9 %></td>
+                <td><%= allPersons[iCount].Q10 %></td>
+                <td><%= allPersons[iCount].Q11 %></td>
+                <td><%= allPersons[iCount].Q12 %></td>
+                <td><%= allPersons[iCount].Origin %></td>
             </tr>
             <% } %>
         </tbody>
     </table>
-    <br><br>
-
-</body>
-
+</body>    
 </html>

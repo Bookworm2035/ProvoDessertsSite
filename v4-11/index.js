@@ -1,17 +1,17 @@
 //This is our Node Index
 //Authors Natali, Nya, Hayden, Tyler Section 04
-
+//Set variables for apps 
 const session = require("express-session");
 const express = require("express");
 let app = express();
+
+//store username & passwords to local storage
 app.use(session({
    secret: "dreamteam",
    resave: false,
    saveUninitialized: true
 }));
-
 app.use(express.json());
-
 let path = require('path');
 
 //dynamic port
@@ -41,12 +41,11 @@ const knex = require("knex")({
 //get views
 app.set('views', path.join(__dirname,'./views'));
 
-app.use(express.static(path.join(__dirname,'./static')));
 //this pulls in the website page static content
+app.use(express.static(path.join(__dirname,'./static')));
 
 //index page
 app.get('/', (req, res) => {
-   //with ejs
    req.session.username = null;
    res.render('index');
 });
@@ -66,10 +65,12 @@ app.get("/dashboard", (req, res) => {
    res.render("dashboard");
 });
 
+//error page if login fails
 app.get("/error", (req, res) => {
    res.render("error");
 });
 
+//home page for users logged in
 app.get("/indexUser", (req, res) => {
    const username = req.session.username;
    if (!username) {
@@ -81,51 +82,83 @@ app.get("/indexUser", (req, res) => {
    }
 });
 
+//home page for admin logged in
+app.get("/indexAdmin", (req, res) => {
+   const username = req.session.username;
+   if (!username) {
+      // Redirect to the login page if username is not available
+      res.redirect("/login");
+   } else {
+      // Render the indexUser page with the username
+      res.render("indexAdmin", { username: username });
+   }
+});
+
+
+//logout page
 app.get("/logout", (req, res) => {
    res.render("logout");
 })
 
-//This is for the admin who can see all the users and edit them
-//Need this for each table in the database later
-// UserInfo THIS WILL ONLY SHOW UP DYNAMICALLY AFTER THEY ARE AUTHENTICATED AND SIGNED IN:)
-
-
+//login page that authenticates
 app.post("/login", (req, res) => {
    const { username, password } = req.body;
-   knex("users")
-      .where({ username, password })
-      .first()
-      .then( user => {
-         if (user) {
-            // Pass the username to the indexUser view
-            req.session.username = username;
-            // Redirect to the indexUser page
-            res.redirect("/indexUser");
-         } else {
-            res.redirect("/error");
-         }
-      })
-      .catch(err => {
-         console.error(err);
-         res.status(500).json({ error: "Internal Server Error" });
-      });
+   // Check if the username and password are both "admin"
+   if (username === "admin" && password === "admin") {
+      // Redirect to a different page for admin
+      res.redirect("/indexAdmin");
+   } else {
+      // Check the username and password in the database
+      knex("users")
+         .where({ username, password })
+         .first()
+         .then(user => {
+            if (user) {
+               // Pass the username to the indexUser view
+               req.session.username = username;
+               // Redirect to the indexUser page
+               res.redirect("/indexUser");
+            } else {
+               // Redirect to an error page
+               res.redirect("/error");
+            }
+         })
+         .catch(err => {
+            console.error(err);
+            res.status(500).json({ error: "Internal Server Error" });
+         });
+   }
 });
 
-// Display all the users
+// Display all the users only if logged in
 app.get("/displayUser", (req, res)=> {
    const username= req.session.username;
     knex.select().from("users").then(users => {
       res.render("displayUser", {myUser: users, username: username});
    })
 })
-
+   
+// Displaying database
 app.get("/database", (req, res) => {
-   const username= req.session.username;
-   knex.select().from("records").then(records => {
-      res.render("database", {myRecords: records, username: username});
-   })
-})
-
+   const username= req.session.username; 
+   knex.select().from("persons").then(myPersons => {
+      res.render("database", {allPersons: myPersons, username: username})
+   }).catch(error => {
+      console.error('Error fetching all persons:', error);
+      res.status(500).send('Error fetching all persons');
+   });
+});
+app.post('/filterPersons', (req, res) => {
+   const selectedPersonID = parseInt(req.body.PersonID); // Ensure it's a number if PersonID is numeric in the database
+   knex.select().from('persons').where('PersonID', selectedPersonID)
+      .then(filteredPersons => {
+         res.render("database", { allPersons: filteredPersons, username: username}); // Pass only filteredPersons
+      })
+      .catch(error => {
+         console.error('Error fetching filtered persons:', error);
+         res.status(500).send('Error fetching filtered persons');
+      });
+});
 
 // Site to add user to users
 app.get("/addUser", (req, res) => {
@@ -143,17 +176,19 @@ app.post("/addUser", (req, res)=> {
    })
 });
 
+//editing the users DISPLAY if logged in
 app.get("/editUser/:id", (req, res)=> {
     knex.select("user_id",
       "username",
       "password").from("users").where("user_id", req.params.id).then(User => {
-    res.render("editUser", {myUser: User});
+    res.render("editUser", {myUser: User, username: username});
    }).catch( err => {
       console.log(err);
       res.status(500).json({err});
    });
 });
 
+//editing the users DISPLAY if logged in
 app.post("/editUser", (req, res)=> {
    knex("users").where("user_id", parseInt(req.body.user_id)).update({
       username: req.body.username,
@@ -163,6 +198,7 @@ app.post("/editUser", (req, res)=> {
    })
 });
 
+//deleting users (if logged in)
 app.post("/deleteUser/:id", (req, res) => {
    knex("users").where("user_id",req.params.id).del().then( myUser => {
       res.redirect("/");
@@ -172,6 +208,7 @@ app.post("/deleteUser/:id", (req, res) => {
    });
 });
 
+//submiting the survey
 app.post("/submitsurvey", async (req, res) => {
    const hardcodedorigin = "Provo";
    const selectedPlatforms = req.body.PlatformID;
