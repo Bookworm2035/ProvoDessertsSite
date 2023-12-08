@@ -173,6 +173,7 @@ app.post("/addUser", (req, res)=> {
 
 //editing the users DISPLAY if logged in
 app.get("/editUser/:id", (req, res)=> {
+   const username= req.session.username;
     knex.select("user_id",
       "username",
       "password").from("users").where("user_id", req.params.id).then(User => {
