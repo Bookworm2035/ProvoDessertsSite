@@ -103,12 +103,7 @@ app.get("/logout", (req, res) => {
 //login page that authenticates
 app.post("/login", (req, res) => {
    const { username, password } = req.body;
-   // Check if the username and password are both "admin"
-   if (username === "admin" && password === "admin") {
-      // Redirect to a different page for admin
-      res.redirect("/indexAdmin", { username, password } );
-   } else {
-      // Check the username and password in the database
+        // Check the username and password in the database
       knex("users")
          .where({ username, password })
          .first()
@@ -127,7 +122,7 @@ app.post("/login", (req, res) => {
             console.error(err);
             res.status(500).json({ error: "Internal Server Error" });
          });
-   }
+   
 });
 
 // Display all the users only if logged in
