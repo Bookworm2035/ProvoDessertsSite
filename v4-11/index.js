@@ -102,7 +102,7 @@ app.get("/logout", (req, res) => {
 
 //login page that authenticates
 app.post("/login", (req, res) => {
-   req.session.username = username;
+   const { username, password } =req.body
    // Check if the username and password are both "admin"
    if (username === "admin" && password === "admin") {
       // Redirect to a different page for admin
