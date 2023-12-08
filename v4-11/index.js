@@ -65,9 +65,26 @@ app.get("/dashboard", (req, res) => {
    res.render("dashboard");
 });
 
-//Dashboard/Tableau
+app.get("/userDashboard", (req, res) => {
+   const username = req.session.username;
+   if (!username) {
+      // Redirect to the login page if username is not available
+      res.redirect("/login");
+   } else {
+      // Render the adminDashboard page with the username
+      res.render("userDashboard", { username: username });
+   }
+});
+
 app.get("/adminDashboard", (req, res) => {
-   res.render("adminDashboard");
+   const username = req.session.username;
+   if (!username) {
+      // Redirect to the login page if username is not available
+      res.redirect("/login");
+   } else {
+      // Render the adminDashboard page with the username
+      res.render("adminDashboard", { username: username });
+   }
 });
 
 //error page if login fails
