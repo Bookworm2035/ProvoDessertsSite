@@ -182,6 +182,7 @@ app.get("/database", (req, res) => {
    });
 });
 app.post('/filterPersons', (req, res) => {
+   const username= req.session.username; 
    const selectedPersonID = parseInt(req.body.PersonID); // Ensure it's a number if PersonID is numeric in the database
    knex.select().from('persons').where('PersonID', selectedPersonID)
       .then(filteredPersons => {
