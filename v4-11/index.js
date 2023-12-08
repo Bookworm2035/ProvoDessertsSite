@@ -65,6 +65,11 @@ app.get("/dashboard", (req, res) => {
    res.render("dashboard");
 });
 
+//Dashboard/Tableau
+app.get("/adminDashboard", (req, res) => {
+   res.render("adminDashboard");
+});
+
 //error page if login fails
 app.get("/error", (req, res) => {
    res.render("error");
@@ -137,6 +142,15 @@ app.get("/displayUser", (req, res)=> {
    const username= req.session.username;
     knex.select().from("users").then(users => {
       res.render("displayUser", {myUser: users, username: username});
+   })
+})
+
+
+// Display all the users only if logged in
+app.get("/adminDisplayUser", (req, res)=> {
+   const username= req.session.username;
+    knex.select().from("users").then(users => {
+      res.render("adminDisplayUser", {myUser: users, username: username});
    })
 })
    
