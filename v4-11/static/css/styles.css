@@ -11511,11 +11511,11 @@ section#contact form#contactForm :-ms-input-placeholder {
 
 
 .logo-container img {
-  width: 100%;
-  height: auto; /* Automatically adjust the height to maintain aspect ratio */
+  width: 80%;
+  height: 100%; /* Automatically adjust the height to maintain aspect ratio */
 
   /* Apply a transformation to make the logo larger */
-  transform: scale(3);
+  transform: scale(4.2);
 }
 
 .nav-link:hover {
